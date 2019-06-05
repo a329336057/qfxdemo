@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.NestedScrollView android:id="@+id/home_huadong"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:scrollbars="vertical"
+    layout_height=""
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<ImageView
+    android:layout_width="12dp"
+    android:layout_height="21dp"
+    android:src="@drawable/exit"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="8dp"/>
+    <RelativeLayout
+        android:layout_marginTop="4dp"
+        android:id="@+id/home_selects"
+        android:layout_width="267dp"
+        android:layout_height="30dp"
+        android:background="@drawable/selecetbackground"
+        android:layout_centerHorizontal="true"
+        >
+        <ImageView
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="18dp"
+            android:layout_width="12dp"
+            android:layout_height="21dp"
+            android:src="@drawable/select"
+            android:layout_centerVertical="true"
+            android:id="@+id/home_select"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:background="@null"
+            android:hint="搜索商家"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="9dp"
+            android:layout_toRightOf="@+id/home_select"
+            android:textColor="#99000000"
+            android:textSize="13dp"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_height="30dp"
+            android:layout_width="245dp" />
+
+    </RelativeLayout>
+    <ImageView
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="27dp"
+        android:layout_width="18dp"
+        android:layout_height="4dp"
+        android:src="@drawable/more"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@id/home_selects"/>
+    <com.youth.banner.Banner
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/mbanner"
+        android:layout_below="@+id/home_selects"
+
+        android:layout_width="335dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_height="130dp"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="335dp"
+        android:id="@+id/merchanthome"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/mbanner"
+        android:layout_marginTop="3dp"
+        android:layout_height="221dp">
+    </android.support.v7.widget.RecyclerView>
+    <ImageView
+        android:layout_width="335dp"
+        android:id="@+id/merchant_versting"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/vertising"
+        android:layout_below="@id/merchanthome"
+        android:layout_height="101dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="推荐商家"
+        android:id="@+id/Recommended_businesses"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/merchant_versting"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+
+        android:layout_marginTop="19dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="距离最近"
+        android:layout_below="@id/merchant_versting"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/Recommended_businesses"
+        android:layout_marginTop="23dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:id="@+id/allmerchant"
+        android:text="所有商家"
+        android:layout_below="@id/merchant_versting"
+        android:layout_marginLeft="200dp"
+        android:layout_toRightOf="@id/Recommended_businesses"
+        android:layout_marginTop="23dp"
+        />
+    <ImageView
+        android:layout_width="6dp"
+        android:layout_height="11dp"
+        android:src="@drawable/moremerhant"
+        android:text="所有商家"
+        android:layout_below="@id/merchant_versting"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/allmerchant"
+        android:layout_marginTop="25dp"
+        />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:id="@+id/merchant_home_views"
+        android:layout_below="@id/Recommended_businesses"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="#DDDDDD"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="335dp"
+        android:id="@+id/merchant_Home_List"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/merchant_home_views"
+        android:layout_marginTop="3dp"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

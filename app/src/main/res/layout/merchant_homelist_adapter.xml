@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+<ImageView
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:src="@drawable/merhant1"
+
+    android:id="@+id/merchant_home_image1"
+    />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textStyle="bold"
+    android:id="@+id/merchant_home_list_title"
+    android:textSize="15sp"
+    android:text="千源九宫格老火锅(新华路店)"
+    android:layout_toRightOf="@id/merchant_home_image1"
+    android:layout_marginLeft="14dp"
+    android:textColor="#333333"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/merchant_home_list_title"
+        android:text="人均消费90元"
+        android:id="@+id/merchant_home_list_Consumption"
+        android:layout_toRightOf="@id/merchant_home_image1"
+        android:layout_marginLeft="15dp"
+        android:textColor="#666666"
+        android:layout_marginTop="12dp"
+        android:textSize="13sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/merchant_home_list_title"
+        android:text="重庆解放碑 国贸中心对面2楼"
+        android:maxLength="15"
+        android:minLines="1"
+        android:layout_toRightOf="@id/merchant_home_image1"
+        android:layout_marginLeft="15dp"
+        android:textColor="#666666"
+        android:id="@+id/merchant_home_list_host"
+        android:layout_marginTop="41dp"
+        android:textSize="13sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/merchant_home_image1"
+        android:layout_marginLeft="218dp"
+        android:layout_below="@id/merchant_home_list_title"
+        android:layout_marginTop="43dp"
+        android:textSize="13sp"
+        android:text="5.2km"
+        />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:id="@+id/merchant_home_views"
+        android:layout_below="@id/merchant_home_image1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="#DDDDDD"/>
+</RelativeLayout>
