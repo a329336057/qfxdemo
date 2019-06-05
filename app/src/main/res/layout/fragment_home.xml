@@ -1,18 +1,30 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="frag1"
-        android:textSize="30sp"/>
 
-    <Button
-        android:id="@+id/bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="首页中的按钮"
-        android:textAllCaps="false"/>
-</LinearLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:background="#FFFFFF"
+
+        app:tabGravity="fill"
+        app:tabIndicatorColor="#ff0"
+        app:tabMode="fixed"
+        android:scrollbarSize="13sp"
+        app:tabSelectedTextColor="#16246B"
+        app:tabTextColor="#000000"
+        />
+
+    <android.support.v4.view.ViewPager android:id="@+id/home_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:layout_below="@id/tablayout"
+        xmlns:android="http://schemas.android.com/apk/res/android" />
+</RelativeLayout>
+
+

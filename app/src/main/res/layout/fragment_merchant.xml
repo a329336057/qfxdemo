@@ -67,7 +67,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/mbanner"
         android:layout_below="@+id/home_selects"
-
+        android:background="@drawable/banner"
         android:layout_width="335dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"

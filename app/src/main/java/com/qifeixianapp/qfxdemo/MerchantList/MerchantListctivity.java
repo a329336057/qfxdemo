@@ -40,7 +40,7 @@ public class MerchantListctivity  extends AppCompatActivity {
     private void find() {
         mMerchantRecyclerView=findViewById(R.id.merchant_list_recyclerview);
         merchantListBeans=new ArrayList<>();
-        for (int i = 0; i <100 ; i++) {
+        for (int i = 0; i <20 ; i++) {
             MerchantListBean merchantListBean=new MerchantListBean();
             merchantListBean.setConsumption("人均消费18元");
             merchantListBean.setHost("重庆 石油路 龙湖时代天街");

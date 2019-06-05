@@ -116,6 +116,7 @@ public class merchantFragment extends Fragment implements OnBannerListener {
         list.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1552814100614&di=a925f47f0fae4b3f6aae83ebac3af526&imgtype=0&src=http%3A%2F%2Fimg2.ph.126.net%2F8qSIEmPAwjnxDLtUZVXb7A%3D%3D%2F6631720875607361156.jpg");
         mbanner.setImages(list)
                 .setBannerAnimation(Transformer.DepthPage).setOnBannerListener(this).start();
+        mbanner.setBannerAnimation(Transformer.Stack);
     }
 
 
