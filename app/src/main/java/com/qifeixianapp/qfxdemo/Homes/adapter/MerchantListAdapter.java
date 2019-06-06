@@ -39,8 +39,7 @@ final ViewHolder viewHolder=new ViewHolder(v);
 @Override
 public void onClick(View v) {
         ToastUtils.show(context,"点击了"+viewHolder.getItemId());
-    Intent intent=new Intent(context,MerchantListctivity.class);
-    context.startActivity(intent);
+
 
         }
         });

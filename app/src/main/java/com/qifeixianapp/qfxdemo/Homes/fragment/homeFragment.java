@@ -30,17 +30,22 @@ public class homeFragment extends Fragment   {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_home, container, false);
+        find(v);
+
+        return  v;
+    }
+
+    private void find(View v) {
         fragmentList = new ArrayList<>();
         list_Title = new ArrayList<>();
         fragmentList.add(new HometypeFragment1());
         fragmentList.add(new HomeTypeFragment2());
-        list_Title.add("one");
+        list_Title.add("出行");
         list_Title.add("two");
         viewPager=v.findViewById(R.id.home_viewpager);
         tabLayout=v.findViewById(R.id.tablayout);
         viewPager.setAdapter(new MyHomtTypePagerAdapter(this.getChildFragmentManager(),getContext(),fragmentList,list_Title));
         tabLayout.setupWithViewPager(viewPager);//此方法就是让tablayout和ViewPager联动
-        return  v;
     }
 
 }
