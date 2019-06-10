@@ -7,26 +7,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.qifeixianapp.qfxdemo.Homes.Bean.HomeMuenBean;
+import com.bumptech.glide.Glide;
+import com.qifeixianapp.qfxdemo.Homes.Bean.HomeThemeBean;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.tool.ToastUtils;
 
 import java.util.List;
 
 public class HomeThemeAdapter extends RecyclerView.Adapter<HomeThemeAdapter.ViewHolder> {
-    List<HomeMuenBean> homeMuenBeans;
+    List<HomeThemeBean> homeThemeBeans;
     Context context;
-    public HomeThemeAdapter(Context context,List<HomeMuenBean> homeMuenBeans){
-        this.homeMuenBeans=homeMuenBeans;
+    public HomeThemeAdapter(Context context,List<HomeThemeBean> homeThemeBeans){
+        this.homeThemeBeans=homeThemeBeans;
         this.context=context;
     }
 
     @NonNull
     @Override
     public HomeThemeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, final int i) {
-        View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_home,viewGroup,false);
+        View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_home_theme_adapter,viewGroup,false);
         final HomeThemeAdapter.ViewHolder viewHolder=new HomeThemeAdapter.ViewHolder(v);
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,26 +39,23 @@ public class HomeThemeAdapter extends RecyclerView.Adapter<HomeThemeAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull HomeThemeAdapter.ViewHolder viewHolder, int i) {
-        viewHolder.titel.setText(homeMuenBeans.get(i).getTitle());
-        viewHolder.image.setImageResource(homeMuenBeans.get(i).getImages());
+
+        viewHolder.image.setImageResource(homeThemeBeans.get(i).getUrl());
+       // Glide.with(context).load(homeThemeBeans.get(i).getUrl()).into(viewHolder.image);
     }
 
     @Override
     public int getItemCount() {
-        return homeMuenBeans.size();
+        return homeThemeBeans.size();
     }
 
     static  class ViewHolder extends RecyclerView.ViewHolder{
-        TextView titel;
-        TextView Consumption;
-        TextView Host;
+
         ImageView image;
         public  ViewHolder(View v){
             super(v);
-            image=v.findViewById(R.id.merchant_list_image1);
-            titel=v.findViewById(R.id.merchant_list_title);
-            Consumption=v.findViewById(R.id.merchant_list_Consumption);
-            Host=v.findViewById(R.id.merchant_list_host);
+            image=v.findViewById(R.id.home_theme_image);
+
         }
     }
 }

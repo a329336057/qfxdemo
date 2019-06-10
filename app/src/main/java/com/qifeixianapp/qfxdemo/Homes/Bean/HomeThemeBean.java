@@ -1,13 +1,13 @@
 package com.qifeixianapp.qfxdemo.Homes.Bean;
 
 public class HomeThemeBean {
-    String Url;
+    Integer Url;
 
-    public String getUrl() {
+    public Integer getUrl() {
         return Url;
     }
 
-    public void setUrl(String url) {
+    public void setUrl(Integer url) {
         Url = url;
     }
 }

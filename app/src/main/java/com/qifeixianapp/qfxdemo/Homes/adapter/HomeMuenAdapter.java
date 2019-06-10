@@ -10,8 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.qifeixianapp.qfxdemo.Homes.Bean.HomeMuenBean;
-import com.qifeixianapp.qfxdemo.MerchantList.Adapter.MerchantTypeListAdapter;
-import com.qifeixianapp.qfxdemo.MerchantList.Bean.MerchantListBean;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.tool.ToastUtils;
 
@@ -28,7 +26,7 @@ public class HomeMuenAdapter  extends RecyclerView.Adapter<HomeMuenAdapter.ViewH
     @NonNull
     @Override
     public HomeMuenAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, final int i) {
-        View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_home,viewGroup,false);
+        View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_home_muen_adapter,viewGroup,false);
         final HomeMuenAdapter.ViewHolder viewHolder=new HomeMuenAdapter.ViewHolder(v);
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,15 +50,12 @@ public class HomeMuenAdapter  extends RecyclerView.Adapter<HomeMuenAdapter.ViewH
 
     static  class ViewHolder extends RecyclerView.ViewHolder{
         TextView titel;
-        TextView Consumption;
-        TextView Host;
         ImageView image;
         public  ViewHolder(View v){
             super(v);
-            image=v.findViewById(R.id.merchant_list_image1);
-            titel=v.findViewById(R.id.merchant_list_title);
-            Consumption=v.findViewById(R.id.merchant_list_Consumption);
-            Host=v.findViewById(R.id.merchant_list_host);
+            image=v.findViewById(R.id.home_Muen_image);
+            titel=v.findViewById(R.id.home_Muen_title);
+
         }
     }
 }
