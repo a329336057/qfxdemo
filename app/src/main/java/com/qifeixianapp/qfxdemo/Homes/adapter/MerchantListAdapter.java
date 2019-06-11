@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.qifeixianapp.qfxdemo.BusinessDetails.BusinessDetailsActivity;
 import com.qifeixianapp.qfxdemo.MerchantList.MerchantListctivity;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.tool.ToastUtils;
@@ -39,7 +40,8 @@ final ViewHolder viewHolder=new ViewHolder(v);
 @Override
 public void onClick(View v) {
         ToastUtils.show(context,"点击了"+viewHolder.getItemId());
-
+      Intent intent=new Intent(context, BusinessDetailsActivity.class);
+      context.startActivity(intent);
 
         }
         });

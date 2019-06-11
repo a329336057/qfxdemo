@@ -1,6 +1,7 @@
 package com.qifeixianapp.qfxdemo.MerchantList.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.qifeixianapp.qfxdemo.BusinessDetails.BusinessDetailsActivity;
 import com.qifeixianapp.qfxdemo.MerchantList.Bean.MerchantListBean;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.tool.ToastUtils;
@@ -32,6 +34,8 @@ public class MerchantTypeListAdapter extends RecyclerView.Adapter<MerchantTypeLi
             @Override
             public void onClick(View v) {
                 ToastUtils.show(context,"点击了"+viewHolder.getAdapterPosition());
+                Intent intent=new Intent(context, BusinessDetailsActivity.class);
+                context.startActivity(intent);
             }
         });
         return viewHolder;

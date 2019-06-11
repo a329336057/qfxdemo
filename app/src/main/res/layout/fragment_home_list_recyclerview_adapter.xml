@@ -102,8 +102,8 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_below="@id/home_lvyou_list_views"
-                android:layout_marginTop="6dp"
-                android:layout_marginLeft="3dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="6dp"
                 android:id="@+id/home_lvyou_list_head"
                 android:src="@drawable/head_portrait"/>
             <TextView

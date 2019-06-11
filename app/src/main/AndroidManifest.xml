@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
-        <activity android:name=".MerchantList.MerchantListctivity"></activity>
+        <activity android:name=".BusinessDetails.BusinessDetailsActivity"></activity>
+        <activity android:name=".MerchantList.MerchantListctivity" />
         <activity android:name=".Homes.MainsHome" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -1,6 +1,7 @@
 package com.qifeixianapp.qfxdemo.Homes.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.qifeixianapp.qfxdemo.BusinessDetails.BusinessDetailsActivity;
 import com.qifeixianapp.qfxdemo.Homes.Bean.HomeListperipheraBean;
 import com.qifeixianapp.qfxdemo.Homes.Bean.HomeMuenBean;
 import com.qifeixianapp.qfxdemo.R;
@@ -36,6 +38,8 @@ public class HomeListPeripheraAdapter extends RecyclerView.Adapter<HomeListPerip
             @Override
             public void onClick(View v) {
                 ToastUtils.show(context,"点击了"+viewHolder.getAdapterPosition());
+                Intent intent=new Intent(context, BusinessDetailsActivity.class);
+                context.startActivity(intent);
             }
         });
         return viewHolder;
