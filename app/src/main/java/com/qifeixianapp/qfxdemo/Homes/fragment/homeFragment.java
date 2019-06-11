@@ -75,9 +75,9 @@ public class homeFragment extends Fragment  implements OnBannerListener {
         mMuenrecyclerView.setLayoutManager(MuenManager);
         mMuenrecyclerView.setAdapter(new HomeMuenAdapter(getContext(),homeMuenBeans));
 
-        GridLayoutManager gridLayoutManager=new GridLayoutManager(getContext(),4);
-        gridLayoutManager.setOrientation(gridLayoutManager.VERTICAL);
-        mThemereuclerview.setLayoutManager(gridLayoutManager);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mThemereuclerview.setLayoutManager(linearLayoutManager);
         mThemereuclerview.setAdapter(new HomeThemeAdapter(getContext(),themeBeans));
     }
 
@@ -90,13 +90,17 @@ public class homeFragment extends Fragment  implements OnBannerListener {
         themeBeans=new ArrayList<>();
         list_Title = new ArrayList<>();
         fragmentList.add(new HometypeFragment1());
-        fragmentList.add(new HomeTypeFragment2());
-        list_Title.add("出行");
-        list_Title.add("two");
-//        viewPager=v.findViewById(R.id.home_viewpager);
-//        tabLayout=v.findViewById(R.id.tablayout);
-    //    viewPager.setAdapter(new MyHomtTypePagerAdapter(this.getChildFragmentManager(),getContext(),fragmentList,list_Title));
-      //  tabLayout.setupWithViewPager(viewPager);//此方法就是让tablayout和ViewPager联动
+        fragmentList.add(new HometypeFragment1());
+        fragmentList.add(new HometypeFragment1());
+        fragmentList.add(new HometypeFragment1());
+        list_Title.add("周边游");
+        list_Title.add("国内游");
+        list_Title.add("特价游");
+        list_Title.add("出境游");
+        viewPager=v.findViewById(R.id.home_viewpager);
+        tabLayout=v.findViewById(R.id.tablayout);
+        viewPager.setAdapter(new MyHomtTypePagerAdapter(this.getChildFragmentManager(),getContext(),fragmentList,list_Title));
+        tabLayout.setupWithViewPager(viewPager);//此方法就是让tablayout和ViewPager联动
 
         HomeMuenBean homeMuenBean1=new HomeMuenBean();
         homeMuenBean1.setImages(R.drawable.wweep_code);
@@ -115,9 +119,9 @@ public class homeFragment extends Fragment  implements OnBannerListener {
         homeMuenBeans.add(homeMuenBean3);
         homeMuenBeans.add(homeMuenBean4);
 
-        for (int i = 0; i <3 ; i++) {
+        for (int i = 0; i <13 ; i++) {
             HomeThemeBean themeBean=new HomeThemeBean();
-            themeBean.setUrl(R.drawable.home_select);
+            themeBean.setUrl(R.drawable.sousuo);
             themeBeans.add(themeBean);
         }
     }

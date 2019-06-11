@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-
     android:layout_centerHorizontal="true"
     android:gravity="center">
 <ImageView
     android:layout_width="158dp"
-    android:layout_centerHorizontal="true"
+
     android:src="@drawable/open"
-    android:layout_marginLeft="20dp"
+    android:layout_marginLeft="10dp"
     android:id="@+id/home_theme_image"
     android:layout_height="90dp" />
 </RelativeLayout>

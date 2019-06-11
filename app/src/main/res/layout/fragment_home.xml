@@ -1,19 +1,37 @@
+
+<android.support.v4.widget.NestedScrollView android:id="@+id/home_huadong"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:scrollbars="vertical"
+    layout_height=""
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    <com.youth.banner.Banner
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:id="@+id/home_mbanner"
+        android:layout_height="150dp"></com.youth.banner.Banner>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="37dp"
-        android:background="#30000000"
+        android:background="#70000000"
         android:layout_alignParentLeft="true"
-
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:id="@+id/bannertop"
         android:layout_alignParentTop="true">
         <ImageView
             android:layout_width="8dp"
             android:layout_height="13dp"
+
             android:layout_alignParentLeft="true"
             android:src="@drawable/coordinate"
             android:layout_centerVertical="true"
@@ -26,14 +44,16 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/home_coordinate"
             android:text="重庆"
+            android:textColor="#fff"
             android:layout_marginLeft="4dp"
             />
         <ImageView
+            android:layout_marginLeft="75dp"
             android:layout_width="245dp"
             android:layout_height="26dp"
             android:id="@+id/home_selectbackground"
             android:background="@drawable/home_select"
-            android:layout_centerInParent="true"/>
+            android:layout_centerVertical="true"/>
         <ImageView
             android:layout_width="15dp"
             android:layout_height="15dp"
@@ -46,6 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="旅游目的地/商家名称"
+
             android:maxLength="10"
             android:textSize="13dp"
             android:layout_marginLeft="7dp"
@@ -53,11 +74,7 @@
             android:layout_toRightOf="@id/home_select_icon"
             android:background="@null"/>
     </RelativeLayout>
-    <com.youth.banner.Banner
-        android:layout_width="match_parent"
-        android:layout_alignParentTop="true"
-        android:id="@+id/home_mbanner"
-        android:layout_height="150dp"></com.youth.banner.Banner>
+
     <android.support.v7.widget.RecyclerView
     android:layout_marginTop="16dp"
     android:layout_width="335dp"
@@ -68,32 +85,43 @@
     </android.support.v7.widget.RecyclerView>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="190dp"
+        android:layout_height="90dp"
         android:id="@+id/home_theme"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:layout_below="@id/home_muen">
     </android.support.v7.widget.RecyclerView>
 
+<ImageView
+    android:layout_width="335dp"
+    android:layout_height="125dp"
+    android:layout_centerHorizontal="true"
+    android:id="@+id/home_vertising"
+    android:layout_below="@id/home_theme"
+    android:src="@drawable/vertising"/>
 
-    <!--<android.support.design.widget.TabLayout-->
-        <!--android:layout_below="@id/bannertop"-->
-        <!--android:id="@+id/tablayout"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="30dp"-->
-        <!--android:background="#FFFFFF"-->
-        <!--app:tabGravity="fill"-->
-        <!--app:tabIndicatorColor="#ff0"-->
-        <!--app:tabMode="fixed"-->
-        <!--android:scrollbarSize="13sp"-->
-        <!--app:tabSelectedTextColor="#16246B"-->
-        <!--app:tabTextColor="#000000" />-->
+    <android.support.design.widget.TabLayout
+        android:layout_below="@id/home_vertising"
+        android:id="@+id/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#FFFFFF"
+        app:tabGravity="fill"
+        app:layout_scrollFlags="scroll"
+        android:layout_marginTop="10dp"
+        app:tabIndicatorColor="#ff0"
 
-    <!--<android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"-->
-        <!--android:id="@+id/home_viewpager"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="80dp"-->
-        <!--android:layout_below="@+id/tablayout"-->
-        <!--android:layout_marginTop="0dp"-->
-        <!--android:background="@android:color/white" />-->
+        app:tabMaxWidth="100dp"
+        app:tabMinWidth="50dp"
+        android:scrollbarSize="13sp"
+        app:tabSelectedTextColor="#ff0"
+        app:tabTextColor="#000000" />
+
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/home_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:layout_below="@id/tablayout"
+        android:layout_marginTop="3dp"
+        android:background="@android:color/white" />
 </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
