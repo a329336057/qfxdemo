@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.qifeixianapp.qfxdemo.Homes.adapter.MyFragAdapter;
 import com.qifeixianapp.qfxdemo.Homes.fragment.homeFragment;
 import com.qifeixianapp.qfxdemo.Homes.fragment.merchantFragment;
-import com.qifeixianapp.qfxdemo.Homes.fragment.userFragment;
+import com.qifeixianapp.qfxdemo.Homes.fragment.UserFragment;
 import com.qifeixianapp.qfxdemo.R;
 
 import java.util.ArrayList;
@@ -47,7 +47,7 @@ public class MainsHome extends AppCompatActivity {
         listFragment = new ArrayList<>();
         listFragment.add(new homeFragment());
         listFragment.add(new merchantFragment());
-        listFragment.add(new userFragment());
+        listFragment.add(new UserFragment());
 
         MyFragAdapter myAdapter = new MyFragAdapter(getSupportFragmentManager(), this, listFragment);
         viewPager.setAdapter(myAdapter);

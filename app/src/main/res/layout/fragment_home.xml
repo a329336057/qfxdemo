@@ -65,8 +65,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#ffffff"
                 android:hint="旅游目的地/商家名称"
-
                 android:maxLength="10"
                 android:textSize="13dp"
                 android:layout_marginLeft="7dp"
