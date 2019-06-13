@@ -10,6 +10,7 @@ import com.qifeixianapp.qfxdemo.Homes.MainsHome;
 
 public class MainActivity extends AppCompatActivity {
     Button mGetinto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

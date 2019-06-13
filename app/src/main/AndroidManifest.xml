@@ -19,10 +19,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
+        <activity android:name=".Wallet.WalletActivity"></activity>
         <activity
             android:name=".Verification.VerificationActivity"
             android:label="@string/title_activity_verification"
-            android:theme="@style/CommonAppTheme.NoActionBar"></activity>
+            android:theme="@style/CommonAppTheme.NoActionBar" />
         <activity
             android:name=".Login.LoginActivity"
             android:label="@string/title_activity_login"

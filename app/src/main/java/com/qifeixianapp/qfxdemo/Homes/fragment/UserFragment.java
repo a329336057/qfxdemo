@@ -13,12 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.qifeixianapp.qfxdemo.Homes.Bean.HomeUserMuenBean;
 import com.qifeixianapp.qfxdemo.Homes.adapter.MerchantMenuAdapter;
 import com.qifeixianapp.qfxdemo.Homes.adapter.UserMuenAdapter;
 import com.qifeixianapp.qfxdemo.Login.LoginActivity;
 import com.qifeixianapp.qfxdemo.R;
+import com.qifeixianapp.qfxdemo.Wallet.WalletActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +29,7 @@ import java.util.List;
 public class UserFragment extends Fragment  {
     RecyclerView mRecyclerView;
     ImageView mbtton;
+    TextView mMywallet,mMywalletNumber;
     List<HomeUserMuenBean> homeUserMuenBeans;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,8 +37,26 @@ public class UserFragment extends Fragment  {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_user, container, false);
         find(v);
+        walltelclick();
         recyclerViewSetting();
         return  v;
+    }
+
+    private void walltelclick() {
+    mMywalletNumber.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(getContext(), WalletActivity.class);
+            startActivity(intent);
+        }
+    });
+    mMywallet.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(getContext(), WalletActivity.class);
+            startActivity(intent);
+        }
+    });
     }
 
     private void recyclerViewSetting() {
@@ -48,6 +69,8 @@ public class UserFragment extends Fragment  {
     private void find(View v) {
         mRecyclerView=v.findViewById(R.id.user_muen_RecyclerView);
         mbtton=v.findViewById(R.id.user_icon);
+        mMywallet=v.findViewById(R.id.user_myWallet);
+        mMywalletNumber=v.findViewById(R.id.user_myWalletnumber);
         homeUserMuenBeans=new ArrayList<>();
         mbtton.setOnClickListener(new View.OnClickListener() {
             @Override

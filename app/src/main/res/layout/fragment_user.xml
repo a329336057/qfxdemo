@@ -127,8 +127,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="今日返利(元)"
+            android:text="钱包余额(元)"
             android:textColor="#9F9C9C"
+            android:id="@+id/user_myWallet"
             android:textSize="11sp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
@@ -136,7 +137,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="今日返利(元)"
+            android:text="奖励金余额"
             android:textColor="#9F9C9C"
             android:textSize="11sp"
             android:layout_alignParentRight="true"
@@ -158,6 +159,7 @@
             android:layout_centerHorizontal="true"
             android:textSize="19sp"
             android:text="1600.40"
+            android:id="@+id/user_myWalletnumber"
             android:layout_marginTop="35dp"
             />
         <TextView
@@ -165,7 +167,7 @@
             android:layout_height="wrap_content"
             android:textColor="#1F1E1E"
             android:textSize="19sp"
-            android:text="1600.40"
+            android:text="9800"
             android:layout_alignParentRight="true"
             android:layout_marginTop="35dp"
             android:layout_marginRight="16dp"/>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.NestedScrollView android:id="@+id/wallet_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:scrollbars="vertical"
+    layout_height=""
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f3f3f3"
+    tools:context=".Wallet.WalletActivity">
+
+    <com.hjq.bar.TitleBar
+        android:id="@+id/wallet_tbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        app:titleColor="#000"
+        app:leftColor="#000"
+        app:barStyle="light"
+        app:leftTitle="返回"
+        app:rightTitle=""
+        app:title="我的钱包" />
+
+
+
+    <RelativeLayout
+        android:layout_below="@id/wallet_tbar"
+        android:layout_width="match_parent"
+        android:layout_height="131dp"
+        android:background="@drawable/wallet_background"
+       >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#323131"
+            android:textSize="12sp"
+            android:layout_marginTop="33dp"
+            android:layout_marginLeft="37dp"
+            android:text="总资产（元）"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#1F1E1E"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="52dp"
+            android:layout_marginLeft="37dp"
+            android:text="570"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#323131"
+            android:textSize="12sp"
+            android:layout_marginTop="33dp"
+
+            android:layout_centerHorizontal="true"
+            android:text="可提现金额(元)"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#1F1E1E"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="52dp"
+            android:layout_centerHorizontal="true"
+            android:text="570"/>
+        
+        <Button
+            android:layout_width="70dp"
+            android:layout_alignParentRight="true"
+            android:text="提现"
+            android:layout_marginTop="42dp"
+            android:layout_marginRight="39dp"
+            android:background="@drawable/wallet_chshbutton"
+            android:layout_height="25dp" />
+    </RelativeLayout>
+<android.support.v7.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="40dp"
+    android:id="@+id/wallet_bill"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@id/wallet_tbar"
+    android:paddingBottom="20dp"
+    android:layout_marginTop="100dp"
+    android:background="@drawable/user_money_background">
+
+</android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>

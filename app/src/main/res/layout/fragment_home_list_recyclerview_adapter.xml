@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <RelativeLayout
-        android:layout_width="335dp"
+        android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_centerHorizontal="true">
         <ImageView
-            android:layout_width="335dp"
+            android:layout_width="match_parent"
             android:layout_height="154dp"
+            android:layout_marginLeft="40dp"
             android:src="@drawable/homefengjing"
             android:layout_centerHorizontal="true"
             android:scaleType="centerCrop"
@@ -19,6 +20,7 @@
             android:layout_width="165dp"
             android:layout_height="27dp"
             android:background="#70000000"
+            android:layout_marginLeft="20dp"
             android:layout_alignParentTop="true"
             android:layout_marginTop="127dp"
             />
@@ -29,14 +31,17 @@
             android:textColor="#FFF"
             android:layout_alignParentTop="true"
             android:layout_marginTop="130dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="28dp"
+
             android:id="@+id/home_lvyou_list_id"
             android:text="跟团游 线路号:1254000"
             />
 
         <RelativeLayout
-            android:layout_width="335dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="40dp"
             android:layout_height="127dp"
+            android:layout_centerHorizontal="true"
             android:layout_below="@id/home_list_recyclerview_image"
             android:background="@drawable/home_lvyou_list"
             android:id="@+id/home_lvyou_list_back">
@@ -65,9 +70,9 @@
                 android:id="@+id/home_lvyou_list_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@id/home_lvyou_list_fb"
                 android:layout_marginTop="14dp"
-                android:layout_marginLeft="208dp"
+                android:layout_marginRight="4dp"
                 android:text="￥1280+230"
                 android:textColor="#FF0000"
                 android:textSize="14sp" />
@@ -76,12 +81,15 @@
                 android:layout_height="19dp"
                 android:src="@drawable/fb"
                 android:layout_marginTop="14dp"
-                android:layout_toRightOf="@id/home_lvyou_list_money"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="27dp"
+                android:id="@+id/home_lvyou_list_fb"
                 android:layout_marginLeft="4dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
+                android:layout_marginLeft="20dp"
                 android:text="【山水间的非凡体验】重庆-长江4日4日轮船游，包吃
 包住。体验长江三峡美景。"
                 android:id="@+id/home_lvyou_list_title"
