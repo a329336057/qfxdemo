@@ -1,3 +1,13 @@
+
+<android.support.v4.widget.NestedScrollView android:id="@+id/home_huadong"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:scrollbars="vertical"
+    layout_height=""
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -32,6 +42,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="会员名称"
+
           android:layout_toRightOf="@id/user_icon"
           android:layout_marginTop="68dp"
           android:textColor="#1F1E1E"
@@ -170,3 +181,4 @@
         android:layout_marginTop="10dp">
     </android.support.v7.widget.RecyclerView>
 </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>
