@@ -94,7 +94,7 @@
     android:layout_below="@id/wallet_tbar"
     android:paddingBottom="20dp"
     android:layout_marginTop="100dp"
-    android:background="@drawable/user_money_background">
+    >
 
 </android.support.v7.widget.RecyclerView>
 
