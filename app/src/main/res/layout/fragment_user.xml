@@ -24,6 +24,7 @@
           android:layout_width="22dp"
           android:layout_height="23dp"
           android:layout_marginTop="13dp"
+          android:id="@+id/user_setup"
           android:src="@drawable/user_setup"
           android:layout_alignParentRight="true"
           android:layout_marginRight="21dp"
@@ -138,6 +139,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="奖励金余额"
+            android:id="@+id/user_awards1"
             android:textColor="#9F9C9C"
             android:textSize="11sp"
             android:layout_alignParentRight="true"
@@ -168,6 +170,7 @@
             android:textColor="#1F1E1E"
             android:textSize="19sp"
             android:text="9800"
+            android:id="@+id/user_awards"
             android:layout_alignParentRight="true"
             android:layout_marginTop="35dp"
             android:layout_marginRight="16dp"/>

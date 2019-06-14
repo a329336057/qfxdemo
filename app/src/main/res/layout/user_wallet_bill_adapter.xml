@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginBottom="30dp"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:background="@drawable/user_money_background">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="本月"
+        android:textSize="16sp"
+        android:id="@+id/wallet_month"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="18dp"
+        android:textColor="#323131"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="总收益：3850元"
+        android:textSize="15sp"
+        android:id="@+id/wallet_profit"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="17dp"/>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:id="@+id/wallet_bill_views"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:background="#eaeaea"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:id="@+id/wallet_bill_data"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wallet_bill_views"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>

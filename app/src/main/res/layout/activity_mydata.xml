@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView android:id="@+id/wallet_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:scrollbars="vertical"
+    layout_height=""
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8"
+    tools:context=".Activitiy.MyDataActivity">
+    <com.hjq.bar.TitleBar
+        android:id="@+id/userdata_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        app:titleColor="#000"
+        app:leftColor="#000"
+        app:barStyle="light"
+        app:rightColor="#303030"
+        app:rightTitle="保存"
+        app:title="我的资料" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="11dp"
+        android:background="#fff"
+        android:id="@+id/userdata_list_headimage"
+
+        android:layout_below="@id/userdata_bar">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="头像"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="41dp"
+            android:layout_height="30dp"
+            android:id="@+id/user_data_image"
+            android:scaleType="centerCrop" />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/user_data_myheadimage"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:layout_marginTop="1dp"
+    android:background="#fff"
+    android:id="@+id/userdata_list_nickname"
+
+    android:layout_below="@id/userdata_list_headimage">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="昵称"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+
+        />
+    <EditText
+        android:gravity="right"
+        android:background="@null"
+        android:id="@+id/user_data_nickname"
+        android:hint="未填写,请输入昵称"
+
+        android:textSize="13sp"
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="41dp"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:maxLength="15"
+        android:scaleType="centerCrop" />
+
+</RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="11dp"
+        android:background="#fff"
+        android:id="@+id/userdata_list_name"
+
+        android:layout_below="@id/userdata_list_nickname">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+
+            />
+        <EditText
+            android:gravity="right"
+            android:background="@null"
+            android:id="@+id/user_data_name"
+            android:hint="请输入您的称呼"
+
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="41dp"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:maxLength="15"
+            android:scaleType="centerCrop" />
+
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="1dp"
+        android:background="#fff"
+        android:id="@+id/userdata_list_phone"
+
+        android:layout_below="@id/userdata_list_name">
+        <Button
+            android:layout_width="200dp"
+            android:layout_alignParentRight="true"
+            android:layout_height="match_parent"
+            android:background="@null"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+
+            />
+        <TextView
+            android:gravity="right"
+            android:background="@null"
+            android:id="@+id/user_data_phone"
+            android:text="176****2165"
+            android:textColor="#323131"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="41dp"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:maxLength="15"
+            android:scaleType="centerCrop" />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/user_data_myheadimage"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="1dp"
+        android:background="#fff"
+        android:id="@+id/userdata_list_weixin"
+
+        android:layout_below="@id/userdata_list_phone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="微信号"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+
+            />
+        <EditText
+            android:gravity="right"
+            android:background="@null"
+            android:id="@+id/user_data_weixin"
+            android:hint="请填写"
+            android:textColor="#323131"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="41dp"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:maxLength="15"
+            android:scaleType="centerCrop" />
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="11dp"
+        android:background="#fff"
+        android:id="@+id/userdata_list_gender"
+
+        android:layout_below="@id/userdata_list_weixin">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="性别"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            />
+        <EditText
+            android:gravity="right"
+            android:background="@null"
+            android:hint="方便称呼您"
+            android:textColor="#9F9C9C"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="41dp"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:maxLength="15"
+            android:scaleType="centerCrop" />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/user_data_myheadimage"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="1dp"
+        android:background="#fff"
+        android:id="@+id/userdata_list_host"
+
+        android:layout_below="@id/userdata_list_gender">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="常住地"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:gravity="right"
+            android:background="@null"
+            android:text="推荐您身边旅游产品"
+            android:textColor="#9F9C9C"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="41dp"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:maxLength="15"
+            android:scaleType="centerCrop" />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/user_data_myheadimage"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="1dp"
+        android:background="#fff"
+        android:id="@+id/userdata_list_occupation"
+        android:layout_below="@id/userdata_list_host">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="职业"
+
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:gravity="right"
+            android:background="@null"
+            android:text="请选择"
+            android:textColor="#9F9C9C"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="41dp"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:maxLength="15"
+            android:scaleType="centerCrop" />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/user_data_myheadimage"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:id="@+id/merchant_datalis_views"
+        android:layout_below="@id/userdata_list_occupation"
+        android:layout_centerHorizontal="true"
+
+        android:background="#DDDDDD"/>
+</RelativeLayout>
+</android.support.v4.widget.NestedScrollView>
