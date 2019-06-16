@@ -82,7 +82,7 @@
         android:background="@null"
         android:id="@+id/user_data_nickname"
         android:hint="未填写,请输入昵称"
-
+        android:textCursorDrawable="@drawable/cursordrawable"
         android:textSize="13sp"
         android:layout_width="wrap_content"
         android:layout_centerVertical="true"
@@ -117,7 +117,7 @@
             android:background="@null"
             android:id="@+id/user_data_name"
             android:hint="请输入您的称呼"
-
+            android:textCursorDrawable="@drawable/cursordrawable"
             android:textSize="13sp"
             android:layout_width="wrap_content"
             android:layout_centerVertical="true"
@@ -203,6 +203,7 @@
             android:hint="请填写"
             android:textColor="#323131"
             android:textSize="13sp"
+            android:textCursorDrawable="@drawable/cursordrawable"
             android:layout_width="wrap_content"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"

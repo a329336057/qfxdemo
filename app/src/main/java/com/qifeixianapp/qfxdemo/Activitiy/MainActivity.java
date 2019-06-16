@@ -1,10 +1,12 @@
 package com.qifeixianapp.qfxdemo.Activitiy;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -29,10 +31,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         int flag= WindowManager.LayoutParams.FLAG_FULLSCREEN;
+
         //设置当前窗体为全屏显示
         getWindow().setFlags(flag, flag);
         setContentView(R.layout.activity_main);
-
 
         timer.schedule(task,1000,1000);
 
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void run() {
                     recLen--;
-                    tv.setText("点击跳过" + recLen);
+                    tv.setText("点击跳过 " + recLen);
                     if (recLen < 0) {
                         timer.cancel();
                         tv.setVisibility(View.GONE);//倒计时到0隐藏字体

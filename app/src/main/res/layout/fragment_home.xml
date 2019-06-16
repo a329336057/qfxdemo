@@ -5,6 +5,7 @@
     android:descendantFocusability="beforeDescendants"
     android:focusable="true"
     android:focusableInTouchMode="true"
+    android:theme="@style/AppTheme"
     android:scrollbars="vertical"
     layout_height=""
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -14,11 +15,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto">
+
         <com.youth.banner.Banner
-            android:layout_width="match_parent"
-            android:layout_alignParentTop="true"
             android:id="@+id/home_mbanner"
-            android:layout_height="150dp"></com.youth.banner.Banner>
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_alignTop="@+id/bannertop"
+            android:layout_marginTop="0dp"></com.youth.banner.Banner>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="37dp"
@@ -68,7 +71,10 @@
                 android:textColor="#ffffff"
                 android:hint="旅游目的地/商家名称"
                 android:maxLength="10"
+                android:textCursorDrawable="@drawable/cursordrawable"
+                android:maxLines="1"
                 android:textSize="13dp"
+
                 android:layout_marginLeft="7dp"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/home_select_icon"

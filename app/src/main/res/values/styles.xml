@@ -6,12 +6,24 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
     </style>
     <!--App主题样式-->
     <style name="CommonAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@android:color/white</item>
 
     </style>
+
+
+
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#000000</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">#000000</item>
+    </style>
+    <style name="APPflag" parent="@style/BaseAppTheme" />
+
+
 
     <declare-styleable name="TitleBar">
         <!-- 整体样式 -->

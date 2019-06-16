@@ -8,7 +8,8 @@
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/order_CoordinatorLayout"
         >
 
         <android.support.design.widget.AppBarLayout
@@ -56,12 +57,12 @@
                 app:tabGravity="fill"
                 app:layout_scrollFlags="scroll"
                 android:layout_marginTop="10dp"
-                app:tabIndicatorColor="#ff0"
+                app:tabIndicatorColor="#F6AC3B"
                 app:tabMode="scrollable"
                 app:tabMaxWidth="150dp"
                 app:tabMinWidth="50dp"
                 android:scrollbarSize="13sp"
-                app:tabSelectedTextColor="#ff0"
+                app:tabSelectedTextColor="#F6AC3B"
                 app:tabTextColor="#000000" />
 
             <View
@@ -81,8 +82,24 @@
                 android:layout_height="wrap_content"
                 android:overScrollMode="never">
             </android.support.v4.view.ViewPager>
+
         </RelativeLayout>
 
+
+
+
     </android.support.design.widget.CoordinatorLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_below="@id/order_CoordinatorLayout"
+        android:background="#E4E4E4"
+        android:layout_height="60dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="找不到订单？ 请联系客服查询"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
 
 </RelativeLayout>
