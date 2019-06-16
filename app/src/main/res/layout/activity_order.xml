@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar_topic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:fitsSystemWindows="true"
+            app:elevation="0dp">
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout_topic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:titleEnabled="false"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+
+                    <com.hjq.bar.TitleBar
+                        android:id="@+id/order_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#fff"
+                        app:titleColor="#000"
+                        app:leftColor="#000"
+                        app:barStyle="light"
+                        app:leftTitle="返回"
+                        app:rightTitle=""
+                        app:title="我的订单" />
+
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#25979797" />
+
+            <android.support.design.widget.TabLayout
+
+                android:id="@+id/order_tab"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#FFFFFF"
+                app:tabGravity="fill"
+                app:layout_scrollFlags="scroll"
+                android:layout_marginTop="10dp"
+                app:tabIndicatorColor="#ff0"
+                app:tabMode="scrollable"
+                app:tabMaxWidth="150dp"
+                app:tabMinWidth="50dp"
+                android:scrollbarSize="13sp"
+                app:tabSelectedTextColor="#ff0"
+                app:tabTextColor="#000000" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#25979797" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/order_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never">
+            </android.support.v4.view.ViewPager>
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</RelativeLayout>

@@ -27,7 +27,7 @@ import java.util.List;
 public class UserFragment extends Fragment  {
     RecyclerView mRecyclerView;
     ImageView mbtton,mMydata;
-    TextView mMywallet,mMywalletNumber,mMyAward,mMyAwards;
+    TextView mMywallet,mMywalletNumber,mMyAward,mMyAwards,mDayfanli,mMdayfanlis,mNickName;
     List<HomeUserMuenBean> homeUserMuenBeans;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -74,6 +74,27 @@ public class UserFragment extends Fragment  {
                 Intent intent=new Intent(getContext(), MyAwardActivity.class);
                 startActivity(intent); }
     });
+    mDayfanli.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(getContext(), WalletActivity.class);
+            startActivity(intent);
+        }
+    });
+    mMdayfanlis.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(getContext(), WalletActivity.class);
+            startActivity(intent);
+        }
+    });
+    mNickName.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(getContext(), LoginActivity.class);
+            startActivity(intent);
+        }
+    });
     }
 
     private void recyclerViewSetting() {
@@ -84,6 +105,9 @@ public class UserFragment extends Fragment  {
     }
 
     private void find(View v) {
+        mNickName=v.findViewById(R.id.user_vip_name);
+        mDayfanli=v.findViewById(R.id.user_dayfanli);
+        mMdayfanlis=v.findViewById(R.id.user_dayfanlis);
         mMydata=v.findViewById(R.id.user_setup);
         mRecyclerView=v.findViewById(R.id.user_muen_RecyclerView);
         mbtton=v.findViewById(R.id.user_icon);
@@ -103,7 +127,7 @@ public class UserFragment extends Fragment  {
 
         HomeUserMuenBean homeUserMuenBean=new HomeUserMuenBean();
         homeUserMuenBean.setImage(R.drawable.user_wallet);
-        homeUserMuenBean.setTitle("我的消费");
+        homeUserMuenBean.setTitle("我的钱包");
         homeUserMuenBeans.add(homeUserMuenBean);
 
 
@@ -114,14 +138,16 @@ public class UserFragment extends Fragment  {
 
 
         HomeUserMuenBean homeUserMuenBean2=new HomeUserMuenBean();
-        homeUserMuenBean2.setImage(R.drawable.user_message);
-        homeUserMuenBean2.setTitle("我的消息");
+        homeUserMuenBean2.setImage(R.drawable.user_relationship);
+        homeUserMuenBean2.setTitle("我的关系");
         homeUserMuenBeans.add(homeUserMuenBean2);
 
 
         HomeUserMuenBean homeUserMuenBean3=new HomeUserMuenBean();
-        homeUserMuenBean3.setImage(R.drawable.user_relationship);
-        homeUserMuenBean3.setTitle("我的关系");
+
+        homeUserMuenBean3.setImage(R.drawable.user_message);
+        homeUserMuenBean3.setTitle("我的消息");
+
         homeUserMuenBeans.add(homeUserMuenBean3);
 
 

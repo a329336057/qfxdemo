@@ -2,12 +2,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-     <Button
-         android:layout_width="250dp"
-         android:background="@drawable/sousuo"
-         android:layout_centerInParent="true"
-         android:text="点击进入起飞线首页"
-         android:textSize="20dp"
-         android:id="@+id/getinto"
-         android:layout_height="50dp" />
+     <ImageView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:scaleType="centerCrop"
+         android:src="@mipmap/qifeixianstart"></ImageView>
+     <RelativeLayout
+         android:layout_width="100dp"
+         android:layout_height="40dp"
+         android:layout_alignParentRight="true"
+         android:layout_marginRight="28dp"
+         android:layout_marginTop="30dp"
+         android:id="@+id/main_countdown_back"
+         android:background="#80000000">
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerInParent="true"
+              android:id="@+id/main_count_down"
+              android:textSize="15sp"
+              android:text="点击跳过 5"
+              android:textColor="#fff"
+
+              />
+     </RelativeLayout>
 </RelativeLayout>

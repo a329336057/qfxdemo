@@ -1,6 +1,7 @@
 package com.qifeixianapp.qfxdemo.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.qifeixianapp.qfxdemo.Activitiy.BusinessDetailsActivity;
+import com.qifeixianapp.qfxdemo.Activitiy.OrderActivity;
+import com.qifeixianapp.qfxdemo.Activitiy.WalletActivity;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.HomeUserMuenBean;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.tool.ToastUtils;
@@ -31,9 +35,20 @@ public class UserMuenAdapter extends RecyclerView.Adapter<UserMuenAdapter.ViewHo
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtils.show(context,"点击了"+viewHolder.getAdapterPosition());
-            }
-        });
+                    if(viewHolder.getAdapterPosition()==0){
+                        Intent intent=new Intent(context, WalletActivity.class);
+                        context.startActivity(intent);
+                    }
+                    if (viewHolder.getAdapterPosition()==1){
+                        Intent intent=new Intent(context, OrderActivity.class);
+                        context.startActivity(intent);
+                    }
+                    if (viewHolder.getAdapterPosition()==2){
+                        Intent intent=new Intent(context, OrderActivity.class);
+                        context.startActivity(intent);
+                    }
+    }
+});
         return viewHolder;
     }
 

@@ -4,7 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
+import com.hjq.bar.OnTitleBarListener;
+import com.hjq.bar.TitleBar;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.Adapter.WalletBillMonthAdapter;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.WalletBillBean;
@@ -12,9 +15,10 @@ import com.qifeixianapp.qfxdemo.Adapter.Bean.WalletBillBean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WalletActivity extends AppCompatActivity {
+public class WalletActivity extends AppCompatActivity implements OnTitleBarListener {
     RecyclerView recyclerView;
     List<WalletBillBean> walletBillBeans;
+    TitleBar titleBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +30,8 @@ public class WalletActivity extends AppCompatActivity {
     private void find() {
         recyclerView=findViewById(R.id.wallet_bill);
         walletBillBeans=new ArrayList<>();
+        titleBar=findViewById(R.id.wallet_bar);
+        titleBar.setOnTitleBarListener(this);
         for (int i = 0; i <13 ; i++) {
             getinstant(i+1);
         }
@@ -43,5 +49,20 @@ public class WalletActivity extends AppCompatActivity {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(new WalletBillMonthAdapter(WalletActivity.this,walletBillBeans));
+    }
+
+    @Override
+    public void onLeftClick(View v) {
+        WalletActivity.this.finish();
+    }
+
+    @Override
+    public void onTitleClick(View v) {
+
+    }
+
+    @Override
+    public void onRightClick(View v) {
+
     }
 }

@@ -6,6 +6,7 @@ android {
         applicationId "com.qifeixianapp.qfxdemo"
         minSdkVersion 18
         targetSdkVersion 28
+        //此处修改版本号
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -34,6 +35,7 @@ dependencies {
     implementation 'com.youth.banner:banner:1.4.10'
     implementation 'com.github.bumptech.glide:glide:4.8.0'//图片
     implementation 'jp.wasabeef:glide-transformations:4.0.1'//图片
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'//图片
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     // jCenter
     implementation 'jp.wasabeef:recyclerview-animators:2.2.7'

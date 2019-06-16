@@ -15,10 +15,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f3f3f3"
+    android:id="@+id/wallet_backs"
     tools:context=".Activitiy.WalletActivity">
 
     <com.hjq.bar.TitleBar
-        android:id="@+id/wallet_tbar"
+        android:id="@+id/wallet_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"
@@ -32,7 +33,7 @@
 
 
     <RelativeLayout
-        android:layout_below="@id/wallet_tbar"
+        android:layout_below="@id/wallet_bar"
         android:layout_width="match_parent"
         android:layout_height="131dp"
         android:background="@drawable/wallet_background"
@@ -91,7 +92,7 @@
     android:layout_marginRight="40dp"
     android:id="@+id/wallet_bill"
     android:layout_centerHorizontal="true"
-    android:layout_below="@id/wallet_tbar"
+    android:layout_below="@id/wallet_bar"
     android:paddingBottom="20dp"
     android:layout_marginTop="100dp"
     >

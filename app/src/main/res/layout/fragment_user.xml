@@ -42,7 +42,7 @@
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="会员名称"
+          android:text="点击登陆"
 
           android:layout_toRightOf="@id/user_icon"
           android:layout_marginTop="68dp"
@@ -72,7 +72,8 @@
           android:layout_marginTop="72dp"
           android:background="@drawable/sharefirend"/>
       <RelativeLayout
-          android:layout_width="335dp"
+          android:layout_marginLeft="40dp"
+          android:layout_width="match_parent"
           android:layout_height="41dp"
           android:layout_below="@id/user_icon"
           android:layout_marginTop="27dp"
@@ -109,7 +110,8 @@
       </RelativeLayout>
   </RelativeLayout>
     <RelativeLayout
-        android:layout_width="335dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="40dp"
         android:layout_height="70dp"
         android:background="@drawable/user_money_background"
         android:layout_marginTop="194dp"
@@ -122,6 +124,7 @@
             android:text="今日返利(元)"
             android:textColor="#9F9C9C"
             android:textSize="11sp"
+            android:id="@+id/user_dayfanlis"
             android:layout_marginLeft="14dp"
             android:layout_marginTop="15dp"
             />
@@ -152,6 +155,7 @@
             android:textColor="#1F1E1E"
             android:textSize="19sp"
             android:text="1600.40"
+            android:id="@+id/user_dayfanli"
             android:layout_marginTop="35dp"
             android:layout_marginLeft="16dp"/>
         <TextView
@@ -176,7 +180,8 @@
             android:layout_marginRight="16dp"/>
     </RelativeLayout>
     <android.support.v7.widget.RecyclerView
-        android:layout_width="335dp"
+        android:layout_width="match_parent"
+        android:layout_marginRight="40dp"
         android:layout_height="296dp"
         android:id="@+id/user_muen_RecyclerView"
         android:background="@drawable/user_money_background"

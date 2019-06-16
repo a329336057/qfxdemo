@@ -145,7 +145,8 @@
         android:background="#DDDDDD"/>
 
     <android.support.v7.widget.RecyclerView
-        android:layout_width="385dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
         android:id="@+id/merchant_list_recyclerview"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/merchant_menu_view2"

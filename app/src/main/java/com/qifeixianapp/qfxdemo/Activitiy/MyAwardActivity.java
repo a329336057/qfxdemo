@@ -4,7 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
+import com.hjq.bar.OnTitleBarListener;
+import com.hjq.bar.TitleBar;
 import com.qifeixianapp.qfxdemo.Adapter.AwardListAdapter;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.AwardListBean;
 import com.qifeixianapp.qfxdemo.Adapter.WalletBillMonthAdapter;
@@ -13,9 +16,10 @@ import com.qifeixianapp.qfxdemo.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyAwardActivity extends AppCompatActivity {
+public class MyAwardActivity extends AppCompatActivity implements OnTitleBarListener {
     RecyclerView recyclerView;
     List<AwardListBean> awardListBeanList;
+    TitleBar titleBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +31,8 @@ public class MyAwardActivity extends AppCompatActivity {
     private void find() {
         awardListBeanList=new ArrayList<>();
         recyclerView=findViewById(R.id.award_list);
-
+        titleBar=findViewById(R.id.award_bar);
+        titleBar.setOnTitleBarListener(this);
         for (int i = 0; i <13 ; i++) {
             getdata();
         }
@@ -48,5 +53,20 @@ public class MyAwardActivity extends AppCompatActivity {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(new AwardListAdapter(MyAwardActivity.this,awardListBeanList));
+    }
+
+    @Override
+    public void onLeftClick(View v) {
+        MyAwardActivity.this.finish();
+    }
+
+    @Override
+    public void onTitleClick(View v) {
+
+    }
+
+    @Override
+    public void onRightClick(View v) {
+
     }
 }

@@ -68,12 +68,14 @@
         android:id="@+id/mbanner"
         android:layout_below="@+id/home_selects"
         android:background="@drawable/banner"
-        android:layout_width="335dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="40dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_height="130dp"/>
     <android.support.v7.widget.RecyclerView
-        android:layout_width="335dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="40dp"
         android:id="@+id/merchanthome"
 
         android:layout_centerHorizontal="true"
@@ -82,7 +84,8 @@
         android:layout_height="221dp">
     </android.support.v7.widget.RecyclerView>
     <ImageView
-        android:layout_width="335dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="40dp"
         android:id="@+id/merchant_versting"
         android:layout_centerHorizontal="true"
         android:src="@drawable/vertising"
@@ -145,7 +148,8 @@
         android:background="#DDDDDD"/>
 
     <android.support.v7.widget.RecyclerView
-        android:layout_width="335dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="40dp"
         android:id="@+id/merchant_Home_List"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/merchant_home_views"

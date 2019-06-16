@@ -77,7 +77,8 @@
 
         <android.support.v7.widget.RecyclerView
             android:layout_marginTop="16dp"
-            android:layout_width="335dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="40dp"
             android:id="@+id/home_muen"
             android:layout_centerHorizontal="true"
             android:layout_height="94dp"
@@ -105,12 +106,13 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:background="#FFFFFF"
-            app:tabGravity="fill"
+
             app:layout_scrollFlags="scroll"
             android:layout_marginTop="10dp"
             app:tabIndicatorColor="#ff0"
+            app:tabMode="fixed"
 
-            app:tabMaxWidth="100dp"
+            app:tabMaxWidth="200dp"
             app:tabMinWidth="50dp"
             android:scrollbarSize="13sp"
             app:tabSelectedTextColor="#ff0"
