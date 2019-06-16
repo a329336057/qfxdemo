@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.qifeixianapp.qfxdemo.Activitiy.BusinessDetailsActivity;
+import com.qifeixianapp.qfxdemo.Activitiy.MyFansActivity;
 import com.qifeixianapp.qfxdemo.Activitiy.OrderActivity;
 import com.qifeixianapp.qfxdemo.Activitiy.WalletActivity;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.HomeUserMuenBean;
@@ -44,7 +45,7 @@ public class UserMuenAdapter extends RecyclerView.Adapter<UserMuenAdapter.ViewHo
                         context.startActivity(intent);
                     }
                     if (viewHolder.getAdapterPosition()==2){
-                        Intent intent=new Intent(context, OrderActivity.class);
+                        Intent intent=new Intent(context, MyFansActivity.class);
                         context.startActivity(intent);
                     }
     }

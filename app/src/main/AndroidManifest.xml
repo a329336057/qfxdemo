@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
-        <activity android:name=".Activitiy.OrderActivity"></activity>
+        <activity android:name=".Activitiy.MyFansActivity"></activity>
+        <activity android:name=".Activitiy.OrderActivity" />
         <activity android:name=".Activitiy.MyDataActivity" />
         <activity android:name=".Activitiy.MyAwardActivity" />
         <activity android:name=".Activitiy.WalletActivity" />

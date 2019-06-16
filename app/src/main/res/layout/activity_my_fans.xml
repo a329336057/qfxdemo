@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.NestedScrollView android:id="@+id/wallet_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:scrollbars="vertical"
+    layout_height=""
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f3f3f3"
+        android:id="@+id/fans_back"
+        tools:context=".Activitiy.WalletActivity">
+
+        <com.hjq.bar.TitleBar
+            android:id="@+id/fans_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            app:titleColor="#000"
+            app:leftColor="#000"
+            app:barStyle="light"
+            app:leftTitle="返回"
+            app:rightTitle=""
+            app:title="我的粉丝" />
+
+
+
+        <RelativeLayout
+            android:layout_below="@id/fans_bar"
+            android:layout_width="match_parent"
+            android:layout_height="131dp"
+            android:background="@drawable/wallet_background"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#323131"
+                android:textSize="14sp"
+                android:textStyle="bold"
+
+                android:layout_toRightOf="@id/fans_hedaimage"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="7dp"
+                android:text="会飞的鱼"/>
+            <ImageView
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/fans_hedaimage"
+                />
+            <TextView
+                android:layout_toRightOf="@id/fans_hedaimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1F1E1E"
+                android:textSize="12sp"
+
+                android:layout_marginTop="52dp"
+                android:layout_marginLeft="7dp"
+                android:text="17623882165"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="38dp"
+                android:text="我发展的粉丝"
+                android:textColor="#323131"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="53dp"
+                android:layout_marginRight="38dp"
+                android:text="1452"
+                android:textColor="#1F1E1E"
+                android:textSize="20sp"/>
+
+        </RelativeLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/fans_bar"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="100dp"
+    android:background="@drawable/user_money_background"
+    android:layout_centerHorizontal="true">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用户账号"
+        android:textColor="#323131"
+        android:textSize="14sp"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="18dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我的收入"
+        android:id="@+id/Business_Income"
+        android:textColor="#323131"
+        android:textSize="14sp"
+        android:layout_marginTop="17dp"
+        android:layout_centerHorizontal="true"
+        />
+    <ImageView
+        android:layout_width="8dp"
+        android:layout_height="5dp"
+        android:src="@drawable/open"
+        android:layout_toRightOf="@id/Business_Income"
+        android:layout_marginTop="26dp"
+        android:layout_marginLeft="5dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加入时间"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="18dp"
+        android:textColor="#323131"
+        android:textSize="14sp"
+        android:layout_marginTop="17dp"
+
+        />
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="41dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fans_bill"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="20dp"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>
+
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

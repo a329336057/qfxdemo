@@ -15,7 +15,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f3f3f3"
-    android:id="@+id/wallet_backs"
+    android:id="@+id/fans_back"
     tools:context=".Activitiy.WalletActivity">
 
     <com.hjq.bar.TitleBar
@@ -43,9 +43,15 @@
             android:layout_height="wrap_content"
             android:textColor="#323131"
             android:textSize="12sp"
-            android:layout_marginTop="33dp"
-            android:layout_marginLeft="37dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="20dp"
             android:text="总资产（元）"/>
+        <ImageView
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginLeft="20dp"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,7 +82,7 @@
             android:layout_marginTop="52dp"
             android:layout_centerHorizontal="true"
             android:text="570"/>
-        
+
         <Button
             android:layout_width="70dp"
             android:layout_alignParentRight="true"
