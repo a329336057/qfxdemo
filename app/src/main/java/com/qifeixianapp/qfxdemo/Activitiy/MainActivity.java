@@ -1,8 +1,11 @@
 package com.qifeixianapp.qfxdemo.Activitiy;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +34,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         int flag= WindowManager.LayoutParams.FLAG_FULLSCREEN;
+
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED) {
+            //申请权限  第二个参数是一个 数组 说明可以同时申请多个权限
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.READ_CONTACTS}, 1);
+        }
+
+
+
 
         //设置当前窗体为全屏显示
         getWindow().setFlags(flag, flag);

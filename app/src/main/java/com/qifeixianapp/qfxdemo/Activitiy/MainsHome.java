@@ -1,17 +1,15 @@
 package com.qifeixianapp.qfxdemo.Activitiy;
 
-import android.graphics.Color;
-import android.os.Build;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +18,8 @@ import com.qifeixianapp.qfxdemo.fragment.homeFragment;
 import com.qifeixianapp.qfxdemo.fragment.merchantFragment;
 import com.qifeixianapp.qfxdemo.fragment.UserFragment;
 import com.qifeixianapp.qfxdemo.R;
+import com.qifeixianapp.qfxdemo.tool.ContactUtils;
+import com.qifeixianapp.qfxdemo.tool.MyContactsBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -136,4 +136,6 @@ public class MainsHome extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+
 }
