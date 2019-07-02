@@ -6,8 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
+import com.hjq.bar.OnTitleBarListener;
+import com.hjq.bar.TitleBar;
 import com.qifeixianapp.qfxdemo.Adapter.Mail_List_Adapter;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.tool.ContactUtils;
@@ -16,7 +19,7 @@ import com.qifeixianapp.qfxdemo.tool.MyContactsBean;
 import java.util.ArrayList;
 import java.util.List;
 
-public  class MailListActivity extends AppCompatActivity {
+public  class MailListActivity extends AppCompatActivity  implements OnTitleBarListener {
     List<MyContactsBean> myContactsBeans;
     RecyclerView recyclerView;
     TextView all;
@@ -45,4 +48,18 @@ public  class MailListActivity extends AppCompatActivity {
     private static final String[] PHONES_PROJECTION = new String[] {
             ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME, ContactsContract.CommonDataKinds.Phone.NUMBER, ContactsContract.CommonDataKinds.Photo.PHOTO_ID, ContactsContract.CommonDataKinds.Phone.CONTACT_ID };
 
+    @Override
+    public void onLeftClick(View v) {
+        MailListActivity.this.finish();
+    }
+
+    @Override
+    public void onTitleClick(View v) {
+
+    }
+
+    @Override
+    public void onRightClick(View v) {
+
+    }
 }

@@ -15,6 +15,7 @@ import com.qifeixianapp.qfxdemo.Activitiy.MainsHome;
 import com.qifeixianapp.qfxdemo.Activitiy.MyFansActivity;
 import com.qifeixianapp.qfxdemo.Activitiy.OrderActivity;
 import com.qifeixianapp.qfxdemo.Activitiy.PdfActivity;
+import com.qifeixianapp.qfxdemo.Activitiy.SmsActivity;
 import com.qifeixianapp.qfxdemo.Activitiy.WalletActivity;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.HomeUserMuenBean;
 import com.qifeixianapp.qfxdemo.R;
@@ -56,7 +57,13 @@ public class UserMuenAdapter extends RecyclerView.Adapter<UserMuenAdapter.ViewHo
                     if(viewHolder.getAdapterPosition()==4){
                     Intent intent=new Intent(context, PdfActivity.class);
                     context.startActivity(intent);
+
                 }
+                if(viewHolder.getAdapterPosition()==5){
+                    Intent intent=new Intent(context, SmsActivity.class);
+                    context.startActivity(intent);
+                }
+
     }
 });
         return viewHolder;

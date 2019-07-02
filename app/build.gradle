@@ -41,4 +41,5 @@ dependencies {
     implementation 'jp.wasabeef:recyclerview-animators:2.2.7'
 // Picasso
     implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.blankj:utilcode:1.11.1'
 }

@@ -12,6 +12,9 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_SMS" /> <!-- 申请短信 -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -20,7 +23,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
-        <activity android:name=".Activitiy.PdfActivity"></activity>
+        <activity android:name=".Activitiy.SmsActivity"></activity>
+        <activity android:name=".Activitiy.PdfActivity" />
         <activity android:name=".Activitiy.MainsHome" />
         <activity android:name=".Activitiy.MyFansActivity" />
         <activity android:name=".Activitiy.MailListActivity" />
