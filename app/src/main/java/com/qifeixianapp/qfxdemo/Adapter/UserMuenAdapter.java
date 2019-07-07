@@ -70,10 +70,10 @@ public class UserMuenAdapter extends RecyclerView.Adapter<UserMuenAdapter.ViewHo
                     context.startActivity(intent);
 
                 }
-                if(viewHolder.getAdapterPosition()==5){
-                    Intent intent=new Intent(context, SmsActivity.class);
-                    context.startActivity(intent);
-                }
+//                if(viewHolder.getAdapterPosition()==5){
+//                        Intent intent=new Intent(context, SmsActivity.class);
+//                        context.startActivity(intent);
+//                }
 
     }
 });
