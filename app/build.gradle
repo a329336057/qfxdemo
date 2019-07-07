@@ -45,4 +45,10 @@ dependencies {
 
 //RecyclerView
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
+//弹出框
+    implementation 'com.lxj:xpopup:1.8.6'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+
 }

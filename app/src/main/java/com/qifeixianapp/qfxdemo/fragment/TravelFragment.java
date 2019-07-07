@@ -12,10 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.hjq.bar.TitleBar;
+import com.lxj.xpopup.XPopup;
 import com.qifeixianapp.qfxdemo.Adapter.TravelViewPagerFragmentListAdapter;
 import com.qifeixianapp.qfxdemo.R;
+import com.qifeixianapp.qfxdemo.UI.CustomFullScreenPopup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +31,7 @@ public class TravelFragment extends Fragment {
     List<Fragment> fragmentList;
     List<String> titleTab;
     ImageView eixt;
-
+    RelativeLayout mSelectTravel;
     AppBarLayout appBarLayout;
     Toolbar toolbar;
 
@@ -42,6 +45,7 @@ public class TravelFragment extends Fragment {
     }
 
     private void find(View v) {
+        mSelectTravel=v.findViewById(R.id.Travek_dislog);
         titleTab=new ArrayList<>();
         titleTab.add("周边游");
         titleTab.add("国内游");
@@ -63,9 +67,18 @@ public class TravelFragment extends Fragment {
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
                 TabLayout.Tab tab=tabLayout.getTabAt(i);
                 tab.setCustomView(travelViewPagerFragmentListAdapter.getTabView(i));
-
         }
+        mSelectTravel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //自定义的弹窗需要用asCustom来显示，之前的asImageViewer这些方法当然不能用了。
+                CustomFullScreenPopup viewerPopup = new CustomFullScreenPopup(getContext());
+                new XPopup.Builder(getContext())
+                        .asCustom(viewerPopup)
+                        .show();
 
+            }
+        });
 
 
     }

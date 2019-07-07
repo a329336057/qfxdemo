@@ -74,22 +74,20 @@ public class MainsHome extends AppCompatActivity {
                         viewPager.setCurrentItem(0);
                         item.setIcon(R.drawable.icon01_h);
                         return true;
-
+                    case R.id.Travel:
+                        viewPager.setCurrentItem(1);
+                        item.setIcon(R.drawable.icon02);
+                        return  true;
                     case R.id.merchant:
-
-                        viewPager.setCurrentItem(3);
+                        viewPager.setCurrentItem(2);
                         item.setIcon(R.drawable.icon03_h);
                         return true;
                     case R.id.My:
 
-                        viewPager.setCurrentItem(4);
+                        viewPager.setCurrentItem(3);
                         item.setIcon(R.drawable.icon04_h);
                         return true;
-                    case R.id.Travel:
 
-                        viewPager.setCurrentItem(2);
-                        item.setIcon(R.drawable.icon02);
-                        return  true;
                     default:
                         break;
                 }
