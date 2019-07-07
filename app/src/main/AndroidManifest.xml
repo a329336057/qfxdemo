@@ -23,7 +23,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
-        <activity android:name=".Activitiy.SmsActivity"></activity>
+        <activity android:name=".Activitiy.VipActivity"></activity>
+        <activity android:name=".Activitiy.SmsActivity" />
         <activity android:name=".Activitiy.PdfActivity" />
         <activity android:name=".Activitiy.MainsHome" />
         <activity android:name=".Activitiy.MyFansActivity" />

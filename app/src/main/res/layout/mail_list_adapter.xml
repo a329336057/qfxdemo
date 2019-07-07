@@ -15,8 +15,9 @@
         android:layout_height="wrap_content"
         android:text="176****2165"
         android:maxLines="2"
-        android:maxEms="10"
-        android:maxLength="12"
+        android:lines="2"
+
+        android:maxLength="7"
         android:ellipsize="end"
         android:id="@+id/mail_user"
         android:layout_marginTop="16dp"

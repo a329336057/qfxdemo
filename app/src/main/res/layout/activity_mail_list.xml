@@ -25,7 +25,7 @@
             app:barStyle="light"
             app:leftTitle="返回"
             app:rightTitle=""
-            app:title="我的奖励金" />
+            app:title="推荐好友" />
 
         <RelativeLayout
             android:layout_width="match_parent"

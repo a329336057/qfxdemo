@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#323131"
+        android:textSize="16sp"
+        android:layout_marginTop="4dp"
+        android:id="@+id/Travel_TabLayout_text"
+        android:text="旅游分类"/>
+    <ImageView
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:id="@+id/Travel_TabLayout_icon"
+        android:layout_toRightOf="@id/Travel_TabLayout_text"
+        android:layout_marginLeft="3dp"
+        android:visibility="gone"
+        />
+</RelativeLayout>

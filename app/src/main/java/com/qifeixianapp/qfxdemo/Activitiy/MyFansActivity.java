@@ -1,9 +1,11 @@
 package com.qifeixianapp.qfxdemo.Activitiy;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,6 +19,7 @@ import com.qifeixianapp.qfxdemo.tool.PicassoUtil;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class MyFansActivity extends AppCompatActivity implements OnTitleBarListener {
@@ -51,6 +54,8 @@ public class MyFansActivity extends AppCompatActivity implements OnTitleBarListe
         }
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(new FansListAdapter(MyFansActivity.this,fansListBeans));
+        Calendar a=Calendar.getInstance();
+
     }
 
     @Override

@@ -22,7 +22,7 @@
     <RelativeLayout
         android:layout_marginTop="10dp"
         android:id="@+id/home_selects"
-        android:layout_width="267dp"
+        android:layout_width="330dp"
         android:layout_height="30dp"
         android:background="@drawable/selecetbackground"
         android:layout_centerHorizontal="true"
@@ -53,6 +53,7 @@
             android:textSize="13dp" />
 
     </RelativeLayout>
+
     <!--<ImageView-->
         <!--android:layout_alignParentRight="true"-->
         <!--android:layout_marginRight="27dp"-->

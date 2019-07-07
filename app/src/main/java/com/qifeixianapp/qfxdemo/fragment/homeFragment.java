@@ -29,7 +29,7 @@ import java.util.List;
 
 
 public class homeFragment extends Fragment  implements OnBannerListener {
-    TextView tv_tabname;
+
     List<String> list_Title;
     List<Fragment> fragmentList;
     ViewPager viewPager;

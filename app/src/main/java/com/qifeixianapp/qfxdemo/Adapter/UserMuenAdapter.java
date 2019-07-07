@@ -1,5 +1,6 @@
 package com.qifeixianapp.qfxdemo.Adapter;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -25,9 +26,11 @@ import java.util.List;
 public class UserMuenAdapter extends RecyclerView.Adapter<UserMuenAdapter.ViewHolder> {
     List<HomeUserMuenBean> homeUserMuenBeans;
     Context context;
+    private ProgressDialog progressDialog;
     public UserMuenAdapter(Context context,List<HomeUserMuenBean> homeUserMuenBeans){
         this.homeUserMuenBeans=homeUserMuenBeans;
         this.context=context;
+        progressDialog=new ProgressDialog(context);
     }
 
     @NonNull
@@ -47,12 +50,20 @@ public class UserMuenAdapter extends RecyclerView.Adapter<UserMuenAdapter.ViewHo
                         context.startActivity(intent);
                     }
                     if (viewHolder.getAdapterPosition()==2){
+                        progressDialog.setMessage("正载入中……");
+                        progressDialog.setCanceledOnTouchOutside(true);
+                        progressDialog.show();
                         Intent intent=new Intent(context, MyFansActivity.class);
                         context.startActivity(intent);
+                        progressDialog.dismiss();
                     }
                     if(viewHolder.getAdapterPosition()==3){
+                        progressDialog.setMessage("正载入中……");
+                        progressDialog.setCanceledOnTouchOutside(true);
+                        progressDialog.show();
                         Intent intent=new Intent(context, MailListActivity.class);
                         context.startActivity(intent);
+                        progressDialog.dismiss();
                     }
                     if(viewHolder.getAdapterPosition()==4){
                     Intent intent=new Intent(context, PdfActivity.class);

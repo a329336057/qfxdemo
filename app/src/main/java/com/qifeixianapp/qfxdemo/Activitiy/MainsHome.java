@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.qifeixianapp.qfxdemo.Adapter.MyFragAdapter;
+import com.qifeixianapp.qfxdemo.fragment.TravelFragment;
 import com.qifeixianapp.qfxdemo.fragment.homeFragment;
 import com.qifeixianapp.qfxdemo.fragment.merchantFragment;
 import com.qifeixianapp.qfxdemo.fragment.UserFragment;
@@ -54,8 +55,11 @@ public class MainsHome extends AppCompatActivity {
         //向ViewPager添加各页面
         listFragment = new ArrayList<>();
         listFragment.add(new homeFragment());
+        listFragment.add(new TravelFragment());
         listFragment.add(new merchantFragment());
         listFragment.add(new UserFragment());
+
+
 
         MyFragAdapter myAdapter = new MyFragAdapter(getSupportFragmentManager(), this, listFragment);
         viewPager.setAdapter(myAdapter);
@@ -67,17 +71,25 @@ public class MainsHome extends AppCompatActivity {
                 //这里设置为：当点击到某子项，ViewPager就滑动到对应位置
                 switch (item.getItemId()) {
                     case R.id.homeblack:
-                        item.setIcon(R.drawable.icon01_h);
                         viewPager.setCurrentItem(0);
+                        item.setIcon(R.drawable.icon01_h);
                         return true;
+
                     case R.id.merchant:
+
+                        viewPager.setCurrentItem(3);
                         item.setIcon(R.drawable.icon03_h);
-                        viewPager.setCurrentItem(1);
                         return true;
                     case R.id.My:
+
+                        viewPager.setCurrentItem(4);
                         item.setIcon(R.drawable.icon04_h);
-                        viewPager.setCurrentItem(2);
                         return true;
+                    case R.id.Travel:
+
+                        viewPager.setCurrentItem(2);
+                        item.setIcon(R.drawable.icon02);
+                        return  true;
                     default:
                         break;
                 }

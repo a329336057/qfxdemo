@@ -42,4 +42,7 @@ dependencies {
 // Picasso
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.blankj:utilcode:1.11.1'
+
+//RecyclerView
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
 }

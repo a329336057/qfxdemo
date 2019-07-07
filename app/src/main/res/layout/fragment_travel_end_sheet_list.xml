@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginBottom="18dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <ImageView
+        android:id="@+id/Travel_end_sheet_list_image"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="20dp"
+        android:scaleType="centerCrop"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="昆明+大理+丽江+玉龙雪山冰川大索道双飞一动6日跟团游"
+        android:maxEms="15"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="#333333"
+        android:layout_marginLeft="12dp"
+        android:id="@+id/Travel_end_sheet_list_title"
+        android:layout_toRightOf="@id/Travel_end_sheet_list_image"
+        android:layout_marginTop="13dp"/>
+    <TextView
+        android:layout_width="31dp"
+        android:layout_height="20dp"
+        android:background="#FED018"
+        android:layout_toRightOf="@id/Travel_end_sheet_list_image"
+        android:layout_below="@id/Travel_end_sheet_list_title"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="13dp"
+        android:text="02"
+        android:id="@+id/Travel_end_sheet_list_day"
+        android:gravity="center"
+        android:textColor="#323131"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Travel_end_sheet_list_day_text"
+        android:layout_toRightOf="@id/Travel_end_sheet_list_day"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/Travel_end_sheet_list_title"
+        android:text="天"
+        android:textColor="#333333"/>
+
+    <TextView
+        android:layout_width="31dp"
+        android:layout_height="20dp"
+        android:background="#FED018"
+        android:layout_toRightOf="@id/Travel_end_sheet_list_day_text"
+        android:layout_below="@id/Travel_end_sheet_list_title"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="13dp"
+        android:text="02"
+        android:id="@+id/Travel_end_sheet_list_hour"
+        android:gravity="center"
+        android:textColor="#323131"
+        android:textStyle="bold"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Travel_end_sheet_list_hour_text"
+        android:layout_toRightOf="@id/Travel_end_sheet_list_hour"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/Travel_end_sheet_list_title"
+        android:text="时"
+        android:textColor="#333333"/>
+
+
+    <TextView
+        android:layout_width="31dp"
+        android:layout_height="20dp"
+        android:background="#FED018"
+        android:layout_toRightOf="@id/Travel_end_sheet_list_hour_text"
+        android:layout_below="@id/Travel_end_sheet_list_title"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="13dp"
+        android:text="02"
+        android:id="@+id/Travel_end_sheet_list_min"
+        android:gravity="center"
+        android:textColor="#323131"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Travel_end_sheet_list_hour_min_text"
+        android:layout_toRightOf="@id/Travel_end_sheet_list_min"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/Travel_end_sheet_list_title"
+        android:text="分"
+        android:textColor="#333333"/>
+
+
+
+      <TextView
+        android:layout_width="31dp"
+        android:layout_height="20dp"
+        android:background="#FED018"
+        android:layout_toRightOf="@id/Travel_end_sheet_list_hour_min_text"
+        android:layout_below="@id/Travel_end_sheet_list_title"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="13dp"
+        android:text="02"
+        android:id="@+id/Travel_end_sheet_list_second"
+        android:gravity="center"
+        android:textColor="#323131"
+        android:textStyle="bold"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Travel_end_sheet_list_hour_second_text"
+        android:layout_toRightOf="@id/Travel_end_sheet_list_second"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/Travel_end_sheet_list_title"
+        android:text="秒"
+        android:textColor="#333333"/>
+
+
+
+
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/Travel_end_sheet_list_moneny"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Travel_end_sheet_list_title"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="56dp"
+        android:layout_toRightOf="@id/Travel_end_sheet_list_image"
+        android:ellipsize="end"
+        android:maxEms="15"
+        android:maxLines="2"
+        android:text="￥2500起/人"
+        android:textColor="#EB5938"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+10"
+        android:id="@+id/Travel_end_sheet_list_Award"
+        android:layout_toRightOf="@id/Travel_end_sheet_list_moneny"
+        android:layout_below="@id/Travel_end_sheet_list_title"
+        android:layout_marginLeft="6dp"
+        android:textColor="#F2B440"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_marginTop="56dp"
+        />
+    <ImageView
+        android:layout_width="11dp"
+        android:layout_height="11dp"
+        android:src="@drawable/travel_list_fb"
+        android:layout_toRightOf="@id/Travel_end_sheet_list_Award"
+        android:layout_below="@id/Travel_end_sheet_list_title"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="2dp"
+        />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:id="@+id/Travel_end_sheet_list_veiws"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:layout_below="@id/Travel_end_sheet_list_image"
+        android:background="#F0F0F0"/>
+
+
+</RelativeLayout>

@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
     android:focusable="true"
+    android:background="#f3f3f3"
     android:focusableInTouchMode="true"
     android:scrollbars="vertical"
     layout_height=""
@@ -64,18 +65,19 @@
           android:layout_marginLeft="7dp"
           />
       <Button
-          android:layout_width="97dp"
-          android:layout_height="48dp"
-          android:text="邀请好友"
+          android:layout_width="102dp"
+          android:layout_height="43dp"
           android:paddingBottom="15dp"
+          android:id="@+id/user_vip"
           android:layout_alignParentRight="true"
-          android:layout_marginRight="20dp"
+          android:layout_marginRight="-20dp"
           android:layout_marginTop="72dp"
-          android:background="@drawable/sharefirend"/>
+          android:background="@drawable/become_vip"/>
       <RelativeLayout
           android:layout_marginLeft="40dp"
           android:layout_width="match_parent"
           android:layout_height="41dp"
+          android:id="@+id/user_MyMail"
           android:layout_below="@id/user_icon"
           android:layout_marginTop="27dp"
           android:layout_centerHorizontal="true"
@@ -106,7 +108,7 @@
               android:layout_alignParentRight="true"
               android:layout_marginRight="11dp"
               android:layout_centerVertical="true"
-              android:text="立刻升级"
+              android:text="立刻邀请"
               android:layout_centerHorizontal="true"/>
       </RelativeLayout>
   </RelativeLayout>
@@ -122,7 +124,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="今日返利(元)"
+            android:text="我的粉丝"
             android:textColor="#9F9C9C"
             android:textSize="11sp"
             android:id="@+id/user_dayfanlis"
@@ -176,20 +178,34 @@
             android:textSize="19sp"
             android:text="9800"
             android:id="@+id/user_awards"
-            android:layout_alignParentRight="true"
+            android:layout_toLeftOf="@id/user_awards_icon"
+            android:layout_marginRight="4dp"
             android:layout_marginTop="35dp"
-            android:layout_marginRight="16dp"/>
+            />
+        <ImageView
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:src="@drawable/travel_list_fb"
+            android:id="@+id/user_awards_icon"
+            android:layout_marginTop="43dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+
+
+
+            />
     </RelativeLayout>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_marginRight="40dp"
-        android:layout_height="296dp"
+        android:layout_height="220dp"
         android:id="@+id/user_muen_RecyclerView"
         android:background="@drawable/user_money_background"
         android:layout_below="@id/user_money_background"
         android:layout_centerHorizontal="true"
         android:padding="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:paddingBottom="30dp">
     </android.support.v7.widget.RecyclerView>
 </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>

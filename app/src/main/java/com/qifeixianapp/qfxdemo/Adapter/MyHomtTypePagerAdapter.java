@@ -33,6 +33,7 @@ public class MyHomtTypePagerAdapter extends FragmentPagerAdapter {
      */
     @Override
     public CharSequence getPageTitle(int position) {
+
         return list_Title.get(position);
 }
 }

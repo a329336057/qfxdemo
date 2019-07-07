@@ -23,8 +23,9 @@
         android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
         android:background="?android:attr/windowBackground"
-        app:itemIconTint="#DDC52C"
-        app:itemTextColor="#DDC52C"
+        app:itemIconTint="@color/pringtr"
+        app:itemTextColor="@color/pringtr"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/muentype" />
 
 </RelativeLayout>
