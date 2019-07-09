@@ -1,6 +1,7 @@
 package com.qifeixianapp.qfxdemo.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.qifeixianapp.qfxdemo.Activitiy.PdfActivity;
+import com.qifeixianapp.qfxdemo.Activitiy.TravelReserveActivity;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.TravelListBean;
 import com.qifeixianapp.qfxdemo.Adapter.TravelPeripheralApdater;
 import com.qifeixianapp.qfxdemo.R;
@@ -76,6 +79,8 @@ public class TravelPeripheralTourFragment extends Fragment {
 
                 TextView textView =view.findViewById(R.id.Travel_perpherak_tour_list_title);
                 ToastUtils.show(getContext(),"点击了"+textView.getText());
+                Intent intent=new Intent(getContext(), TravelReserveActivity.class);
+                getContext().startActivity(intent);
             }
         });
 
