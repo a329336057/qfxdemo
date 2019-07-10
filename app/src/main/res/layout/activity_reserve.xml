@@ -58,10 +58,75 @@
                 app:tabTextColor="#000000" />
         </LinearLayout>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/Reserve_Linear"
+        android:id="@+id/Reserve_Weektext"
+        android:gravity="center">
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#959595"
+            android:textSize="13dp"
+            android:text="一"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#959595"
+            android:textSize="13dp"
+            android:text="二"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#959595"
+            android:textSize="13dp"
+            android:text="三"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#959595"
+            android:textSize="13dp"
+            android:text="四"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#959595"
+            android:textSize="13dp"
+            android:text="五"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#FFDC2B"
+            android:textSize="13dp"
+            android:text="六"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#FFDC2B"
+            android:textSize="13dp"
+            android:text="日"/>
+    </LinearLayout>
     <android.support.v4.view.ViewPager
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:id="@+id/Reserve_viewpager"
         android:layout_height="266dp"
-        android:layout_below="@+id/Reserve_Linear"
+        android:layout_below="@+id/Reserve_Weektext"
         ></android.support.v4.view.ViewPager>
 </RelativeLayout>

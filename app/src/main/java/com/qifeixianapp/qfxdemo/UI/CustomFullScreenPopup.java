@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 
 import com.lxj.xpopup.impl.FullScreenPopupView;
 import com.qifeixianapp.qfxdemo.R;
+import com.qifeixianapp.qfxdemo.tool.GetTImeDay;
 
 public class CustomFullScreenPopup extends FullScreenPopupView {
     public CustomFullScreenPopup(@NonNull Context context) {
@@ -18,5 +19,9 @@ public class CustomFullScreenPopup extends FullScreenPopupView {
     protected void onCreate() {
         super.onCreate();
         //初始化
+        GetTImeDay getTImeDay=new GetTImeDay();
+
+
+
     }
 }

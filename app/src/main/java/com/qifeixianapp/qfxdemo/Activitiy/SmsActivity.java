@@ -18,7 +18,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-import com.blankj.utilcode.util.SDCardUtils;
+
 import com.bumptech.glide.Glide;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.tool.RealPathFromUriUtils;
@@ -48,7 +48,7 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
 
     }
     private void getImage() {
-        File scanner5Directory = new File("/storage/emulated/0/DCIM/Camera" );
+        File scanner5Directory = new File("/storage/emulated/0/DCIM/" );
         if (scanner5Directory.isDirectory()) {
             for (File file : scanner5Directory.listFiles()) {
                 String path = file.getAbsolutePath();

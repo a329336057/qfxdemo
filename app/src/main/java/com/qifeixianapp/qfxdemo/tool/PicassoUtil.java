@@ -8,7 +8,8 @@ import android.graphics.Paint;
 import com.squareup.picasso.Transformation;
 
 public class PicassoUtil {
-
+    public  PicassoUtil(String a){
+    }
     /**
      * 转换成圆形画像
      */

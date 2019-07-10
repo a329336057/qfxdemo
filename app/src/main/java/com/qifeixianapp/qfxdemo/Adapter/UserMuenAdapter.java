@@ -66,7 +66,7 @@ public class UserMuenAdapter extends RecyclerView.Adapter<UserMuenAdapter.ViewHo
                         progressDialog.dismiss();
                     }
                     if(viewHolder.getAdapterPosition()==4){
-                    Intent intent=new Intent(context, PdfActivity.class);
+                    Intent intent=new Intent(context, SmsActivity.class);
                     context.startActivity(intent);
 
                 }
