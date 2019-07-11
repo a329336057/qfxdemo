@@ -209,6 +209,7 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
         mViewPager=findViewById(R.id.Reserve_viewpager);
         mViewPager.setAdapter(new MyHomtTypePagerAdapter(getSupportFragmentManager(), TravelReserveActivity.this,mFragmentList,mTitleTable));
         mTableLayout.setupWithViewPager(mViewPager);
+        mViewPager.setOffscreenPageLimit(MonthList.size());
 
 
 

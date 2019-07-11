@@ -16,6 +16,7 @@ import com.qifeixianapp.qfxdemo.Activitiy.MainsHome;
 import com.qifeixianapp.qfxdemo.Activitiy.MyFansActivity;
 import com.qifeixianapp.qfxdemo.Activitiy.OrderActivity;
 import com.qifeixianapp.qfxdemo.Activitiy.PdfActivity;
+import com.qifeixianapp.qfxdemo.Activitiy.PersonalTailorActivity;
 import com.qifeixianapp.qfxdemo.Activitiy.SmsActivity;
 import com.qifeixianapp.qfxdemo.Activitiy.WalletActivity;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.HomeUserMuenBean;
@@ -66,7 +67,7 @@ public class UserMuenAdapter extends RecyclerView.Adapter<UserMuenAdapter.ViewHo
                         progressDialog.dismiss();
                     }
                     if(viewHolder.getAdapterPosition()==4){
-                    Intent intent=new Intent(context, SmsActivity.class);
+                    Intent intent=new Intent(context, PersonalTailorActivity.class);
                     context.startActivity(intent);
 
                 }

@@ -37,6 +37,9 @@ public class ResversDateFragment extends Fragment implements BaseQuickAdapter.On
     List<TravelReserverDayBean> travelReserverDayBeanList;
     List<TraveReserveDateBean> traveReserveDateBeans;
     RecyclerView mTravelReserveList;
+    TravelReserverDayBean isTampPosition;
+    TravelReserverDayBean ListItem;
+    int lastitem;
     public ResversDateFragment(Integer OnDayMonth,List<TraveReserveDateBean> traveReserveDateBeans) {
         super();
         this.OnDayMonth=OnDayMonth;
@@ -82,9 +85,33 @@ public class ResversDateFragment extends Fragment implements BaseQuickAdapter.On
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        tops = view.findViewById(R.id.travel_Reserve_List_back);
-        tops.setVisibility(View.INVISIBLE);
+        ListItem=(TravelReserverDayBean) adapter.getData().get(position);
+        //listItemTemp 上一个选中   listItem 当前选中
+        if(isTampPosition !=null && lastitem!= -1 ){
+            isTampPosition.setSelect(false);
+            adapter.notifyItemChanged(lastitem);
+        }
+        lastitem=position;
+        ListItem.setSelect(true);
+        adapter.notifyItemChanged(position);
+        isTampPosition=ListItem;
 
-        selectDay.setVisibility(View.VISIBLE);
+        if(!ListItem.isSelect()){
+            selectDay=view.findViewById(R.id.travel_Reserve_List_back);
+            selectDay.setVisibility(View.INVISIBLE);
+        }else {
+            selectDay=view.findViewById(R.id.travel_Reserve_List_back);
+            selectDay.setVisibility(View.VISIBLE);
+        }
     }
+    @Override
+        public void setUserVisibleHint(boolean isVisibleToUser) {
+     // TODO Auto-generated method stub
+         if (isVisibleToUser) {
+        //fragment可见时加载数据，用一个方法来实现
+            } else {
+                //不可见时不执行操作
+                }
+                super.setUserVisibleHint(isVisibleToUser);
+        }
 }

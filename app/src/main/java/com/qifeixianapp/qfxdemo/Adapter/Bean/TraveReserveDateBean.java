@@ -3,6 +3,13 @@ package com.qifeixianapp.qfxdemo.Adapter.Bean;
 import java.util.List;
 
 public class TraveReserveDateBean {
+
+    String TravelDate;
+    String moeny;
+    String Award;
+
+
+
     public String getTravelDate() {
         return TravelDate;
     }
@@ -27,8 +34,5 @@ public class TraveReserveDateBean {
         Award = award;
     }
 
-    String TravelDate;
-    String moeny;
-    String Award;
 
 }
