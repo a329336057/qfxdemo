@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.qifeixianapp.qfxdemo"
         minSdkVersion 18
         targetSdkVersion 28
@@ -66,5 +67,6 @@ dependencies {
 
     //高德地图
     implementation 'com.amap.api:location:4.6.0'
-
+    //大于方法数
+    implementation 'com.android.support:multidex:1.0.3'
 }
