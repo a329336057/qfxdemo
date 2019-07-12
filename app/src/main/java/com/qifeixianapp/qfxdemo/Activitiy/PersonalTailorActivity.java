@@ -14,7 +14,7 @@ public class PersonalTailorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_tailor);
-        calendarView = (CalendarView) findViewById(R.id.calenderView);
+       calendarView = (CalendarView) findViewById(R.id.vp_calendar);
         //calendarView 监听事件
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {

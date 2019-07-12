@@ -60,7 +60,7 @@ public class TravelFragment extends Fragment {
         fragmentList.add(new TravelPeripheralTourFragment());
         fragmentList.add(new TravelPeripheralTourFragment());
         fragmentList.add(new TravelEndSheetFragment());
-        fragmentList.add(new TravelPeripheralTourFragment());
+        fragmentList.add(new PersonalTailorFragment());
         TravelViewPagerFragmentListAdapter travelViewPagerFragmentListAdapter=new TravelViewPagerFragmentListAdapter(getChildFragmentManager(),getContext(),fragmentList,titleTab);
         viewPager.setAdapter(travelViewPagerFragmentListAdapter);
         tabLayout.setupWithViewPager(viewPager);

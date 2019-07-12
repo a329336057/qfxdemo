@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView android:id="@+id/home_huadong"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:theme="@style/AppTheme"
+    android:scrollbars="vertical"
+    layout_height=""
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.PersonalTailorFragment">
 
-    <com.hjq.bar.TitleBar
-        android:id="@+id/personal_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#fff"
-
-        app:titleColor="#000"
-        app:leftColor="#000"
-        app:barStyle="light"
-        app:rightColor="#303030"
-        app:title="私人订制" />
     <RelativeLayout
         android:layout_marginTop="10dp"
         android:layout_marginLeft="19dp"
@@ -24,7 +25,6 @@
         android:id="@+id/personal_setout"
         android:layout_width="wrap_content"
         android:layout_height="44dp"
-        android:layout_below="@id/personal_bar"
         >
     <TextView
         android:textSize="14dp"
@@ -37,7 +37,8 @@
         android:textStyle="bold"
         />
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:textCursorDrawable="@drawable/cursor"
             android:layout_height="wrap_content"
             android:background="@null"
             android:textSize="14sp"
@@ -73,10 +74,13 @@
             />
         <EditText
             android:id="@+id/personal_Destination_EditText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:textCursorDrawable="@drawable/cursor"
             android:layout_height="wrap_content"
             android:background="@null"
             android:textSize="14sp"
+            android:lines="1"
+            android:maxLength="20"
             android:layout_centerVertical="true"
             android:layout_marginLeft="130dp"
             android:hint="请填写内容"/>
@@ -108,10 +112,13 @@
             />
         <EditText
             android:id="@+id/personal_Estimate_EditText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:textCursorDrawable="@drawable/cursor"
             android:layout_height="wrap_content"
             android:background="@null"
             android:textSize="14sp"
+            android:lines="1"
+            android:maxLength="20"
             android:layout_centerVertical="true"
             android:layout_marginLeft="130dp"
             android:hint="请填写内容"/>
@@ -146,12 +153,15 @@
             />
         <EditText
             android:id="@+id/personal_Return_EditText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:textCursorDrawable="@drawable/cursor"
             android:layout_height="wrap_content"
             android:background="@null"
             android:textSize="14sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="130dp"
+            android:lines="1"
+            android:maxLength="20"
             android:hint="请填写内容"/>
         <View
             android:layout_width="fill_parent"
@@ -184,11 +194,15 @@
             />
         <EditText
             android:id="@+id/personal_travelers_EditText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:textCursorDrawable="@drawable/cursor"
             android:layout_height="wrap_content"
             android:background="@null"
             android:textSize="14sp"
             android:layout_centerVertical="true"
+            android:lines="1"
+            android:maxLength="20"
+            android:inputType="number"
             android:layout_marginLeft="130dp"
             android:hint="请填写内容"/>
         <View
@@ -224,13 +238,17 @@
             />
         <EditText
             android:id="@+id/personal_budget_EditText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:textCursorDrawable="@drawable/cursor"
             android:layout_height="wrap_content"
             android:background="@null"
             android:textSize="14sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="130dp"
-            android:hint="请填写内容"/>
+            android:lines="1"
+            android:maxLength="20"
+            android:inputType="number"
+            android:hint="请输入预算 单位默认为元"/>
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dip"
@@ -341,7 +359,7 @@
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="是否安排导游）"
+            android:text="是否安排导游"
             android:scrollbarSize="14sp"
             android:textStyle="bold"
             />
@@ -391,10 +409,13 @@
             />
         <EditText
             android:id="@+id/personal_Remarks_EditText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:textCursorDrawable="@drawable/cursor"
             android:layout_height="wrap_content"
             android:background="@null"
             android:textSize="14sp"
+            android:lines="1"
+            android:maxLength="20"
             android:layout_centerVertical="true"
             android:layout_marginLeft="130dp"
             android:hint="请填写内容"/>
@@ -405,4 +426,101 @@
             android:layout_marginTop="8dp"
             android:background="#DDDDDD"/>
     </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginRight="19dp"
+        android:id="@+id/personal_Contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_below="@id/personal_Remarks"
+        >
+        <TextView
+            android:textSize="14dp"
+            android:textColor="#232323"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="出行联系人"
+            android:scrollbarSize="14sp"
+            android:textStyle="bold"
+            />
+        <EditText
+            android:id="@+id/personal_Remarks_Contacts"
+            android:layout_width="match_parent"
+            android:textCursorDrawable="@drawable/cursor"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textSize="14sp"
+            android:lines="1"
+            android:maxLength="20"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="130dp"
+            android:hint="请填写内容"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="8dp"
+            android:background="#DDDDDD"/>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginRight="19dp"
+
+        android:id="@+id/personal_Phone"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_below="@id/personal_Contacts"
+        >
+        <TextView
+            android:textSize="14dp"
+            android:textColor="#232323"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号"
+            android:scrollbarSize="14sp"
+            android:textStyle="bold"
+            />
+        <EditText
+            android:id="@+id/personal_Remarks_Phone"
+            android:layout_width="match_parent"
+            android:textCursorDrawable="@drawable/cursor"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textSize="14sp"
+
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="130dp"
+            android:lines="1"
+            android:maxLength="11"
+            android:inputType="number"
+            android:hint="请填写内容"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="8dp"
+            android:background="#DDDDDD"/>
+
+
+    </RelativeLayout>
+    <Button
+        android:layout_width="335dp"
+        android:layout_height="43dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/personal_Phone"
+        android:layout_marginTop="28dp"
+        android:text="提交"
+        android:textSize="18sp"
+        android:background="@drawable/login_verificantion_true" />
 </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>
