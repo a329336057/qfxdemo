@@ -519,7 +519,8 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/personal_Phone"
         android:layout_marginTop="28dp"
-        android:text="提交"
+        android:text="提交1"
+        android:id="@+id/personal_Button"
         android:textSize="18sp"
         android:background="@drawable/login_verificantion_true" />
 </RelativeLayout>

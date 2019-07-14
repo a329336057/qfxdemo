@@ -8,6 +8,7 @@
     android:focusableInTouchMode="true"
     android:scrollbars="vertical"
     layout_height=""
+
     xmlns:android="http://schemas.android.com/apk/res/android">
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"

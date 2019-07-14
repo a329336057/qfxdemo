@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import android.support.design.widget.TabLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 import com.hjq.bar.OnTitleBarListener;
@@ -18,6 +20,9 @@ import com.qifeixianapp.qfxdemo.Adapter.MyHomtTypePagerAdapter;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.fragment.ResversDateFragment;
 import com.qifeixianapp.qfxdemo.tool.GetTImeDay;
+import com.qifeixianapp.qfxdemo.tool.MonthOfDayUnit;
+
+import org.w3c.dom.Text;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -27,8 +32,11 @@ import java.util.Date;
 import java.util.List;
 
 public class TravelReserveActivity extends AppCompatActivity implements OnTitleBarListener {
+    public static TextView SelectDay; //选择的日子
     TabLayout mTableLayout;
     TitleBar mTitleBar;
+    public  static ImageView LASTITEM; //上一次选择的背景
+    public static Integer SelectMoth;  //当前月份
     List<String> mTitleTable;
     List<TraveReserveDateBean> traveReserveDateBeans;
     List<Fragment> mFragmentList;
@@ -37,7 +45,7 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
     List<String> WeekList;//返回周几集合 该出发日期的周几
     List<Integer> MonthList;//月份集合
     List<Integer> DayToWeekTimeList; //1号集合
-
+    public  static Integer lastitem=1000;
     List<TraveReserveDateBean> list=new ArrayList<>();  //传参fragment 请求 数组
     List<List<String>> MonthGoDayList; //获取每月的出发日期集合
     @Override
@@ -106,7 +114,14 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
         traveReserveDateBean8.setAward("1314");
         traveReserveDateBean8.setMoeny("2333");
         traveReserveDateBeans.add(traveReserveDateBean8);
-    }
+
+
+        TraveReserveDateBean traveReserveDateBean9=new TraveReserveDateBean();
+        traveReserveDateBean9.setTravelDate("2019-12-22 09:34:18");
+        traveReserveDateBean9.setAward("1314");
+        traveReserveDateBean9.setMoeny("2333");
+        traveReserveDateBeans.add(traveReserveDateBean9);
+}
 
     private void operation() {
         DayToWeekTimeList =new ArrayList<>();
@@ -130,8 +145,9 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
                 calendar_Date.setTime(date);
                 int weekMonth = calendar_Date.get(android.icu.util.Calendar.MONTH)+1;
 
+
                 //判断是否是同一个月 判断是否不包含
-                if(!MonthList.contains(weekMonth)) {
+                if(!MonthList.contains(weekMonth) ) {
 
                     //根据日期 不包含则转化时间 单独对月份进行分组
                     calendar_Date.set(android.icu.util.Calendar.DAY_OF_MONTH,1);
@@ -150,7 +166,7 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
 
     private void find()  {
 
-
+        SelectDay=findViewById(R.id.Reserve_SelectDay);
         for (int i = 0; i <MonthList.size() ; i++) {
             String title=String.valueOf(MonthList.get(i));
             mTitleTable.add(title+"月");
@@ -169,8 +185,6 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
             Calendar calendar_Date=Calendar.getInstance();
             SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             try {
-
-
                 Date date = sdf.parse(traveReserveDateBeans.get(i).getTravelDate());
                 calendar_Date.setTime(date);
                 int weekMonth = calendar_Date.get(android.icu.util.Calendar.MONTH) + 1;
@@ -185,18 +199,23 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
                     if(size!=1+i){
                         Date jdate = sdf.parse(traveReserveDateBeans.get(i+1).getTravelDate());
                         jcalendar_Date.setTime(jdate);
-                        int jweekMonth = jcalendar_Date.get(android.icu.util.Calendar.MONTH) + 1;
+                        int jweekMonth = jcalendar_Date.get(android.icu.util.Calendar.MONTH)+1;
                         if(mo!=jweekMonth){
-                            mFragmentList.add(new ResversDateFragment(DayToWeekTimeList.get(j),list));
+                            int year=jcalendar_Date.get(Calendar.YEAR);
+                            int moth=jcalendar_Date.get(Calendar.MONTH);
+                            int mothday= MonthOfDayUnit.getMonthOfDays(year,moth);
+                            mFragmentList.add(new ResversDateFragment(DayToWeekTimeList.get(j),list,MonthList.get(j),mothday,year));
                             j++;
 
                             list=new ArrayList<>();
                            }
                     }else {
                         int g=i-j;
-                        mFragmentList.add(new ResversDateFragment(DayToWeekTimeList.get(i-g),list));
+                        int year=jcalendar_Date.get(Calendar.YEAR);
+                        int moth=jcalendar_Date.get(Calendar.MONTH);
+                        int mothday= MonthOfDayUnit.getMonthOfDays(year,moth);
+                        mFragmentList.add(new ResversDateFragment(DayToWeekTimeList.get(i-g),list,MonthList.get(j),mothday,year));
                         list=new ArrayList<>();
-
 
                     }
 

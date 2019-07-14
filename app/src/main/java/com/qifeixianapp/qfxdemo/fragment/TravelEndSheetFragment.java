@@ -1,6 +1,7 @@
 package com.qifeixianapp.qfxdemo.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.qifeixianapp.qfxdemo.Activitiy.TravelReserveActivity;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.TravelEndSheetListBean;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.TravelListBean;
 import com.qifeixianapp.qfxdemo.Adapter.TravelEndSheetAdapter;
@@ -54,7 +57,13 @@ String time="2019-7-7 22:05:22";
         recyclerView.setAdapter(travelEndSheetFragment);
         travelEndSheetFragment.openLoadAnimation(SCALEIN);
         travelEndSheetFragment.isFirstOnly(true);
-
+        travelEndSheetFragment.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent=new Intent(getContext(), TravelReserveActivity.class);
+                getContext().startActivity(intent);
+            }
+        });
     }
 
 

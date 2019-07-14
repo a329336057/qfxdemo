@@ -1,5 +1,6 @@
 package com.qifeixianapp.qfxdemo.Activitiy;
 
+import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -36,7 +37,7 @@ public class MainsHome extends AppCompatActivity  implements AMapLocationListene
     private TextView mTextMessage;
     long mExitTime =0;
     private static final String TAG = "MainActivity";
-    ViewPager viewPager;
+    public static ViewPager viewPager;
     BottomNavigationView navigation;//底部导航栏对象
     List<Fragment> listFragment;//存储页面对象
 
@@ -63,6 +64,7 @@ public class MainsHome extends AppCompatActivity  implements AMapLocationListene
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
 
         initView();//初始化
+
     }
 
     private void location() {
@@ -101,10 +103,9 @@ public class MainsHome extends AppCompatActivity  implements AMapLocationListene
         listFragment.add(new UserFragment());
 
 
-
         MyFragAdapter myAdapter = new MyFragAdapter(getSupportFragmentManager(), this, listFragment);
         viewPager.setAdapter(myAdapter);
-
+        viewPager.setOffscreenPageLimit(3);
         //导航栏点击事件和ViewPager滑动事件,让两个控件相互关联
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

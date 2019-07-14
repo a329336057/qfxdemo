@@ -47,7 +47,6 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
     List<TravelListBean> listBeans;
     TravelRouteListPresenterImpl travelRouteListPresenter;
     RecyclerView recyclerView;
-    boolean isErr=true;
     boolean isloading=false;
 
 
@@ -129,12 +128,12 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
 
     @Override
     public void getDataSuccess(TravelRequestListBean travelRequestListBean) {
-
+        listBeans=new ArrayList<>();
         for (int i = 0; i < travelRequestListBean.getData().getList().size(); i++) {
             TravelListBean travelListBean=new TravelListBean();
             travelListBean.setTitle(travelRequestListBean.getData().getList().get(i).getName());
             travelListBean.setAward("+"+travelRequestListBean.getData().getList().get(i).getPrice_id());
-            ;
+
             travelListBean.setMoney("￥"+travelRequestListBean.getData().getList().get(i).getPrice()+"起/人");
             listBeans.add(travelListBean);
         }

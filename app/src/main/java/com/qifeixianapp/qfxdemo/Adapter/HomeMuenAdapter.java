@@ -1,14 +1,17 @@
 package com.qifeixianapp.qfxdemo.Adapter;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.qifeixianapp.qfxdemo.Activitiy.MainsHome;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.HomeMuenBean;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.tool.ToastUtils;
@@ -27,11 +30,14 @@ public class HomeMuenAdapter  extends RecyclerView.Adapter<HomeMuenAdapter.ViewH
     @Override
     public HomeMuenAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, final int i) {
         View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_home_muen_adapter,viewGroup,false);
+
         final HomeMuenAdapter.ViewHolder viewHolder=new HomeMuenAdapter.ViewHolder(v);
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtils.show(context,"点击了"+viewHolder.getAdapterPosition());
+                if(viewHolder.getAdapterPosition()==0){
+                    MainsHome.viewPager.setCurrentItem(1);
+                }
             }
         });
         return viewHolder;

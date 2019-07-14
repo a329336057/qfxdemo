@@ -1,6 +1,7 @@
 package com.qifeixianapp.qfxdemo.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -16,6 +17,7 @@ import android.widget.RelativeLayout;
 
 import com.hjq.bar.TitleBar;
 import com.lxj.xpopup.XPopup;
+import com.qifeixianapp.qfxdemo.Activitiy.TravelSelectrActivity;
 import com.qifeixianapp.qfxdemo.Adapter.TravelViewPagerFragmentListAdapter;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.UI.CustomFullScreenPopup;
@@ -45,7 +47,7 @@ public class TravelFragment extends Fragment {
     }
 
     private void find(View v) {
-        mSelectTravel=v.findViewById(R.id.Travek_dislog);
+        mSelectTravel=v.findViewById(R.id.Travel_Select);
         titleTab=new ArrayList<>();
         titleTab.add("周边游");
         titleTab.add("国内游");
@@ -55,7 +57,7 @@ public class TravelFragment extends Fragment {
         fragmentList=new ArrayList<>();
         viewPager=v.findViewById(R.id.Travel_Viewpager);
         tabLayout=v.findViewById(R.id.Travel_TabLayout);
-        TravelPeripheralTourFragment travelPeripheralTourFragment=new TravelPeripheralTourFragment();
+
         fragmentList.add(new TravelPeripheralTourFragment());
         fragmentList.add(new TravelPeripheralTourFragment());
         fragmentList.add(new TravelPeripheralTourFragment());
@@ -68,19 +70,25 @@ public class TravelFragment extends Fragment {
                 TabLayout.Tab tab=tabLayout.getTabAt(i);
                 tab.setCustomView(travelViewPagerFragmentListAdapter.getTabView(i));
         }
+//        mSelectTravel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //自定义的弹窗需要用asCustom来显示，之前的asImageViewer这些方法当然不能用了。
+//                CustomFullScreenPopup viewerPopup = new CustomFullScreenPopup(getContext());
+//                new XPopup.Builder(getContext())
+//                        .asCustom(viewerPopup)
+//                        .show();
+//
+//            }
+//        });
+
         mSelectTravel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //自定义的弹窗需要用asCustom来显示，之前的asImageViewer这些方法当然不能用了。
-                CustomFullScreenPopup viewerPopup = new CustomFullScreenPopup(getContext());
-                new XPopup.Builder(getContext())
-                        .asCustom(viewerPopup)
-                        .show();
-
+                Intent intent=new Intent(getContext(), TravelSelectrActivity.class);
+                getContext().startActivity(intent);
             }
         });
-
-
     }
 
 

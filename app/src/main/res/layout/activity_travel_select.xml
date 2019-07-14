@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center_horizontal"
+    tools:context=".Activitiy.TravelSelectrActivity"
+    android:orientation="vertical">
+
+    <ImageView
+        android:padding="10dp"
+        android:layout_width="33dp"
+        android:id="@+id/Travel_Select_exit"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+
+        android:src="@drawable/exit" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="30dp"
+        android:id="@+id/travel_select_Relativelayout"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/selecetbackground">
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13dp"
+            android:src="@drawable/select_icon"/>
+
+        <EditText
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="39dp"
+            android:lines="1"
+            android:maxLines="15"
+            android:ellipsize="end"
+            android:id="@+id/travel_select_Edittext"
+            android:hint="请输入旅游线路名称"
+            android:textCursorDrawable="@drawable/cursor"
+            android:textColor="#9F9C9C"
+            android:singleLine="true"
+
+            android:imeOptions="actionSearch"
+            android:textSize="13sp" />
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Travel_Select_RecyclerView"
+        android:layout_below="@id/travel_select_Relativelayout"
+        android:layout_marginTop="10dp"
+        ></android.support.v7.widget.RecyclerView>
+</RelativeLayout>

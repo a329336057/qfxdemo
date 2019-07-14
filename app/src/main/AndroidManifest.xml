@@ -11,30 +11,22 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 允许程序读写手机状态和身份 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_SMS" /> <!-- 申请短信 -->
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <!--用于访问GPS定位-->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-    <!--用于获取运营商信息，用于支持提供运营商信息相关的接口-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-    <!--用于访问wifi网络信息，wifi信息会用于进行网络定位-->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
-    <!--用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
-    <!--用于访问网络，网络定位需要上网-->
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <!--用于读取手机当前的状态-->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
-    <!--用于写入缓存数据到扩展存储卡-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-    <!--用于申请调用A-GPS模块-->
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"></uses-permission>
-    <!--用于申请获取蓝牙信息进行室内定位-->
-    <uses-permission android:name="android.permission.BLUETOOTH"></uses-permission>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"></uses-permission>
-
+    <uses-permission android:name="android.permission.SEND_SMS" /> <!-- Android8.0的诸多新特性中有一个非常重要的特性：未知来源应用权限 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 用于获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 用于访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 用于写入缓存数据到扩展存储卡 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 用于申请调用A-GPS模块 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" /> <!-- 用于申请获取蓝牙信息进行室内定位 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
         android:allowBackup="true"
@@ -43,32 +35,81 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
-        <meta-data android:name="com.amap.api.v2.apikey" android:value="71a99ff709dbd11338c38d194bf694ac"/>
-        <activity android:name=".Activitiy.PersonalTailorActivity"></activity>
-        <activity android:name=".Activitiy.TravelReserveActivity" />
-        <activity android:name=".Activitiy.VipActivity" />
-        <activity android:name=".Activitiy.SmsActivity" />
-        <activity android:name=".Activitiy.PdfActivity" />
-        <activity android:name=".Activitiy.MainsHome" />
-        <activity android:name=".Activitiy.MyFansActivity" />
-        <activity android:name=".Activitiy.MailListActivity" />
-        <activity android:name=".Activitiy.OrderActivity" />
-        <activity android:name=".Activitiy.MyDataActivity" />
-        <activity android:name=".Activitiy.MyAwardActivity" />
-        <activity android:name=".Activitiy.WalletActivity" />
+        <activity android:name=".Activitiy.UpLoadHeadImageActivity"></activity>
+        <!-- 注：以下authorities的值必须与上面使用的值保持一致 -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.app.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:screenOrientation="portrait"
+            android:value="71a99ff709dbd11338c38d194bf694ac" />
+
+        <activity
+            android:name=".Activitiy.TravelSelectrActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitiy.TravelReserveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitiy.VipActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitiy.SmsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitiy.PdfActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitiy.MainsHome"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitiy.MyFansActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitiy.MailListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitiy.OrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitiy.MyDataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitiy.MyAwardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitiy.WalletActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activitiy.VerificationActivity"
             android:label="@string/title_activity_verification"
+            android:screenOrientation="portrait"
             android:theme="@style/CommonAppTheme.NoActionBar" />
         <activity
             android:name=".Activitiy.LoginActivity"
             android:label="@string/title_activity_login"
+            android:screenOrientation="portrait"
             android:theme="@style/CommonAppTheme.NoActionBar" />
-        <activity android:name=".Activitiy.BusinessDetailsActivity" />
-        <activity android:name=".Activitiy.MerchantListctivity" />
-        <activity android:name=".Activitiy.MainsHome" />
-        <service android:name="com.amap.api.location.APSService"></service>
-        <activity android:name=".Activitiy.MainActivity">
+        <activity
+            android:name=".Activitiy.BusinessDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitiy.MerchantListctivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name="com.amap.api.location.APSService" />
+
+        <activity
+            android:name=".Activitiy.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

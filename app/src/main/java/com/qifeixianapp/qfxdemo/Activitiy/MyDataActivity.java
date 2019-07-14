@@ -1,10 +1,12 @@
 package com.qifeixianapp.qfxdemo.Activitiy;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.service.autofill.UserData;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageView;
@@ -19,6 +21,7 @@ import com.hjq.bar.TitleBar;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.tool.PicassoUtil;
 import com.qifeixianapp.qfxdemo.tool.SelectDataUtil;
+import com.qifeixianapp.qfxdemo.tool.SharedPreferencesUtil;
 import com.qifeixianapp.qfxdemo.tool.ToastUtils;
 import com.squareup.picasso.Picasso;
 
@@ -26,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyDataActivity extends AppCompatActivity implements View.OnClickListener, OnTitleBarListener {
-
+    Button mSwitchingButton;
     private ImageView headimage;
     RelativeLayout mOccupationLayout,mHeadImageLayout,mPhoneLayout,mHostLayout,mGenderLyaout;
     TextView mHostText,mGenderText,mOccupationText,mPhoneText;
@@ -48,36 +51,21 @@ public class MyDataActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void find() {
+        mSwitchingButton=findViewById(R.id.userdata_switching_user_button);
         mNickNameEditText=findViewById(R.id.user_data_nickname);
         mHeadImageLayout=findViewById(R.id.userdata_list_headimage);
         mNameEditText=findViewById(R.id.user_data_name);
-        mPhoneLayout=findViewById(R.id.userdata_list_phone);
-        mHostLayout=findViewById(R.id.userdata_list_host);
-        mGenderLyaout=findViewById(R.id.userdata_list_gender);
-        mOccupationLayout=findViewById(R.id.userdata_list_occupation);
-
-        //text
+        mPhoneLayout=findViewById(R.id.userdata_list_phone);//text
         mPhoneText=findViewById(R.id.user_data_phone);
-        mHostText=findViewById(R.id.user_data_host);
-        mOccupationText=findViewById(R.id.user_data_occupation);
-        mGenderText=findViewById(R.id.userdata_list_gendereditext);
-
-
-
         headimage=findViewById(R.id.user_data_image);
-
         mWeixinEditText=findViewById(R.id.user_data_weixin);
-
         titleBar=findViewById(R.id.userdata_bar);
         gendrList=new ArrayList<>();
-
-
         titleBar.setOnTitleBarListener(this);
         mPhoneLayout.setOnClickListener(this);
-        mGenderLyaout.setOnClickListener(this);
         mHeadImageLayout.setOnClickListener(this);
         headimage.setOnClickListener(this);
-
+        mSwitchingButton.setOnClickListener(this);
 
     }
 
@@ -85,7 +73,8 @@ public class MyDataActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.userdata_list_headimage:
-                ToastUtils.show(MyDataActivity.this,"点击了他");
+                Intent uploadintent=new Intent(MyDataActivity.this,UpLoadHeadImageActivity.class);
+                startActivity(uploadintent);
                 break;
             case R.id.userdata_list_phone:
                 ToastUtils.show(MyDataActivity.this,"进入手机设置页面 暂未做");
@@ -93,22 +82,10 @@ public class MyDataActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.user_data_image:
                 ToastUtils.show(MyDataActivity.this,"天下无双");
                 break;
-            case R.id.userdata_list_gender://性别选择
-                gendrList.clear();
-                gendrList= SelectDataUtil.GenderList();
-                OptionsPickerView pickerView=new OptionsPickerBuilder(MyDataActivity.this, new OnOptionsSelectListener() {
-                    @Override
-                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                        String gender=gendrList.get(options1);
-                        mGenderText.setText(gender);
-                    }
-                }).build();
-        pickerView.setPicker(gendrList);
-        pickerView.setSelectOptions(20);
-        pickerView.show();
-                break;
                 default: break;
-
+            case R.id.userdata_switching_user_button:
+                Intent intent=new Intent(MyDataActivity.this,LoginActivity.class);
+                startActivity(intent);
         }
     }
 

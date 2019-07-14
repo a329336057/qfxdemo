@@ -48,7 +48,6 @@ public class HometypeFragment1 extends Fragment {
             homeListperipheraBean.setLv_title("【山水间的非凡体验】重庆-长江4日4日轮船游，包吃 包住。体验长江三峡美景。");
             homeListperipheraBean.setLv_image(R.drawable.sousuo);
             homeListperipheraBean.setLv_moneny("￥1280+230");
-
             homeListperipheraBean.setPlacedeparture("重庆出发");
             homeListperipheraBeans.add(homeListperipheraBean);
         }

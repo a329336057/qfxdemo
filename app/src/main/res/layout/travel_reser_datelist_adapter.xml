@@ -5,6 +5,7 @@
     android:gravity="center"
     android:layout_weight="1"
     android:background="#ffffff"
+    android:layout_marginTop="10dp"
     android:layout_height="wrap_content">
 
 <RelativeLayout
@@ -18,21 +19,21 @@
         android:visibility="invisible"
         android:id="@+id/travel_Reserve_List_back"
         android:src="@drawable/travel_resver_select_true"/>
+
     <TextView
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/travel_Reserve_List_Button"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-
-        android:textSize="13sp"
-        android:id="@+id/travel_Reserve_List_Button"
-        android:text="1" />
+        android:layout_alignBottom="@id/travel_Reserve_List_back"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:text="1"
+        android:textSize="13sp" />
     <TextView
         android:layout_centerHorizontal="true"
-
         android:layout_below="@id/travel_Reserve_List_Button"
         android:text="你好啊"
-        android:layout_marginTop="2dp"
         android:textSize="10sp"
         android:textColor="#FF4A26"
         android:textFontWeight="1"

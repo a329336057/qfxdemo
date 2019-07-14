@@ -47,14 +47,13 @@ public class TravelViewPagerFragmentListAdapter extends FragmentPagerAdapter {
     }
     public  View getTabView(int position){
         View v=LayoutInflater.from(context).inflate(R.layout.travel_titlelayout_list,null);
-        TextView tv = (TextView) v.findViewById(R.id.Travel_TabLayout_text);
+        TextView tv = (TextView) v.findViewById(R.id.Travel_TabLayout_titles);
         tv.setText(list_Title.get(position));
         ImageView img = (ImageView) v.findViewById(R.id.Travel_TabLayout_icon);
-         if(position==3){
-             img.setVisibility(View.VISIBLE);
-             img.setImageResource(R.drawable.travel_hot_icon);
-         }
+        if(position==3){
+            img.setVisibility(View.VISIBLE);
+            img.setImageResource(R.drawable.travel_hot_icon);
+        }
         return  v;
     }
 }
-
