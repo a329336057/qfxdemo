@@ -2,6 +2,8 @@ package com.qifeixianapp.qfxdemo.Activitiy;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,11 +13,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.tool.ToastUtils;
 
 public class LoginActivity extends AppCompatActivity {
+    VideoView mVideoView;
     Button mVerification;
     TextView mTextPhone;
     boolean isLogin;
@@ -25,7 +29,11 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
         find();
+        Onclick();
 
+    }
+
+    private void Onclick() {
         mTextPhone.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -65,10 +73,25 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+        String s = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.backvido).toString();
+        mVideoView.setVideoPath(s);
+        mVideoView.start();
+        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.start();
+                mp.setLooping(true);
+
+            }
+        });
+
+
     }
 
 
     private void find() {
+        mVideoView=findViewById(R.id.login_video);
         mVerification=findViewById(R.id.login_verification);
         mTextPhone=findViewById(R.id.login_phone);
     }

@@ -51,7 +51,31 @@
             android:imeOptions="actionSearch"
             android:textSize="13sp" />
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/Travel_Select_emptydata_layout"
+        android:layout_centerInParent="true">
+        <ImageView
+            android:layout_width="146dp"
+            android:layout_height="121dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/Travel_Select_emptydata_iamge"
+            android:src="@drawable/empty_data"/>
+        <TextView
+            android:id="@+id/Travel_Select_emptydata_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Travel_Select_emptydata_iamge"
+            android:layout_marginTop="27dp"
+            android:layout_centerHorizontal="true"
+            android:text="未搜索到内容"
+            />
+    </RelativeLayout>
+
     <android.support.v7.widget.RecyclerView
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Travel_Select_RecyclerView"

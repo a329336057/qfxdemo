@@ -4,8 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_background"
+
     tools:context=".Activitiy.LoginActivity">
+ <com.qifeixianapp.qfxdemo.UI.CustomVideoView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:focusableInTouchMode="false"
+     android:clickable="false"
+    android:background="#50000000"
+     android:id="@+id/login_video"/>
    <ImageView
        android:layout_width="12dp"
        android:layout_height="21dp"

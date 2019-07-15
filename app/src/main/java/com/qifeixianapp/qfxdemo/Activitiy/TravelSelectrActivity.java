@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.qifeixianapp.qfxdemo.Adapter.Bean.TravelListBean;
@@ -32,11 +33,12 @@ import static com.chad.library.adapter.base.BaseQuickAdapter.SCALEIN;
 public class TravelSelectrActivity extends AppCompatActivity implements ITravelRouteListView {
     EditText mSelectEditText;
     ImageView mExit;
-    boolean isSelect=false;
+
     TravelRouteListPresenterImpl travelRouteListPresenter;
     RecyclerView mRecyclerView;
     List<TravelListBean> listBeans;
     Dialog dialog;
+    RelativeLayout mRelativeLayout;
     @SuppressLint("handler")
     private Handler handler=new Handler(){
         @Override
@@ -62,7 +64,7 @@ public class TravelSelectrActivity extends AppCompatActivity implements ITravelR
     }
 
     private void find() {
-
+        mRelativeLayout=findViewById(R.id.Travel_Select_emptydata_layout);
         travelRouteListPresenter=new TravelRouteListPresenterImpl(this);
         mSelectEditText=findViewById(R.id.travel_select_Edittext);
         mRecyclerView=findViewById(R.id.Travel_Select_RecyclerView);
@@ -80,18 +82,17 @@ public class TravelSelectrActivity extends AppCompatActivity implements ITravelR
 
                     SizeHelper.hideKeyboard(mSelectEditText);
                     String selectText = mSelectEditText.getText().toString();
-                    travelRouteListPresenter.getRouteList("http://wpp.qifeixian.com/index.php/","1","10",selectText,"重庆");
-                    isSelect=true;
+                    travelRouteListPresenter.getRouteList("http://app.qifeixian.com/index.php/","1","10",selectText,"重庆");
+                    mRecyclerView.setVisibility(View.VISIBLE);
+                    mRelativeLayout.setVisibility(View.INVISIBLE);
+
                     return  true;
                 }
                 return  false;
             }
         });
 
-        if(isSelect){
 
-            isSelect=false;
-        }
         mExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,6 +113,10 @@ public class TravelSelectrActivity extends AppCompatActivity implements ITravelR
     public void getDataSuccess(TravelRequestListBean travelRequestListBean) {
         dialog.dismiss();
         if(travelRequestListBean.getCode()==1){
+            if(travelRequestListBean.getData().getList().size()==0){
+                mRelativeLayout.setVisibility(View.VISIBLE);
+                mRecyclerView.setVisibility(View.INVISIBLE);
+            }
             listBeans=new ArrayList<>();
 
             for (int i = 0; i < travelRequestListBean.getData().getList().size(); i++) {
@@ -128,6 +133,5 @@ public class TravelSelectrActivity extends AppCompatActivity implements ITravelR
         }else {
             ToastUtils.show(TravelSelectrActivity.this,"服务器刚刚开小差了 请稍后再试");
         }
-
     }
 }
