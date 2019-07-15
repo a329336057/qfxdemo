@@ -171,6 +171,7 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/home_banners"
             android:layout_height="88dp"></com.youth.banner.view.BannerViewPager>
+        <!--活动大图-->
         <RelativeLayout
             android:layout_marginTop="7dp"
             android:layout_width="match_parent"
@@ -204,54 +205,111 @@
 
                 />
         </RelativeLayout>
+
+
+
+
+
+<!--精选商家-->
         <RelativeLayout
             android:layout_below="@id/home_list_recyclerview"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:background="#ffffff"
+            android:id="@+id/home_merchants_list"
             android:layout_height="308dp">
-        <ImageView
-            android:layout_width="5dp"
-            android:layout_height="15dp"
-            android:background="#FFFED018"
-            android:layout_marginTop="21dp"
-            />
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="精选商家"
-             android:textColor="#FF222222"
-             android:textStyle="bold"
-             android:layout_marginTop="19dp"
-             android:layout_marginLeft="19dp"/>
-                <RelativeLayout
-                    android:gravity="center"
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="15dp"
+                android:background="#FFFED018"
+                android:layout_marginTop="21dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="精选商家"
+                android:textColor="#FF222222"
+                android:textStyle="bold"
+                android:layout_marginTop="19dp"
+                android:layout_marginLeft="19dp"/>
 
-                    android:layout_width="163dp"
-                    android:layout_height="120dp"
-                    android:layout_alignParentLeft="true"
-                    >
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#ff0"
-                        />
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_alignParentBottom="true"
-                        android:background="#70000000"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="东子网火锅"
-                        android:layout_alignParentBottom="true"
-                        />
-                </RelativeLayout>
 
+
+
+            <RelativeLayout
+                android:id="@+id/home_merchants_data_list"
+                android:gravity="center"
+                android:layout_marginTop="51dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="163dp"
+                android:layout_height="120dp"
+                android:layout_alignParentLeft="true"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ff0"
+                    />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+
+                    android:layout_alignParentBottom="true"
+                    android:background="#70000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="东子网火锅"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="5dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:gravity="center"
+                android:layout_marginTop="51dp"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_width="163dp"
+                android:layout_height="120dp"
+
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ff0"
+                    />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+
+                    android:layout_alignParentBottom="true"
+                    android:background="#70000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="东子网火锅"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="5dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    />
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/home_merchants_data_list"
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+            </android.support.v7.widget.RecyclerView>
 
         </RelativeLayout>
-
 
     </RelativeLayout>
 
