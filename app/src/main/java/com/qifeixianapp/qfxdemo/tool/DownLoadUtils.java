@@ -13,6 +13,8 @@ import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
 
+import com.qifeixianapp.qfxdemo.BuildConfig;
+
 import java.io.File;
 
 public class DownLoadUtils {
@@ -122,7 +124,7 @@ public class DownLoadUtils {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {   //7.0版本以上
-                Uri uriForFile = FileProvider.getUriForFile(context, "com.example.app.fileProvider", apkFile);
+                Uri uriForFile = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID+".fileProvider", apkFile);
                 intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 intent.setDataAndType(uriForFile, "application/vnd.android.package-archive");
 

@@ -9,8 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.lxj.xpopup.XPopup;
+import com.lxj.xpopup.enums.PopupPosition;
+import com.lxj.xpopup.interfaces.OnConfirmListener;
 import com.qifeixianapp.qfxdemo.R;
+import com.qifeixianapp.qfxdemo.UI.PopupPrivateCustomized;
 import com.qifeixianapp.qfxdemo.tool.DownLoadUtils;
+import com.qifeixianapp.qfxdemo.tool.FileUtil;
 
 
 public class PersonalTailorFragment extends Fragment {
@@ -29,7 +34,11 @@ public class PersonalTailorFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                new XPopup.Builder(getContext())
+                        .offsetY(900)
+                        .isCenterHorizontal(true)
+                        .asCustom(new PopupPrivateCustomized(getContext()))
+                        .show();
 //                DownLoadUtils downLoadUtils=new DownLoadUtils();
 //                DownLoadUtils.DownloadUtils ddownloadUtils = downLoadUtils.new DownloadUtils(getContext());
 //                ddownloadUtils.downloadApk("http://47.106.13.142:8080/pdf/qfx.apk","这个是描述");

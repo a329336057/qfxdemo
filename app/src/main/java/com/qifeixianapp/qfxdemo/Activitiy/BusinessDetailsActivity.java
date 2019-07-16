@@ -125,7 +125,7 @@ void opengaodemap(){
      */
     @Override
     public void onStart(SHARE_MEDIA platform) {
-        ToastUtils.show(BusinessDetailsActivity.this,"sad阿萨德撒");
+
     }
     /**
      * @descrption 分享成功的回调
@@ -133,7 +133,7 @@ void opengaodemap(){
      */
     @Override
     public void onResult(SHARE_MEDIA platform) {
-        Log.e("分享","分享此");
+
         ToastUtils.show(BusinessDetailsActivity.this,"分享成功");
     }
     /**
@@ -143,7 +143,7 @@ void opengaodemap(){
      */
     @Override
     public void onError(SHARE_MEDIA platform, Throwable t) {
-
+        ToastUtils.show(BusinessDetailsActivity.this,t.getMessage());
     }
     /**
      * @descrption 分享取消的回调
@@ -151,6 +151,6 @@ void opengaodemap(){
      */
     @Override
     public void onCancel(SHARE_MEDIA platform) {
-
+        ToastUtils.show(BusinessDetailsActivity.this,"您取消了分享");
     }
 }

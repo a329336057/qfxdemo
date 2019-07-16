@@ -50,19 +50,25 @@
         <activity android:name=".Activitiy.UpLoadHeadImageActivity"></activity>
         <!-- 注：以下authorities的值必须与上面使用的值保持一致 -->
         <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.example.app.fileProvider"
+            android:name="com.qifeixianapp.qfxdemo.UI.MyFileProvider"
+            android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
+
         </provider>
 
 
 
 
 
+
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
 
         <meta-data
