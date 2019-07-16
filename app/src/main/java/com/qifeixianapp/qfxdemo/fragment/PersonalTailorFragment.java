@@ -29,9 +29,10 @@ public class PersonalTailorFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DownLoadUtils downLoadUtils=new DownLoadUtils();
-                DownLoadUtils.DownloadUtils ddownloadUtils = downLoadUtils.new DownloadUtils(getContext());
-                ddownloadUtils.downloadApk("http://47.106.13.142:8080/pdf/qfx.apk","这个是描述");
+
+//                DownLoadUtils downLoadUtils=new DownLoadUtils();
+//                DownLoadUtils.DownloadUtils ddownloadUtils = downLoadUtils.new DownloadUtils(getContext());
+//                ddownloadUtils.downloadApk("http://47.106.13.142:8080/pdf/qfx.apk","这个是描述");
             }
         });
     }

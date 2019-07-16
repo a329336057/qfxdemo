@@ -1,9 +1,12 @@
 package com.qifeixianapp.qfxdemo.Activitiy;
 
+import android.Manifest;
 import android.content.Intent;
+import android.os.Build;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +28,9 @@ import com.qifeixianapp.qfxdemo.fragment.merchantFragment;
 import com.qifeixianapp.qfxdemo.fragment.UserFragment;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.tool.ContactUtils;
+import com.qifeixianapp.qfxdemo.tool.DataUitl;
 import com.qifeixianapp.qfxdemo.tool.MyContactsBean;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -64,9 +69,16 @@ public class MainsHome extends AppCompatActivity  implements AMapLocationListene
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
 
         initView();//初始化
+        regToWeiXin();
+
+        if(Build.VERSION.SDK_INT>=23){
+            String[] mPermissionList = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CALL_PHONE,Manifest.permission.READ_LOGS,Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.SET_DEBUG_APP,Manifest.permission.SYSTEM_ALERT_WINDOW,Manifest.permission.GET_ACCOUNTS,Manifest.permission.WRITE_APN_SETTINGS};
+            ActivityCompat.requestPermissions(this,mPermissionList,123);
+        }
+    }
+    public void regToWeiXin() {
 
     }
-
     private void location() {
         //初始化定位
         mLocationClient = new AMapLocationClient(getApplicationContext());

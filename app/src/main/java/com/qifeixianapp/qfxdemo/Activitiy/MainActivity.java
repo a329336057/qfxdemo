@@ -44,13 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.LOCATION_HARDWARE}, 6);
 //
 //        }
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            //申请WRITE_EXTERNAL_STORAGE权限
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA,Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.READ_CONTACTS,Manifest.permission.READ_SMS,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE, },
-                    6);//自定义的code
-        }
 
+        isg();
         //设置当前窗体为全屏显示
         getWindow().setFlags(flag, flag);
         setContentView(R.layout.activity_main);
@@ -68,6 +63,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         },5000);
         find();
 
+    }
+
+    private void isg() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            //申请WRITE_EXTERNAL_STORAGE权限
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA,Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.READ_CONTACTS,
+                            Manifest.permission.READ_SMS,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE,
+                            Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CALL_PHONE,Manifest.permission.READ_LOGS,
+                            Manifest.permission.READ_PHONE_STATE, Manifest.permission.SET_DEBUG_APP,
+                            Manifest.permission.SYSTEM_ALERT_WINDOW,Manifest.permission.GET_ACCOUNTS,Manifest.permission.WRITE_APN_SETTINGS},
+                    6);//自定义的code
+        }
     }
 
     private void find() {
@@ -133,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Log.d("2131231", "permissions[" + i + "]:" + permissions[i]);
                     }
                 }
-
+                isg();
                 break;
         }
     }

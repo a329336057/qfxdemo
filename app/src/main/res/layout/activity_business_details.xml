@@ -31,16 +31,16 @@
             android:layout_marginRight="18dp"
             android:id="@+id/merchant_datalis_collection"
             />
-        <ImageView
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:src="@drawable/shareicon"
-            android:layout_toLeftOf="@id/merchant_datalis_moreiocn"
 
+        <ImageView
             android:id="@+id/merchant_datalis_shareicon"
-            android:layout_marginRight="19dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
             android:layout_centerVertical="true"
-            />
+
+            android:layout_marginRight="19dp"
+            android:layout_toLeftOf="@id/merchant_datalis_moreiocn"
+            android:src="@drawable/shareicon" />
         <ImageView
             android:layout_alignParentRight="true"
             android:layout_width="18dp"
