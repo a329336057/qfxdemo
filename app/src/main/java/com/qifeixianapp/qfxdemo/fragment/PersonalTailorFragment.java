@@ -35,8 +35,6 @@ public class PersonalTailorFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 new XPopup.Builder(getContext())
-                        .offsetY(900)
-                        .isCenterHorizontal(true)
                         .asCustom(new PopupPrivateCustomized(getContext()))
                         .show();
 //                DownLoadUtils downLoadUtils=new DownLoadUtils();

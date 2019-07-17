@@ -14,8 +14,9 @@
     android:background="#50000000"
      android:id="@+id/login_video"/>
    <ImageView
-       android:layout_width="12dp"
-       android:layout_height="21dp"
+       android:layout_width="52dp"
+       android:padding="20dp"
+       android:layout_height="71dp"
        android:src="@drawable/login_exit_writ"
        android:layout_alignParentLeft="true"
        android:layout_marginTop="8dp"
@@ -85,38 +86,6 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/login_tips"
         android:text="未注册用户验证成功自动注册哦"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="账号密码登陆"
-        android:textColor="#fff"
-        android:layout_below="@id/login_tips"
-        android:layout_centerHorizontal="true"
-        android:textSize="15sp"
-        android:id="@+id/login_swich"
-        android:layout_marginTop="58dp"/>
-    <ImageView
-        android:layout_width="335dp"
-        android:layout_height="1dp"
-        android:src="@drawable/login_views"
-        android:layout_below="@id/login_swich"
-        android:layout_marginTop="69dp"
-        android:layout_centerHorizontal="true"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#fff"
-        android:text="其他登陆方式"
-        android:textSize="15sp"
-        android:layout_below="@id/login_swich"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/login_other_login"
-        android:layout_marginTop="60dp"/>
-    <ImageView
-        android:layout_width="53dp"
-        android:layout_height="53dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/login_wewatch"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/login_other_login"/>
+
+
 </RelativeLayout>

@@ -36,7 +36,7 @@
             android:layout_height="21dp"
             android:src="@drawable/select"
             android:layout_centerVertical="true"
-            android:id="@+id/home_select"
+            android:id="@+id/merchant_select_list"
             android:layout_marginTop="8dp"/>
 
         <EditText
@@ -44,7 +44,7 @@
             android:hint="搜索商家"
             android:layout_centerVertical="true"
             android:layout_marginLeft="9dp"
-            android:layout_toRightOf="@+id/home_select"
+            android:layout_toRightOf="@id/merchant_select_list"
             android:textColor="#99000000"
             android:textSize="13dp"
             android:layout_centerInParent="true"

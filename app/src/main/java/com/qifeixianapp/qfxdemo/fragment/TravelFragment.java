@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.hjq.bar.TitleBar;
 import com.lxj.xpopup.XPopup;
@@ -21,6 +22,7 @@ import com.qifeixianapp.qfxdemo.Activitiy.TravelSelectrActivity;
 import com.qifeixianapp.qfxdemo.Adapter.TravelViewPagerFragmentListAdapter;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.UI.CustomFullScreenPopup;
+import com.qifeixianapp.qfxdemo.tool.SharedPreferencesUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,7 @@ public class TravelFragment extends Fragment {
     TabLayout tabLayout;
     List<Fragment> fragmentList;
     List<String> titleTab;
+    TextView mTravellocalText;
     ImageView eixt;
     RelativeLayout mSelectTravel;
     AppBarLayout appBarLayout;
@@ -47,6 +50,7 @@ public class TravelFragment extends Fragment {
     }
 
     private void find(View v) {
+        SharedPreferencesUtil.getInstance(getContext(),"homedata");
         mSelectTravel=v.findViewById(R.id.Travel_Select);
         titleTab=new ArrayList<>();
         titleTab.add("周边游");
@@ -57,7 +61,8 @@ public class TravelFragment extends Fragment {
         fragmentList=new ArrayList<>();
         viewPager=v.findViewById(R.id.Travel_Viewpager);
         tabLayout=v.findViewById(R.id.Travel_TabLayout);
-
+        mTravellocalText=v.findViewById(R.id.Travel_local_map_text);
+        mTravellocalText.setText((String)SharedPreferencesUtil.getData("localtion","重庆"));
         fragmentList.add(new TravelPeripheralTourFragment());
         fragmentList.add(new TravelPeripheralTourFragment());
         fragmentList.add(new TravelPeripheralTourFragment());

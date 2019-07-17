@@ -10,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.qifeixianapp.qfxdemo.Adapter.Bean.HomeMuenBean;
@@ -19,35 +21,41 @@ import com.qifeixianapp.qfxdemo.Adapter.HomeThemeAdapter;
 import com.qifeixianapp.qfxdemo.Adapter.MyHomtTypePagerAdapter;
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.tool.GlideImageLoader;
+import com.qifeixianapp.qfxdemo.tool.SharedPreferencesUtil;
 import com.qifeixianapp.qfxdemo.tool.ToastUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 public class homeFragment extends Fragment   {
 
-        List<String> list_Title;
-        List<Fragment> fragmentList;
-        ViewPager viewPager;
-        TabLayout tabLayout;
-        Banner banners;
 
-        RecyclerView mMuenrecyclerView;
-        RecyclerView mThemereuclerview;
-        List<HomeMuenBean> homeMuenBeans;
-        List<HomeThemeBean> themeBeans;
-
+        TextView mLocaltionText;
+        LinearLayout mSelectLinearLayout;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             // Inflate the layout for this fragment
+            SharedPreferencesUtil.getInstance(getContext(),"homedata");
             View v= inflater.inflate(R.layout.fragment_home, container, false);
-
+            find(v);
             return  v;
+        }
+
+        private void find(View v) {
+            mLocaltionText = v.findViewById(R.id.home_localtion);
+            mSelectLinearLayout = v.findViewById(R.id.home_select);
+            String localtion = String.valueOf(SharedPreferencesUtil.getData("localtion", "定位中..."));
+            mLocaltionText.setText(localtion);
+
+
         }
 
 

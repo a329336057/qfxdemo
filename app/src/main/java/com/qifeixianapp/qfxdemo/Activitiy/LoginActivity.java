@@ -73,18 +73,18 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-//        String s = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.backvido).toString();
-//        mVideoView.setVideoPath(s);
-//        mVideoView.start();
-//        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-//
-//            @Override
-//            public void onPrepared(MediaPlayer mp) {
-//                mp.start();
-//                mp.setLooping(true);
-//
-//            }
-//        });
+        String s = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.backvido).toString();
+        mVideoView.setVideoPath(s);
+        mVideoView.start();
+        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.start();
+                mp.setLooping(true);
+
+            }
+        });
 
 
     }

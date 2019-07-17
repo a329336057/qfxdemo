@@ -6,33 +6,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.qifeixianapp.qfxdemo.Activitiy.UpLoadHeadImageActivity">
-
+    <com.hjq.bar.TitleBar
+        android:id="@+id/Upload_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        app:titleColor="#000"
+        app:leftColor="#000"
+        app:barStyle="light"
+        app:rightColor="#303030"
+        app:title="我的头像" />
 
     <ImageView
-        android:id="@+id/uploadhead"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-
+        android:id="@+id/upload_head"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="81dp"
+        android:layout_centerHorizontal="true"
         app:srcCompat="@mipmap/ic_launcher" />
-
     <Button
-        android:id="@+id/btn_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="31dp"
-        android:layout_marginLeft="31dp"
-        android:layout_marginTop="44dp"
-        android:text="相册" />
-
+        android:layout_width="334dp"
+        android:layout_height="44dp"
+        android:text="上传图片"
+        android:textColor="#FF1F1E1E"
+        android:id="@+id/upload_image_button"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="@drawable/login_verificantion_true"
+        android:layout_below="@id/upload_head"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"/>
     <Button
-        android:id="@+id/btn_camera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btn_photo"
-        android:layout_alignBottom="@+id/btn_photo"
-        android:layout_alignParentRight="true"
+        android:layout_width="334dp"
+        android:visibility="invisible"
+        android:layout_height="44dp"
+        android:text="提交更新"
+        android:textColor="#FF1F1E1E"
+        android:id="@+id/upload_image_update"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="@drawable/login_verificantion_true"
+        android:layout_below="@id/upload_image_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
 
-        android:text="相机" />
+
+
+
 </RelativeLayout>

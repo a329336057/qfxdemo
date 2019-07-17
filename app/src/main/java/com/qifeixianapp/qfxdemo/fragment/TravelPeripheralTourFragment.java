@@ -80,11 +80,7 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
 
     private void find(View v) {
         listBeans=new ArrayList<>();
-
         recyclerView=v.findViewById(R.id.Travel_List_TravelPeripheralTour_RecyclerView);
-
-
-
 
 //        //上拉加载
 //        travelPeripheralApdater.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
@@ -137,6 +133,7 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
             travelListBean.setMoney("￥"+travelRequestListBean.getData().getList().get(i).getPrice()+"起/人");
             listBeans.add(travelListBean);
         }
+
         Message message=new Message();
         message.what=1;
         handler.sendMessage(message);

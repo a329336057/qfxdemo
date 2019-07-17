@@ -2,6 +2,8 @@ package com.qifeixianapp.qfxdemo.Activitiy;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
@@ -30,6 +32,7 @@ import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.tool.ContactUtils;
 import com.qifeixianapp.qfxdemo.tool.DataUitl;
 import com.qifeixianapp.qfxdemo.tool.MyContactsBean;
+import com.qifeixianapp.qfxdemo.tool.SharedPreferencesUtil;
 
 
 import java.text.SimpleDateFormat;
@@ -38,7 +41,8 @@ import java.util.Date;
 import java.util.List;
 
 public class MainsHome extends AppCompatActivity  implements AMapLocationListener{
-
+    String localStr;
+    Boolean isLocaltion=true;
     private TextView mTextMessage;
     long mExitTime =0;
     private static final String TAG = "MainActivity";
@@ -62,23 +66,28 @@ public class MainsHome extends AppCompatActivity  implements AMapLocationListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        SharedPreferencesUtil.getInstance(MainsHome.this,"homedata");
         setContentView(R.layout.home);
         location();
         viewPager = (ViewPager) findViewById(R.id.main_viewpager);
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
 
         initView();//初始化
-        regToWeiXin();
+
 
         if(Build.VERSION.SDK_INT>=23){
             String[] mPermissionList = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CALL_PHONE,Manifest.permission.READ_LOGS,Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.SET_DEBUG_APP,Manifest.permission.SYSTEM_ALERT_WINDOW,Manifest.permission.GET_ACCOUNTS,Manifest.permission.WRITE_APN_SETTINGS};
             ActivityCompat.requestPermissions(this,mPermissionList,123);
         }
     }
-    public void regToWeiXin() {
 
-    }
+
+
+
+
+
+
+
     private void location() {
         //初始化定位
         mLocationClient = new AMapLocationClient(getApplicationContext());
@@ -204,7 +213,7 @@ public class MainsHome extends AppCompatActivity  implements AMapLocationListene
 
     @Override
     public void onLocationChanged(AMapLocation aMapLocation) {
-        if(aMapLocation!=null){
+        if(aMapLocation!=null&& isLocaltion==true){
             if(aMapLocation.getErrorCode()==0){
                 int locationType = aMapLocation.getLocationType();
                 double la= aMapLocation.getLatitude();//获取纬度
@@ -222,6 +231,11 @@ public class MainsHome extends AppCompatActivity  implements AMapLocationListene
                 Log.e("街道门牌号信息",aMapLocation.getStreetNum());//街道门牌号信息
                 Log.e("城市编码",aMapLocation.getCityCode());//城市编码
                 Log.e("地区编码",aMapLocation.getAdCode());//地区编码
+                SharedPreferencesUtil.Remove("localtion");
+                SharedPreferencesUtil.putData("localtion",aMapLocation.getCity());
+
+
+                isLocaltion=false;
 
             }else {
                 Log.e("错误",aMapLocation.getErrorInfo());

@@ -79,9 +79,6 @@ public class MyDataActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.userdata_list_phone:
                 ToastUtils.show(MyDataActivity.this,"进入手机设置页面 暂未做");
                 break;
-            case R.id.user_data_image:
-                ToastUtils.show(MyDataActivity.this,"天下无双");
-                break;
                 default: break;
             case R.id.userdata_switching_user_button:
                 Intent intent=new Intent(MyDataActivity.this,LoginActivity.class);

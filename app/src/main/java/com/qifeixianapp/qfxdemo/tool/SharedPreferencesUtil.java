@@ -20,7 +20,7 @@ public class SharedPreferencesUtil {
     private static SharedPreferencesUtil util;
     private static SharedPreferences sp;
 
-    private SharedPreferencesUtil(Context context, String name) {
+    public SharedPreferencesUtil(Context context, String name) {
         sp = context.getSharedPreferences(name, Context.MODE_PRIVATE);
     }
 
@@ -247,4 +247,6 @@ public class SharedPreferencesUtil {
         Log.e("SharedPreferencesUtil", obj.toString());
         return map;
     }
+
+
 }
