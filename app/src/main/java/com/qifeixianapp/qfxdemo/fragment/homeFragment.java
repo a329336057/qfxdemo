@@ -1,5 +1,6 @@
 package com.qifeixianapp.qfxdemo.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.qifeixianapp.qfxdemo.Activitiy.SelectCityActivity;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.HomeMuenBean;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.HomeThemeBean;
 import com.qifeixianapp.qfxdemo.Adapter.HomeMuenAdapter;
@@ -34,9 +36,9 @@ import java.util.List;
 import java.util.Random;
 
 
-public class homeFragment extends Fragment   {
+public class homeFragment extends Fragment  implements View.OnClickListener {
 
-
+        LinearLayout home_Location;
         TextView mLocaltionText;
         LinearLayout mSelectLinearLayout;
         @Override
@@ -50,13 +52,25 @@ public class homeFragment extends Fragment   {
         }
 
         private void find(View v) {
+            home_Location=v.findViewById(R.id.home_Location);
             mLocaltionText = v.findViewById(R.id.home_localtion);
             mSelectLinearLayout = v.findViewById(R.id.home_select);
-            String localtion = String.valueOf(SharedPreferencesUtil.getData("localtion", "定位中..."));
+            String localtion = String.valueOf(SharedPreferencesUtil.getData("localtion", "重庆"));
             mLocaltionText.setText(localtion);
+            home_Location.setOnClickListener(this);
 
 
         }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.home_Location:
+                Intent intent=new Intent(getContext(), SelectCityActivity.class);
+                getActivity().startActivity(intent);
+                break;
+        }
+
+    }
 }

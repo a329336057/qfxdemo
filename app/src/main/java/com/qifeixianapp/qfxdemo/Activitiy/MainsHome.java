@@ -239,9 +239,14 @@ public class MainsHome extends AppCompatActivity  implements AMapLocationListene
 
             }else {
                 Log.e("错误",aMapLocation.getErrorInfo());
+                SharedPreferencesUtil.Remove("localtion");
+                SharedPreferencesUtil.putData("localtion","重庆");
             }
         }else {
             Log.e("错误","没有开启定位");
+            SharedPreferencesUtil.Remove("localtion");
+            SharedPreferencesUtil.putData("localtion","重庆");
+
         }
     }
 }

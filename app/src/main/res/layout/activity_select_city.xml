@@ -94,14 +94,16 @@
 
         android:layout_below="@id/City_Localtion"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
         android:background="#DDDDDD"/>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_below="@id/City_view1"
         android:layout_centerHorizontal="true"
+        android:id="@+id/City_RecyclerView"
 
-        android:layout_marginRight="40dp"
+        android:layout_height="wrap_content">
 
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
