@@ -55,7 +55,9 @@ public class homeFragment extends Fragment  implements View.OnClickListener {
             home_Location=v.findViewById(R.id.home_Location);
             mLocaltionText = v.findViewById(R.id.home_localtion);
             mSelectLinearLayout = v.findViewById(R.id.home_select);
-            String localtion = String.valueOf(SharedPreferencesUtil.getData("localtion", "重庆"));
+            String localtion = (String)SharedPreferencesUtil.getData("localtion", "默认");
+            String a = (String)SharedPreferencesUtil.getData("a", "默认");
+            String b = (String)SharedPreferencesUtil.getData("b", "默认");
             mLocaltionText.setText(localtion);
             home_Location.setOnClickListener(this);
 

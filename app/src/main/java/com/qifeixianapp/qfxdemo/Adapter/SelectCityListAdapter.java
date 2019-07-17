@@ -33,10 +33,13 @@ public class SelectCityListAdapter extends RecyclerView.Adapter<SelectCityListAd
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferencesUtil.getInstance(context,"homdata");
-                SharedPreferencesUtil.Remove("localtion");
+                SharedPreferencesUtil.getInstance(context,"homedata");
                 SharedPreferencesUtil.putData("localtion",viewHolder.titel.getText().toString());
+                SharedPreferencesUtil.putData("a",viewHolder.titel.getText().toString());
+                SharedPreferencesUtil.putData("b",viewHolder.titel.getText().toString());
                 Intent intent=new Intent(context, MainsHome.class);
+                String data = (String)SharedPreferencesUtil.getData("localtion", "sad");
+
                 context.startActivity(intent);
             }
         });
