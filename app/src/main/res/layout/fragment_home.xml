@@ -313,7 +313,39 @@
             </android.support.v7.widget.RecyclerView>
 
         </RelativeLayout>
+        <!--精选旅游-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_below="@id/home_merchants_list"
+            android:id="@+id/home_travel_list"
+            android:background="#fff"
 
+            android:layout_marginTop="5dp"
+            android:layout_height="600dp">
+
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="15dp"
+                android:background="#FFFED018"
+                android:layout_marginTop="21dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="精选旅游"
+                android:textColor="#FF222222"
+                android:textStyle="bold"
+                android:layout_marginTop="19dp"
+                android:layout_marginLeft="19dp"/>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+
+                android:layout_marginLeft="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
     </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>

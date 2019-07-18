@@ -33,6 +33,8 @@ import com.qifeixianapp.qfxdemo.tool.ContactUtils;
 import com.qifeixianapp.qfxdemo.tool.DataUitl;
 import com.qifeixianapp.qfxdemo.tool.MyContactsBean;
 import com.qifeixianapp.qfxdemo.tool.SharedPreferencesUtil;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 
 import java.text.SimpleDateFormat;
@@ -65,6 +67,8 @@ public class MainsHome extends AppCompatActivity  implements AMapLocationListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        final IWXAPI msgApi = WXAPIFactory.createWXAPI(MainsHome.this, null);
+        msgApi.registerApp("wxd930ea5d5a258f4f");
 
         SharedPreferencesUtil.getInstance(MainsHome.this,"homedata");
         setContentView(R.layout.home);
@@ -233,10 +237,7 @@ public class MainsHome extends AppCompatActivity  implements AMapLocationListene
                 Log.e("地区编码",aMapLocation.getAdCode());//地区编码
                 SharedPreferencesUtil.Remove("localtion");
                 SharedPreferencesUtil.putData("localtion",aMapLocation.getCity());
-
-
                 isLocaltion=false;
-
             }else {
                 Log.e("错误",aMapLocation.getErrorInfo());
                 SharedPreferencesUtil.Remove("localtion");

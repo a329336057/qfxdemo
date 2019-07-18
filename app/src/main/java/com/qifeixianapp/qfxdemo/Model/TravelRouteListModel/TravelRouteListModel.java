@@ -19,8 +19,8 @@ public class TravelRouteListModel implements ITravelRouteListModel {
         return travelRouteListModel;
     }
     @Override
-    public Observable<TravelRequestListBean> getRouteList(String url,String page, String limit, String name, String start_city) {
-        return RetrofitFactory.getInstance().getCustomHaierAPi(url).getRouteList(page,limit,name,start_city);
+    public Observable<TravelRequestListBean> getRouteList(String url,String page, String limit,String name,String tourist_type, String start_city) {
+        return RetrofitFactory.getInstance().getCustomHaierAPi(url).getRouteList(page,limit,name,tourist_type,start_city);
 
     }
 }

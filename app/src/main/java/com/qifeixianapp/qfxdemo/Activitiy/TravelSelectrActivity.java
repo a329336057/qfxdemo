@@ -82,7 +82,7 @@ public class TravelSelectrActivity extends AppCompatActivity implements ITravelR
 
                     SizeHelper.hideKeyboard(mSelectEditText);
                     String selectText = mSelectEditText.getText().toString();
-                    travelRouteListPresenter.getRouteList("http://app.qifeixian.com/index.php/","1","10",selectText,"重庆");
+                    travelRouteListPresenter.getRouteList("http://app.qifeixian.com/index.php/","1","10",selectText,"1.1","重庆");
                     mRecyclerView.setVisibility(View.VISIBLE);
                     mRelativeLayout.setVisibility(View.INVISIBLE);
 

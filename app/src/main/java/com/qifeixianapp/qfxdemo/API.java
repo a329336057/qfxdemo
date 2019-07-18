@@ -8,5 +8,5 @@ import rx.Observable;
 
 public interface API {
         @GET("travel/travels/getRouteList")
-        Observable<TravelRequestListBean> getRouteList(@Query("page")String page, @Query("limit")String limit,@Query("name")String selectname,@Query("start_city")String start_city);
+        Observable<TravelRequestListBean> getRouteList(@Query("page")String page, @Query("limit")String limit,@Query("name")String selectname,@Query("tourist_type")String tourist_type,@Query("start_city")String start_city);
 }

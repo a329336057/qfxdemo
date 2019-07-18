@@ -72,7 +72,7 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
         View v= inflater.inflate(R.layout.fragment_travel_peripheral_tour, container, false);
         find(v);
         travelRouteListPresenter=new TravelRouteListPresenterImpl(this);
-        travelRouteListPresenter.getRouteList("http://app.qifeixian.com/index.php/","1","10","","重庆");
+        travelRouteListPresenter.getRouteList("http://app.qifeixian.com/index.php/","1","10","","1.1","重庆");
 
 
         return v;
