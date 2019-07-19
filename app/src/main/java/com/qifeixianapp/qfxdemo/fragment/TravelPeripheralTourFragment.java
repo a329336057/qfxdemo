@@ -1,143 +1,277 @@
 package com.qifeixianapp.qfxdemo.fragment;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
-import android.location.LocationManager;
-import android.location.LocationProvider;
-import android.net.Uri;
+
+import android.app.Dialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableRow;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.qifeixianapp.qfxdemo.Activitiy.PdfActivity;
-import com.qifeixianapp.qfxdemo.Activitiy.TravelReserveActivity;
+import com.qifeixianapp.qfxdemo.Activitiy.TravelSelectrActivity;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.TravelListBean;
 import com.qifeixianapp.qfxdemo.Adapter.TravelPeripheralApdater;
+
 import com.qifeixianapp.qfxdemo.Bean.TravelRequestListBean;
 import com.qifeixianapp.qfxdemo.Presenter.TravelRouteList.TravelRouteListPresenterImpl;
 import com.qifeixianapp.qfxdemo.R;
-import com.qifeixianapp.qfxdemo.View.ITravelRouteListView;
-import com.qifeixianapp.qfxdemo.tool.ToastUtils;
 
-import org.w3c.dom.Text;
+import com.qifeixianapp.qfxdemo.View.ITravelRouteListView;
+
+import com.qifeixianapp.qfxdemo.tool.ToastUtils;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+
+
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.RecursiveTask;
 
-import static android.nfc.tech.MifareUltralight.PAGE_SIZE;
-import static android.nfc.tech.MifareUltralight.get;
-import static com.chad.library.adapter.base.BaseQuickAdapter.ALPHAIN;
 import static com.chad.library.adapter.base.BaseQuickAdapter.SCALEIN;
 
 
-public class TravelPeripheralTourFragment extends Fragment implements ITravelRouteListView {
-    List<TravelListBean> listBeans;
-    TravelRouteListPresenterImpl travelRouteListPresenter;
-    RecyclerView recyclerView;
-    boolean isloading=false;
+public class TravelPeripheralTourFragment extends Fragment implements ITravelRouteListView,View.OnClickListener{
+    RelativeLayout mEmptyDataRefreshLayout,mDataRefreshLayout;   //数据显示和不显示
+    Button mEmptyButton;
+    private  final int PAGE_SIZE = 20;
+    private RecyclerView mRecyclerView;
+    private TravelPeripheralApdater mQuickAdapter; //适配器
+    int currentPage=1; //当前页面 默认1
+    TravelRouteListPresenterImpl travelRouteListPresenter; //请求接口
+    List<TravelListBean> travelListBeans; //获取线路数量
+    String tourist_type;  //旅游类型
 
+
+    Integer count; //页面总数
+    Dialog dialog; //加载中
+    RefreshLayout refreshLayout; //加载中控件
 
     @SuppressLint("handler")
     private Handler handler=new Handler(){
         @Override
         public  void  handleMessage(Message message){
             if(message.what==1){
-                LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+
+                 LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
                 layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-                final TravelPeripheralApdater travelPeripheralApdater=new TravelPeripheralApdater(R.layout.fragment_travel_peripheral_tour_list,listBeans,getContext());
-                recyclerView.setLayoutManager(layoutManager);
-                recyclerView.setAdapter(travelPeripheralApdater);
-                travelPeripheralApdater.openLoadAnimation(SCALEIN );
-                travelPeripheralApdater.isFirstOnly(true);
+                mRecyclerView.setLayoutManager(layoutManager);
+                mQuickAdapter=new TravelPeripheralApdater(R.layout.fragment_travel_peripheral_tour_list,travelListBeans,getContext());
+
+                mQuickAdapter.openLoadAnimation();
+                mRecyclerView.setAdapter(mQuickAdapter);
+                mQuickAdapter.notifyDataSetChanged();
+                refreshLayout.finishLoadMore();
+                mQuickAdapter.openLoadAnimation(SCALEIN );
+                mQuickAdapter.isFirstOnly(true);
+
+
+
+
+                //判断适配器列表获取是否为空   显示空页面
+                if(mQuickAdapter.getData().size()==0){
+                    mEmptyDataRefreshLayout.setVisibility(View.VISIBLE);
+                    mDataRefreshLayout.setVisibility(View.INVISIBLE);
+                    dialog.dismiss();
+                }else {
+                    mEmptyDataRefreshLayout.setVisibility(View.INVISIBLE);
+                    mDataRefreshLayout.setVisibility(View.VISIBLE);
+                }
             }
         }
     };
+
+
+
+
+
+        public TravelPeripheralTourFragment(String tourist_type){
+        super();
+        this.tourist_type=tourist_type;
+
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View v= inflater.inflate(R.layout.fragment_travel_peripheral_tour, container, false);
         find(v);
-        travelRouteListPresenter=new TravelRouteListPresenterImpl(this);
-        travelRouteListPresenter.getRouteList("http://app.qifeixian.com/index.php/","1","10","","1.1","重庆");
-
-
         return v;
     }
 
+
     private void find(View v) {
-        listBeans=new ArrayList<>();
-        recyclerView=v.findViewById(R.id.Travel_List_TravelPeripheralTour_RecyclerView);
+        mEmptyDataRefreshLayout=v.findViewById(R.id.Travel_List_emptydata_layout);
+        mDataRefreshLayout=v.findViewById(R.id.Travel_List_data_layout);
+        mEmptyButton=v.findViewById(R.id.Travel_List_emptydata_Button);
+        travelListBeans=new ArrayList<>();
+        mRecyclerView=v.findViewById(R.id.Travel_List_TravelPeripheralTour_RecyclerView);
+        refreshLayout = (RefreshLayout)v.findViewById(R.id.refreshLayout);
+        mEmptyButton.setOnClickListener(this);
+        travelRouteListPresenter=new TravelRouteListPresenterImpl(this);
+        travelRouteListPresenter.getRouteList("http://app.qifeixian.com/index.php/",String.valueOf(currentPage),String.valueOf(PAGE_SIZE),"",tourist_type,"重庆市");
 
-//        //上拉加载
-//        travelPeripheralApdater.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
-//            @Override public void onLoadMoreRequested() {
-//                recyclerView.postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        if (size[0] >= 100) {
-//                            //数据全部加载完毕
-//                            travelPeripheralApdater.loadMoreEnd();
-//                        } else {
-//                            if (isErr) {
-//                                //成功获取更多数据（可以直接往适配器添加数据）
-//                                travelPeripheralApdater.addData(10,listBeans);
-//                                size[0] = travelPeripheralApdater.getData().size();
-//                                //主动调用加载完成，停止加载
-//                                travelPeripheralApdater.loadMoreComplete();
-//                            } else {
-//                                //获取更多数据失败
-//                                isErr = true;
-//                                ToastUtils.show(getContext(),"shibia ");
-//                                //同理，加载失败也要主动调用加载失败来停止加载（而且该方法会提示加载失败）
-//                                travelPeripheralApdater.loadMoreFail();
-//
-//                            }
-//                        }
-//                    }
-//
-//                }, 12);
-//            }
-//        }, recyclerView);
+        dialog = new Dialog(getContext(),R.style.progress_dialog);
+        dialog.setContentView(R.layout.dialog);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        TextView msg =dialog.findViewById(R.id.id_tv_loadingmsg);
+        msg.setText("卖力加载中");
+        dialog.show();
+        refreshLayout.setEnableOverScrollBounce(false);
+        refreshLayout.finishLoadMore(false);
 
-    }
+
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                int a=1;
+                refreshlayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
+            }
+        });
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(RefreshLayout refreshlayout) {
+
+                travelRouteListPresenter.getRouteList("http://app.qifeixian.com/index.php/",String.valueOf(currentPage),String.valueOf(PAGE_SIZE),"",tourist_type,"重庆市");
+
+                refreshlayout.setEnableScrollContentWhenLoaded(false);
+
+
+            }
+        });
+
+
+        }
 
 
     @Override
     public void getDataFailed(Throwable e) {
-        String localizedMessage = e.getLocalizedMessage();
-        Log.e("TravelRounteList",localizedMessage);
+        e.getMessage();
+
+        mEmptyDataRefreshLayout.setVisibility(View.VISIBLE);
+        mDataRefreshLayout.setVisibility(View.INVISIBLE);
+        dialog.dismiss();
     }
 
     @Override
     public void getDataSuccess(TravelRequestListBean travelRequestListBean) {
-        listBeans=new ArrayList<>();
-        for (int i = 0; i < travelRequestListBean.getData().getList().size(); i++) {
-            TravelListBean travelListBean=new TravelListBean();
-            travelListBean.setTitle(travelRequestListBean.getData().getList().get(i).getName());
-            travelListBean.setAward("+"+travelRequestListBean.getData().getList().get(i).getPrice_id());
+//        travelListBeans=new ArrayList<>();
+//        if (travelRequestListBean != null && firstload==true){
+//            for (int i = 0; i < travelRequestListBean.getData().getList().size(); i++) {
+//                TravelListBean travelListBean=new TravelListBean();
+//                travelListBean.setTitle(travelRequestListBean.getData().getList().get(i).getName());
+//                travelListBean.setAward("+"+travelRequestListBean.getData().getList().get(i).getPrice_id());
+//                travelListBean.setMoney("￥"+travelRequestListBean.getData().getList().get(i).getPrice()+"起/人");
+//                travelListBeans.add(travelListBean);
+//            }
+//            Toast.makeText(getContext(),"没有更多数据了",Toast.LENGTH_SHORT).show();
+//            mQuickAdapter.addData(travelListBeans);
+//            mQuickAdapter.loadMoreComplete();
+//            lastPage = currentPage;
+//        }
+//
+//
 
-            travelListBean.setMoney("￥"+travelRequestListBean.getData().getList().get(i).getPrice()+"起/人");
-            listBeans.add(travelListBean);
+
+            for (int i = 0; i < travelRequestListBean.getData().getList().size(); i++) {
+                TravelListBean travelListBean=new TravelListBean();
+                travelListBean.setTitle(travelRequestListBean.getData().getList().get(i).getName());
+                travelListBean.setAward("+"+travelRequestListBean.getData().getList().get(i).getPrice_id());
+                travelListBean.setMoney("￥"+travelRequestListBean.getData().getList().get(i).getPrice()+"起/人");
+                travelListBeans.add(travelListBean);
+
+
         }
+        count=Integer.parseInt(travelRequestListBean.getData().getNums());
+        if(Integer.parseInt(travelRequestListBean.getData().getNums())!=0 && travelRequestListBean!=null){
+            currentPage++;
+        }
+        dialog.dismiss();
+            Message message=new Message();
+            message.what=1;
+            handler.sendMessage(message);
 
-        Message message=new Message();
-        message.what=1;
-        handler.sendMessage(message);
 
-        isloading=true;
+
+
+
     }
+
+    @Override
+    public void onClick(View v) {
+        travelRouteListPresenter.getRouteList("http://app.qifeixian.com/index.php/",String.valueOf(currentPage),String.valueOf(PAGE_SIZE),"",tourist_type,"重庆市");
+        dialog = new Dialog(getContext(),R.style.progress_dialog);
+        dialog.setContentView(R.layout.dialog);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        TextView msg =dialog.findViewById(R.id.id_tv_loadingmsg);
+        msg.setText("卖力加载中");
+        dialog.show();
+        }
 }
+
+
+
+
+
+
+
+//
+//    private void find(View v) {
+//        listBeans=new ArrayList<>();
+//        recyclerView=v.findViewById(R.id.Travel_List_TravelPeripheralTour_RecyclerView);
+//
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+//        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//        travelPeripheralApdater=new TravelPeripheralApdater(R.layout.fragment_travel_peripheral_tour_list,listBeans,getContext());
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setAdapter(travelPeripheralApdater);
+//        travelPeripheralApdater.openLoadAnimation(SCALEIN );
+//        travelPeripheralApdater.isFirstOnly(true);
+//        travelPeripheralApdater.setOnLoadMoreListener(this,recyclerView);
+//        travelRouteListPresenter.getRouteList("http://app.qifeixian.com/index.php/",String.valueOf(Page),String.valueOf(limit),"",tourist_type,"重庆");
+//        //上拉加载
+//
+//    }
+
+
+
+
+//    List<TravelListBean> listBeans;
+//    TravelRouteListPresenterImpl travelRouteListPresenter;
+//    TravelPeripheralApdater travelPeripheralApdater;
+//    RecyclerView recyclerView;
+//    boolean isloading=false;
+//    String tourist_type;
+//    boolean isErr;
+//     static int  NUMS;
+//     static int Page=1;
+//     static int limit=5;
+//     static int count;
+//    public TravelPeripheralTourFragment(String tourist_type){
+//        super();
+//        this.tourist_type=tourist_type;
+//
+//    }
+//
+//
+//    @SuppressLint("handler")
+//    private Handler handler=new Handler(){
+//        @Override
+//        public  void  handleMessage(Message message){
+//            if(message.what==1){
+//
+//
+//            }
+//        }
+//    };

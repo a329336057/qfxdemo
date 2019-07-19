@@ -63,14 +63,17 @@ public class TravelFragment extends Fragment {
         tabLayout=v.findViewById(R.id.Travel_TabLayout);
         mTravellocalText=v.findViewById(R.id.Travel_local_map_text);
         mTravellocalText.setText((String)SharedPreferencesUtil.getData("localtion","重庆"));
-        fragmentList.add(new TravelPeripheralTourFragment());
-        fragmentList.add(new TravelPeripheralTourFragment());
-        fragmentList.add(new TravelPeripheralTourFragment());
+        fragmentList.add(new TravelPeripheralTourFragment("1.1"));
+        fragmentList.add(new TravelPeripheralTourFragment("1.2"));
+        fragmentList.add(new TravelPeripheralTourFragment("1.3"));
         fragmentList.add(new TravelEndSheetFragment());
         fragmentList.add(new PersonalTailorFragment());
         TravelViewPagerFragmentListAdapter travelViewPagerFragmentListAdapter=new TravelViewPagerFragmentListAdapter(getChildFragmentManager(),getContext(),fragmentList,titleTab);
+        viewPager.setOffscreenPageLimit(100);
+
         viewPager.setAdapter(travelViewPagerFragmentListAdapter);
         tabLayout.setupWithViewPager(viewPager);
+
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
                 TabLayout.Tab tab=tabLayout.getTabAt(i);
                 tab.setCustomView(travelViewPagerFragmentListAdapter.getTabView(i));

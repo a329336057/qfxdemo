@@ -20,7 +20,7 @@ public class TravelRouteListPresenterImpl  implements ITravelRouteListPresenter{
     @Override
     public void getRouteList(String baseUrl, String page,String limit,String name,String tourist_type,String start_city) {
         travelRouteListModel.getRouteList(baseUrl,page,limit,name,tourist_type,start_city)
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidScheduler.mainThread(),false,100)
                 .subscribe(new Subscriber<TravelRequestListBean>() {
                     @Override

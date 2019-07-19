@@ -1,13 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+
+<android.support.v4.widget.NestedScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.TravelPeripheralTourFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <android.support.v7.widget.RecyclerView
-      android:layout_width="match_parent"
-      android:id="@+id/Travel_List_TravelPeripheralTour_RecyclerView"
-      android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/Travel_List_data_layout"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".fragment.TravelPeripheralTourFragment">
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="false"
+            android:descendantFocusability="blocksDescendants">
 
-</FrameLayout>
+
+
+
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/Travel_List_TravelPeripheralTour_RecyclerView"
+                android:layout_height="match_parent"/>
+
+
+
+
+
+
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srlClassicsSpinnerStyle="Translate" />
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+
+
+
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:visibility="invisible"
+        android:id="@+id/Travel_List_emptydata_layout"
+        android:layout_marginTop="20dp"
+        >
+        <ImageView
+            android:layout_width="146dp"
+            android:layout_height="121dp"
+            android:layout_centerInParent="true"
+            android:id="@+id/Travel_List_emptydata_iamge"
+            android:src="@drawable/empty_data"/>
+        <TextView
+            android:id="@+id/Travel_List_emptydata_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Travel_List_emptydata_iamge"
+            android:layout_marginTop="27dp"
+            android:layout_centerHorizontal="true"
+            android:text="未搜索到内容"
+            />
+        <Button
+            android:layout_width="120dp"
+            android:id="@+id/Travel_List_emptydata_Button"
+            android:background="@drawable/login_verificantion_true"
+            android:text="刷新一次"
+            android:layout_below="@id/Travel_List_emptydata_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_height="40dp" />
+    </RelativeLayout>
+</RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

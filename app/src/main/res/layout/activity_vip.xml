@@ -6,11 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".Activitiy.VipActivity"
     >
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/vip_background"/>
+        android:background="@drawable/vip_background"
+        android:scaleType="fitCenter" />
     <Button
         android:layout_width="307dp"
         android:layout_height="56dp"

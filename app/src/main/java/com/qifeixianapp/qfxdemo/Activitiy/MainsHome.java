@@ -245,9 +245,6 @@ public class MainsHome extends AppCompatActivity  implements AMapLocationListene
                 isLocaltion=false;
             }
         }else {
-            Log.e("错误",aMapLocation.getErrorInfo());
-            SharedPreferencesUtil.Remove("localtion");
-            SharedPreferencesUtil.putData("localtion","重庆");
             isLocaltion=false;
 
         }

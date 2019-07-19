@@ -64,6 +64,7 @@ dependencies {
     implementation 'com.blankj:utilcode:1.11.1'
     //RecyclerView
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
+
     //弹出框
     implementation 'com.lxj:xpopup:1.8.6'
     implementation 'com.android.support:appcompat-v7:28.0.0'
@@ -98,5 +99,12 @@ dependencies {
     implementation 'com.github.yalantis:ucrop:2.2.1'
 //    //微信支付
 //    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:1.3.4'
+
+
+    //下拉刷新
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-31'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-31'//没有使用特殊Header，可以不加这行
+    implementation 'com.android.support:appcompat-v7:28.0.0'//版本 23以上（必须）
+
 
 }

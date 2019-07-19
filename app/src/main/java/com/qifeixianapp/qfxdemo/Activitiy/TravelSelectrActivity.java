@@ -33,7 +33,7 @@ import static com.chad.library.adapter.base.BaseQuickAdapter.SCALEIN;
 public class TravelSelectrActivity extends AppCompatActivity implements ITravelRouteListView {
     EditText mSelectEditText;
     ImageView mExit;
-
+    RelativeLayout relativeLayout;
     TravelRouteListPresenterImpl travelRouteListPresenter;
     RecyclerView mRecyclerView;
     List<TravelListBean> listBeans;
