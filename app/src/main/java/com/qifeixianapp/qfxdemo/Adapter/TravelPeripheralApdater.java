@@ -7,6 +7,8 @@ import android.widget.ImageView;
 
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.qifeixianapp.qfxdemo.Activitiy.SmsActivity;
@@ -26,13 +28,24 @@ public class TravelPeripheralApdater extends BaseQuickAdapter<TravelListBean, Ba
     protected void convert(BaseViewHolder helper, TravelListBean item) {
         //可链式调用赋值
         ImageView imageView=helper.itemView.findViewById(R.id.Travel_perpherak_tour_list_image);
-        Glide.with(context).load(item.getIamgeurl()).into(imageView);
+        RoundedCorners roundedCorners= new RoundedCorners(6);
+        RequestOptions requestOptions = new RequestOptions()
+                .bitmapTransform(roundedCorners)//圆角
+                .error(R.drawable.empty_data)
+                .placeholder(R.drawable.empty_data);
+        Glide.with(context)
+                .load(item.getIamgeurl())
+                .apply(requestOptions)
+                .into(imageView);
+//        Glide.with(context).load(item.getIamgeurl()).into(imageView);
         helper.setText(R.id.Travel_perpherak_tour_list_title, item.getTitle())
                 .setText(R.id.Travel_perpherak_tour_list_moneny, item.getMoney())
                 .setText(R.id.Travel_perpherak_tour_lis_Award,item.getAward());
 
         //获取当前条目position
         //int position = helper.getLayoutPosition();
+
+
 
     }
 }

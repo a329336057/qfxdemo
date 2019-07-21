@@ -39,7 +39,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
-        <activity android:name=".Activitiy.SelectCityActivity"></activity>
+        <activity android:name=".Activitiy.TravelBIllsActivity"></activity>
+        <activity android:name=".Activitiy.PresentationActivity" />
+        <activity android:name=".Activitiy.SelectCityActivity" />
         <activity android:name=".Activitiy.UpLoadHeadImageActivity" /> <!-- 注：以下authorities的值必须与上面使用的值保持一致 -->
         <provider
             android:name=".UI.MyFileProvider"
@@ -61,10 +63,9 @@
             android:screenOrientation="portrait"
             android:value="71a99ff709dbd11338c38d194bf694ac" />
 
-
         <activity
             android:name=".wxapi.WXPayEntryActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -122,8 +123,6 @@
         <activity
             android:name=".Activitiy.MerchantListctivity"
             android:screenOrientation="portrait" />
-
-
 
         <service android:name="com.amap.api.location.APSService" />
 

@@ -3,6 +3,7 @@ package com.qifeixianapp.qfxdemo.fragment;
 import android.annotation.SuppressLint;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -18,6 +19,10 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.qifeixianapp.qfxdemo.Activitiy.PresentationActivity;
+import com.qifeixianapp.qfxdemo.Activitiy.TravelBIllsActivity;
+import com.qifeixianapp.qfxdemo.Activitiy.TravelReserveActivity;
 import com.qifeixianapp.qfxdemo.Activitiy.TravelSelectrActivity;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.TravelListBean;
 import com.qifeixianapp.qfxdemo.Adapter.TravelPeripheralApdater;
@@ -44,6 +49,7 @@ import static com.chad.library.adapter.base.BaseQuickAdapter.SCALEIN;
 public class TravelPeripheralTourFragment extends Fragment implements ITravelRouteListView,View.OnClickListener{
     RelativeLayout mEmptyDataRefreshLayout,mDataRefreshLayout;   //数据显示和不显示
     Button mEmptyButton;
+
     private  final int PAGE_SIZE = 20;
     private RecyclerView mRecyclerView;
     private TravelPeripheralApdater mQuickAdapter; //适配器
@@ -57,7 +63,7 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
     Dialog dialog; //加载中
     RefreshLayout refreshLayout; //加载中控件
 
-    @SuppressLint("handler")
+    @SuppressLint({"handler", "HandlerLeak"})
     private Handler handler=new Handler(){
         @Override
         public  void  handleMessage(Message message){
@@ -74,10 +80,6 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
                 refreshLayout.finishLoadMore();
                 mQuickAdapter.openLoadAnimation(SCALEIN );
                 mQuickAdapter.isFirstOnly(true);
-
-
-
-
                 //判断适配器列表获取是否为空   显示空页面
                 if(mQuickAdapter.getData().size()==0){
                     mEmptyDataRefreshLayout.setVisibility(View.VISIBLE);
@@ -87,6 +89,18 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
                     mEmptyDataRefreshLayout.setVisibility(View.INVISIBLE);
                     mDataRefreshLayout.setVisibility(View.VISIBLE);
                 }
+                mQuickAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                        TravelListBean item = (TravelListBean) adapter.getItem(position);
+
+                        Intent intent=new Intent(getContext(), TravelBIllsActivity.class);
+                        intent.putExtra("route_id",item.getRoute_id());
+                        intent.putExtra("price_id",item.getPrice_id());
+                        getContext().startActivity(intent);
+                    }
+                });
+
             }
         }
     };
@@ -112,6 +126,7 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
 
 
     private void find(View v) {
+
         mEmptyDataRefreshLayout=v.findViewById(R.id.Travel_List_emptydata_layout);
         mDataRefreshLayout=v.findViewById(R.id.Travel_List_data_layout);
         mEmptyButton=v.findViewById(R.id.Travel_List_emptydata_Button);
@@ -121,7 +136,7 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
         mEmptyButton.setOnClickListener(this);
         travelRouteListPresenter=new TravelRouteListPresenterImpl(this);
         travelRouteListPresenter.getRouteList("http://app.qifeixian.com/index.php/",String.valueOf(currentPage),String.valueOf(PAGE_SIZE),"",tourist_type,"重庆市");
-
+        mRecyclerView.setOnClickListener(this);
         dialog = new Dialog(getContext(),R.style.progress_dialog);
         dialog.setContentView(R.layout.dialog);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -132,24 +147,17 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
         refreshLayout.finishLoadMore(false);
 
 
-        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh(RefreshLayout refreshlayout) {
-                int a=1;
-                refreshlayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
-            }
-        });
+
         refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(RefreshLayout refreshlayout) {
 
-                travelRouteListPresenter.getRouteList("http://app.qifeixian.com/index.php/",String.valueOf(currentPage),String.valueOf(PAGE_SIZE),"",tourist_type,"重庆市");
-
+               travelRouteListPresenter.getRouteList("http://app.qifeixian.com/index.php/",String.valueOf(currentPage),String.valueOf(PAGE_SIZE),"",tourist_type,"重庆市");
                 refreshlayout.setEnableScrollContentWhenLoaded(false);
 
-
             }
-        });
+          });
+
 
 
         }
@@ -166,29 +174,18 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
 
     @Override
     public void getDataSuccess(TravelRequestListBean travelRequestListBean) {
-//        travelListBeans=new ArrayList<>();
-//        if (travelRequestListBean != null && firstload==true){
-//            for (int i = 0; i < travelRequestListBean.getData().getList().size(); i++) {
-//                TravelListBean travelListBean=new TravelListBean();
-//                travelListBean.setTitle(travelRequestListBean.getData().getList().get(i).getName());
-//                travelListBean.setAward("+"+travelRequestListBean.getData().getList().get(i).getPrice_id());
-//                travelListBean.setMoney("￥"+travelRequestListBean.getData().getList().get(i).getPrice()+"起/人");
-//                travelListBeans.add(travelListBean);
-//            }
-//            Toast.makeText(getContext(),"没有更多数据了",Toast.LENGTH_SHORT).show();
-//            mQuickAdapter.addData(travelListBeans);
-//            mQuickAdapter.loadMoreComplete();
-//            lastPage = currentPage;
-//        }
-//
-//
-
-
             for (int i = 0; i < travelRequestListBean.getData().getList().size(); i++) {
                 TravelListBean travelListBean=new TravelListBean();
                 travelListBean.setTitle(travelRequestListBean.getData().getList().get(i).getName());
-                travelListBean.setAward("+"+travelRequestListBean.getData().getList().get(i).getPrice_id());
+                travelListBean.setAward("+"+travelRequestListBean.getData().getList().get(i).getIntegral_deductible());
                 travelListBean.setMoney("￥"+travelRequestListBean.getData().getList().get(i).getPrice()+"起/人");
+                travelListBean.setPrice_id(travelRequestListBean.getData().getList().get(i).getPrice_id());
+                travelListBean.setRoute_id(travelRequestListBean.getData().getList().get(i).getId());
+                if(travelRequestListBean.getData().getList().get(i).getImg()!=null){
+                    travelListBean.setIamgeurl(travelRequestListBean.getData().getList().get(i).getImg().getRelativePath());
+                }else {
+                    travelListBean.setIamgeurl("");
+                }
                 travelListBeans.add(travelListBean);
 
 
@@ -201,11 +198,6 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
             Message message=new Message();
             message.what=1;
             handler.sendMessage(message);
-
-
-
-
-
     }
 
     @Override
@@ -218,7 +210,33 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
         msg.setText("卖力加载中");
         dialog.show();
         }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

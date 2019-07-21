@@ -8,7 +8,7 @@ import com.qifeixianapp.qfxdemo.tool.AndroidScheduler;
 import rx.Subscriber;
 import rx.schedulers.Schedulers;
 
-public class TravelRouteListPresenterImpl  implements ITravelRouteListPresenter{
+public class TravelRouteListPresenterImpl  implements com.qifeixianapp.qfxdemo.Presenter.TravelRouteList.ITravelRouteListPresenter {
 
     private TravelRouteListModel travelRouteListModel;
     private ITravelRouteListView view;
@@ -25,8 +25,6 @@ public class TravelRouteListPresenterImpl  implements ITravelRouteListPresenter{
                 .subscribe(new Subscriber<TravelRequestListBean>() {
                     @Override
                     public void onCompleted() {
-
-
                     }
 
                     @Override

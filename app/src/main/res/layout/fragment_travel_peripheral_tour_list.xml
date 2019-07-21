@@ -3,6 +3,7 @@
     android:layout_marginBottom="18dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/Travel_perpherak_tour_lis_RelativeLayout"
     android:descendantFocusability="blocksDescendants"
     android:focusable="false"
     >

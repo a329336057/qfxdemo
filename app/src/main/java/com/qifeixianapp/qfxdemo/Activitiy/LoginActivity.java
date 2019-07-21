@@ -12,17 +12,19 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.tool.ToastUtils;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     VideoView mVideoView;
     Button mVerification;
     TextView mTextPhone;
     boolean isLogin;
+    ImageView mExitImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,9 +93,19 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void find() {
+        mExitImage=findViewById(R.id.login_eixt);
         mVideoView=findViewById(R.id.login_video);
         mVerification=findViewById(R.id.login_verification);
         mTextPhone=findViewById(R.id.login_phone);
+        mExitImage.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.login_eixt:
+                finish();
+                break;
+        }
+    }
 }

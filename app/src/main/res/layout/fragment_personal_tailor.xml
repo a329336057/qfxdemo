@@ -239,15 +239,16 @@
         <EditText
             android:id="@+id/personal_budget_EditText"
             android:layout_width="match_parent"
+            android:lines="1"
+            android:maxLength="20"
+            android:inputType="number"
             android:textCursorDrawable="@drawable/cursor"
             android:layout_height="wrap_content"
             android:background="@null"
             android:textSize="14sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="130dp"
-            android:lines="1"
-            android:maxLength="20"
-            android:inputType="number"
+
             android:hint="请输入预算 单位默认为元"/>
         <View
             android:layout_width="fill_parent"
