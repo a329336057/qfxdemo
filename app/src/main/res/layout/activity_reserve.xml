@@ -183,11 +183,17 @@
         android:text="请选择出行日期"
         android:layout_below="@id/Reserve_viewpager"
         android:layout_marginTop="15dp"
+        android:id="@+id/Travel_Reserve_DateSelect"
         android:layout_centerHorizontal="true"/>
+
+
+
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_below="@id/Reserve_viewpager"
+        android:id="@+id/Travel_Reserve_Bills_RelativeLayout"
+        android:visibility="gone"
         android:layout_height="wrap_content">
         <View
             android:layout_width="match_parent"
@@ -258,7 +264,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="45dp"
+                android:layout_marginRight="25dp"
                 android:text="起/ 人" />
             <View
                 android:layout_width="match_parent"
@@ -316,7 +322,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="45dp"
+                android:layout_marginRight="25dp"
                 android:text="起/ 人" />
             <View
                 android:layout_width="match_parent"
@@ -334,8 +340,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="11dp"
+                android:layout_marginTop="13dp"
                 android:text="房差"
+
                 android:textSize="13sp"
                 android:id="@+id/Travel_Reserve_fangcha"
                 android:textColor="#FF696767"
@@ -353,15 +360,16 @@
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:src="@drawable/travel_jian"
-                android:layout_centerVertical="true"
+
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="124dp"
+                android:layout_marginTop="19dp"
                 />
             <ImageView
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:src="@drawable/travel_add"
-                android:layout_centerVertical="true"
+                android:layout_marginTop="19dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="21dp" />
             <TextView
@@ -369,6 +377,9 @@
                 android:layout_height="wrap_content"
                 android:textColor="#FF696767"
                 android:textSize="13sp"
+                android:layout_marginTop="19dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="78dp"
                 android:text="0"/>
             <View
                 android:layout_marginTop="19dp"
@@ -394,9 +405,68 @@
                 android:layout_height="wrap_content"
                 android:textColor="#FFFF4A26"
                 android:textSize="16sp"
+                android:id="@+id/Travel_Reserve_Bills_Money"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="12dp"
                 android:text="应付￥2000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FDB108"
+                android:textSize="16sp"
+                android:layout_toRightOf="@id/Travel_Reserve_Bills_Money"
+                android:id="@+id/Travel_Reserve_Bills_FB"
+                android:layout_marginTop="12dp"
+                android:text="+215"/>
+            <ImageView
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:src="@drawable/travel_list_fb"
+                android:layout_toRightOf="@id/Travel_Reserve_Bills_FB"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="19dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#696767"
+                android:textSize="11sp"
+                android:text="成人x2,儿童x1，房差x0"
+                android:layout_below="@id/Travel_Reserve_Bills_FB"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="20dp"/>
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="8dp"
+                android:src="@drawable/travel_up"
+                android:layout_centerInParent="true"/>
+            <RelativeLayout
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/login_verificantion_true"
+                android:layout_height="48dp"
+                android:layout_width="127dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#1F1E1E"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="4dp"
+                    android:layout_alignParentTop="true"
+                    android:text="下一步"
+                    android:textSize="17sp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#696767"
+                    android:text="填写预定信息"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="9dp"/>
+            </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
 

@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 
 import android.support.design.widget.TabLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -33,6 +34,9 @@ import java.util.Date;
 import java.util.List;
 
 public class TravelReserveActivity extends AppCompatActivity implements OnTitleBarListener {
+
+    public static RelativeLayout mTravelBillsRelativeLayout;
+    public static TextView mTravelDateSelect;
     public static TextView SelectDay; //选择的日子
     TabLayout mTableLayout;
     TitleBar mTitleBar;
@@ -122,6 +126,12 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
         traveReserveDateBean9.setAward("1314");
         traveReserveDateBean9.setMoeny("2333");
         traveReserveDateBeans.add(traveReserveDateBean9);
+
+        TraveReserveDateBean traveReserveDateBean10=new TraveReserveDateBean();
+        traveReserveDateBean10.setTravelDate("2020-3-22 09:34:18");
+        traveReserveDateBean10.setAward("1314");
+        traveReserveDateBean10.setMoeny("2333");
+        traveReserveDateBeans.add(traveReserveDateBean10);
 }
 
     private void operation() {
@@ -166,8 +176,9 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
     }
 
     private void find()  {
-        Intent intent=getIntent();
 
+        mTravelBillsRelativeLayout=findViewById(R.id.Travel_Reserve_Bills_RelativeLayout);
+        mTravelDateSelect=findViewById(R.id.Travel_Reserve_DateSelect);
         SelectDay=findViewById(R.id.Reserve_SelectDay);
         for (int i = 0; i <MonthList.size() ; i++) {
             String title=String.valueOf(MonthList.get(i));
@@ -189,7 +200,7 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
             try {
                 Date date = sdf.parse(traveReserveDateBeans.get(i).getTravelDate());
                 calendar_Date.setTime(date);
-                int weekMonth = calendar_Date.get(android.icu.util.Calendar.MONTH) + 1;
+                int weekMonth = calendar_Date.get(android.icu.util.Calendar.MONTH) + 1; //周月
                 int mo=MonthList.get(j);
                 if(mo==weekMonth){
                     list.add(traveReserveDateBeans.get(i));

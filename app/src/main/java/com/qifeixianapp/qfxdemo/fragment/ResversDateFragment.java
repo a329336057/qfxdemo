@@ -133,6 +133,8 @@ public class ResversDateFragment extends Fragment implements BaseQuickAdapter.On
 
                     //在日期内则显示
                     TravelReserveActivity.SelectDay.setText("出发日期:"+Year+"年"+MothlistItem+"月"+day.getText()+"日出发");
+                    TravelReserveActivity.mTravelBillsRelativeLayout.setVisibility(View.VISIBLE);
+                    TravelReserveActivity.mTravelDateSelect.setVisibility(View.INVISIBLE);
                     selectDay=view.findViewById(R.id.travel_Reserve_List_back);
                     selectDay.setVisibility(View.VISIBLE);
 

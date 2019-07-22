@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -63,9 +65,27 @@ public class TravelFragment extends Fragment {
         tabLayout=v.findViewById(R.id.Travel_TabLayout);
         mTravellocalText=v.findViewById(R.id.Travel_local_map_text);
         mTravellocalText.setText((String)SharedPreferencesUtil.getData("localtion","重庆"));
-        fragmentList.add(new TravelPeripheralTourFragment("1.1"));
-        fragmentList.add(new TravelPeripheralTourFragment("1.2"));
-        fragmentList.add(new TravelPeripheralTourFragment("1.3"));
+        TravelPeripheralTourFragment fragment1 = new TravelPeripheralTourFragment();
+        TravelPeripheralTourFragment fragment2 = new TravelPeripheralTourFragment();
+        TravelPeripheralTourFragment fragment3 = new TravelPeripheralTourFragment();
+        Bundle bundle=new Bundle();
+        bundle.putString("tourist_type","1.1");
+        fragment1.setArguments(bundle);
+
+
+        Bundle bundle2=new Bundle();
+        bundle2.putString("tourist_type","1.2");
+        fragment2.setArguments(bundle2);
+
+
+        Bundle bundle3=new Bundle();
+        bundle3.putString("tourist_type","1.3");
+        fragment3.setArguments(bundle3);
+
+
+        fragmentList.add(fragment1);
+        fragmentList.add(fragment2);
+        fragmentList.add(fragment3);
         fragmentList.add(new TravelEndSheetFragment());
         fragmentList.add(new PersonalTailorFragment());
         TravelViewPagerFragmentListAdapter travelViewPagerFragmentListAdapter=new TravelViewPagerFragmentListAdapter(getChildFragmentManager(),getContext(),fragmentList,titleTab);

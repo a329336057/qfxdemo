@@ -46,7 +46,7 @@ import java.util.List;
 
 import static com.chad.library.adapter.base.BaseQuickAdapter.SCALEIN;
 
-
+@SuppressLint("ValidFragment")
 public class TravelPeripheralTourFragment extends Fragment implements ITravelRouteListView,View.OnClickListener{
     RelativeLayout mEmptyDataRefreshLayout,mDataRefreshLayout;   //数据显示和不显示
     Button mEmptyButton;
@@ -108,17 +108,16 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
 
 
 
-        public TravelPeripheralTourFragment(String tourist_type){
-        super();
-        this.tourist_type=tourist_type;
 
-    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
         View v= inflater.inflate(R.layout.fragment_travel_peripheral_tour, container, false);
+        Bundle bundle = getArguments();
+        tourist_type= bundle.getString("tourist_type");
         find(v);
         return v;
     }
