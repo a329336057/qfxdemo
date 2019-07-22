@@ -39,7 +39,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
-        <activity android:name=".Activitiy.TravelBIllsActivity"></activity>
+        <activity android:name=".Activitiy.TsetAndroidActivity"></activity>
+        <activity android:name=".Activitiy.TravelBIllsActivity" />
         <activity android:name=".Activitiy.PresentationActivity" />
         <activity android:name=".Activitiy.SelectCityActivity" />
         <activity android:name=".Activitiy.UpLoadHeadImageActivity" /> <!-- 注：以下authorities的值必须与上面使用的值保持一致 -->
@@ -133,7 +134,13 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <data
+                    android:host="eric.com"
+                    android:scheme="schemedemo"
+                    android:pathPrefix="/openwith"
+                    />
             </intent-filter>
+
         </activity>
     </application>
 

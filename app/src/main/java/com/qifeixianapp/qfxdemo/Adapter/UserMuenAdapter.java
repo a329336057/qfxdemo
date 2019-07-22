@@ -15,6 +15,7 @@ import com.qifeixianapp.qfxdemo.Activitiy.MailListActivity;
 import com.qifeixianapp.qfxdemo.Activitiy.MyFansActivity;
 import com.qifeixianapp.qfxdemo.Activitiy.OrderActivity;
 import com.qifeixianapp.qfxdemo.Activitiy.TravelSelectrActivity;
+import com.qifeixianapp.qfxdemo.Activitiy.TsetAndroidActivity;
 import com.qifeixianapp.qfxdemo.Activitiy.WalletActivity;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.HomeUserMuenBean;
 import com.qifeixianapp.qfxdemo.R;
@@ -56,12 +57,10 @@ public class UserMuenAdapter extends RecyclerView.Adapter<UserMuenAdapter.ViewHo
                         progressDialog.dismiss();
                     }
                     if(viewHolder.getAdapterPosition()==3){
-                        progressDialog.setMessage("正载入中……");
-                        progressDialog.setCanceledOnTouchOutside(true);
-                        progressDialog.show();
-                        Intent intent=new Intent(context, MailListActivity.class);
+
+                        Intent intent=new Intent(context, TsetAndroidActivity.class);
                         context.startActivity(intent);
-                        progressDialog.dismiss();
+
                     }
                     if(viewHolder.getAdapterPosition()==4){
                     Intent intent=new Intent(context, TravelSelectrActivity.class);

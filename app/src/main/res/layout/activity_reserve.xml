@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.v4.widget.NestedScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activitiy.TravelReserveActivity">
+
     <com.hjq.bar.TitleBar
         android:id="@+id/Reserve_bar"
         android:layout_width="match_parent"
@@ -15,8 +18,54 @@
         app:barStyle="light"
         app:rightColor="#303030"
         app:title="选择日期和出行人数" />
-    <LinearLayout
+    <RelativeLayout
         android:layout_below="@id/Reserve_bar"
+        android:layout_width="match_parent"
+        android:id="@+id/Travel_Bills_Reserve_Select_RelativeLayout"
+        android:layout_height="43dp">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#E6E6E6"/>
+        <ImageView
+            android:layout_width="3dp"
+            android:layout_height="14dp"
+            android:background="#FFFFDC2B"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="选择出发地"
+            android:layout_marginLeft="28dp"
+            android:layout_centerVertical="true"
+            android:textColor="#FF333232"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="重庆"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"/>
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="18dp"
+            android:src="@drawable/user_data_myheadimage"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_alignParentBottom="true"
+            android:background="#ECECEC"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_below="@id/Travel_Bills_Reserve_Select_RelativeLayout"
         android:layout_width="match_parent"
         android:id="@+id/Reserve_Linear"
         android:layout_height="40dp"
@@ -131,7 +180,225 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="王倩而且23123 1313123123"
-        android:id="@+id/Reserve_SelectDay"
-        android:layout_below="@id/Reserve_viewpager"/>
+        android:text="请选择出行日期"
+        android:layout_below="@id/Reserve_viewpager"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_below="@id/Reserve_viewpager"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="11dip"
+            android:background="#EEEEEE"
+            ></View>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:text="王倩而且23123 1313123123"
+
+            android:layout_marginLeft="20dp"
+            android:id="@+id/Reserve_SelectDay"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#EEEEEE"
+            android:id="@+id/Travel_Reserve_Layout"
+            android:layout_marginTop="61dp"></View>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_below="@id/Travel_Reserve_Layout"
+            android:id="@+id/Travel_Reserve_man"
+            android:layout_height="37dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="成人"
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                />
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:src="@drawable/travel_jian"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="102dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_marginLeft="159dp"
+                android:layout_centerVertical="true"/>
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:src="@drawable/travel_add"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="205dp"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFF4A26"
+                android:text="￥1250"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@id/Travel_Reserve_man_text"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/Travel_Reserve_man_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="45dp"
+                android:text="起/ 人" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="#EEEEEE"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="61dp"></View>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_below="@id/Travel_Reserve_man"
+            android:id="@+id/Travel_Reserve_chlid"
+            android:layout_height="37dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="成人"
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                />
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:src="@drawable/travel_jian"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="102dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_marginLeft="159dp"
+                android:layout_centerVertical="true"/>
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:src="@drawable/travel_add"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="205dp"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFF4A26"
+                android:text="￥1250"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@id/Travel_Reserve_chlid_text"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/Travel_Reserve_chlid_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="45dp"
+                android:text="起/ 人" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="#EEEEEE"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="61dp"></View>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_below="@id/Travel_Reserve_chlid"
+            android:id="@+id/Travel_Reserve_fangcha_RelativeLayout"
+            android:layout_height="90dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="11dp"
+                android:text="房差"
+                android:textSize="13sp"
+                android:id="@+id/Travel_Reserve_fangcha"
+                android:textColor="#FF696767"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:layout_below="@id/Travel_Reserve_fangcha"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/Travel_Reserve_fangcha_moeny"
+                android:text="￥150 /份"/>
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:src="@drawable/travel_jian"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="124dp"
+                />
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:src="@drawable/travel_add"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="21dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FF696767"
+                android:textSize="13sp"
+                android:text="0"/>
+            <View
+                android:layout_marginTop="19dp"
+                android:layout_width="wrap_content"
+                android:layout_height="43dip"
+                android:background="#FFF3F3F3"
+                android:layout_below="@id/Travel_Reserve_fangcha_moeny"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@id/Travel_Reserve_fangcha_RelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="62dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFF4A26"
+                android:textSize="16sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:text="应付￥2000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFF4A26"
+                android:textSize="16sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:text="应付￥2000"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
 </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

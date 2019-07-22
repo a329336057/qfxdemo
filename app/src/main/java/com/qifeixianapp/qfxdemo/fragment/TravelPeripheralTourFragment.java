@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.qifeixianapp.qfxdemo.Activitiy.PresentationActivity;
@@ -68,19 +69,17 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
         @Override
         public  void  handleMessage(Message message){
             if(message.what==1){
-
                  LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
                 layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                 mRecyclerView.setLayoutManager(layoutManager);
                 mQuickAdapter=new TravelPeripheralApdater(R.layout.fragment_travel_peripheral_tour_list,travelListBeans,getContext());
-
                 mQuickAdapter.openLoadAnimation();
                 mRecyclerView.setAdapter(mQuickAdapter);
                 mQuickAdapter.notifyDataSetChanged();
                 refreshLayout.finishLoadMore();
                 mQuickAdapter.openLoadAnimation(SCALEIN );
                 mQuickAdapter.isFirstOnly(true);
-                //判断适配器列表获取是否为空   显示空页面
+                //判断适配器列表获取是否为空显示空页面
                 if(mQuickAdapter.getData().size()==0){
                     mEmptyDataRefreshLayout.setVisibility(View.VISIBLE);
                     mDataRefreshLayout.setVisibility(View.INVISIBLE);
@@ -166,7 +165,6 @@ public class TravelPeripheralTourFragment extends Fragment implements ITravelRou
     @Override
     public void getDataFailed(Throwable e) {
         e.getMessage();
-
         mEmptyDataRefreshLayout.setVisibility(View.VISIBLE);
         mDataRefreshLayout.setVisibility(View.INVISIBLE);
         dialog.dismiss();

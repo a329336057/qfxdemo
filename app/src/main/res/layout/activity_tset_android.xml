@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activitiy.TsetAndroidActivity">
+<com.hjq.bar.TitleBar
+    android:layout_width="match_parent"
+    app:leftTitle=""
+    android:id="@+id/Testjsanzroid"
+    app:title="测试安卓js交互"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingConstraints" />
+    <WebView
+        android:layout_below="@id/Testjsanzroid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/testjsandroidwebview"
+        ></WebView>
+</RelativeLayout>

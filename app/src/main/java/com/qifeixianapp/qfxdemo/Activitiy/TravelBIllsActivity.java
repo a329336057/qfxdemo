@@ -9,6 +9,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.qifeixianapp.qfxdemo.Bean.TravelBillsBean;
@@ -27,10 +28,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TravelBIllsActivity extends AppCompatActivity implements View.OnClickListener,ITravelBillsView{
-    Button mTravel_ReserveButton;
-    TextView mTravelBillsTitle,mFB,mMoney;
+    Button mTravel_ReserveButton,mTravelNetworkButton;
+    TextView mTravelBillsTitle,mFB,mMoney,mNetworkText;
+    RelativeLayout mDataRelativeLayout,mLoadingRelativeLayout;
+    List<String> TravelLocationGODateTime;
     WebView mProductWebView,mIncludesWebView,mReminderWebView,mLineTripWebView;
     ImageView mEixtButton;
+    String Route_id,price_id;
     Banner mBanner;
     RecyclerView mLocationGoRecyclerView;
     TraveBillsPrsenterImpl travelBillsPresenter;
@@ -43,16 +47,22 @@ public class TravelBIllsActivity extends AppCompatActivity implements View.OnCli
 
     private void find() {
         travelBillsPresenter=new TraveBillsPrsenterImpl(this);
+        TravelLocationGODateTime=new ArrayList<>();
         mProductWebView=findViewById(R.id.Travel_Bills_Product_WebView); //产品特点
         mIncludesWebView=findViewById(R.id.Travel_Bills_Includes_WebView); //费用包含
         mReminderWebView=findViewById(R.id.Travel_Bills_Reminder_WebView); //用户须知
         mLineTripWebView=findViewById(R.id.Travel_Bills_LineTrip_WebView); //线路行程
         mTravel_ReserveButton=findViewById(R.id.Travel_Bills_Reserve_Button);
+        mDataRelativeLayout=findViewById(R.id.Travel_Bills_data_RelativeLayout);
+        mNetworkText=findViewById(R.id.Travel_Bills_Network_text);
+        mTravelNetworkButton=findViewById(R.id.Travel_Bills_Network_Button);
+        mLoadingRelativeLayout=findViewById(R.id.Travel_Bills_Loading);
         mTravelBillsTitle=findViewById(R.id.Travel_Bills_Title);
         mFB=findViewById(R.id.Travel_Bills_FB);
         mMoney=findViewById(R.id.Travel_Bills_Money);
         mEixtButton=findViewById(R.id.Travel_Bills_Exit);
-
+        mDataRelativeLayout.setVisibility(View.INVISIBLE);
+        mLoadingRelativeLayout.setVisibility(View.VISIBLE);
         mLocationGoRecyclerView=findViewById(R.id.Travel_Bills_LocationGg_RecyclerView);
         mEixtButton.setOnClickListener(this);
         mTravel_ReserveButton.setOnClickListener(this);
@@ -63,8 +73,8 @@ public class TravelBIllsActivity extends AppCompatActivity implements View.OnCli
 
     private void loaddata() {
         Intent intent=getIntent();
-        String Route_id=intent.getStringExtra("route_id");
-        String price_id=intent.getStringExtra("price_id");
+         Route_id=intent.getStringExtra("route_id");
+         price_id=intent.getStringExtra("price_id");
         ToastUtils.show(TravelBIllsActivity.this,Route_id+" 以及 "+price_id);
         travelBillsPresenter.getRouteDetail(DataUitl.IP,Route_id,price_id);
     }
@@ -95,34 +105,48 @@ public class TravelBIllsActivity extends AppCompatActivity implements View.OnCli
                 Intent intent=new Intent(TravelBIllsActivity.this,TravelReserveActivity.class);
                 startActivity(intent);
                 break;
-                case R.id.Travel_Bills_Exit:
+            case R.id.Travel_Bills_Exit:
                  finish();
+                break;
+            case R.id.Travel_Bills_Network_Button:
+                travelBillsPresenter.getRouteDetail(DataUitl.IP,Route_id,price_id);
                 break;
         }
     }
 
     @Override
     public void getDataFailed(Throwable e) {
-
-
+        mNetworkText.setText("检查网络异常");
+        mTravelNetworkButton.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void getDataSuccess(TravelBillsBean travelBillsBean) {
-        List<String>tripList=new ArrayList<>();
+        if(travelBillsBean.getCode()==1){
+            List<String>tripList=new ArrayList<>();
             mTravelBillsTitle.setText(travelBillsBean.getData().getRoute_info().getName());
             mFB.setText("+"+travelBillsBean.getData().getRoute_info().getIntegral_deductible());
             mMoney.setText("￥"+travelBillsBean.getData().getRoute_info().getPrice());
+            //对页面赋值
             mIncludesWebView.loadData(getHtmlData(travelBillsBean.getData().getRoute_info().getCost_includes()),"text/html;charset=utf-8","utf-8");
             mReminderWebView.loadData(getHtmlData(travelBillsBean.getData().getRoute_info().getReminder()),"text/html;charset=utf-8","utf-8");
             mProductWebView.loadData(getHtmlData(travelBillsBean.getData().getRoute_info().getProduct_characteristic()),"text/html;charset=utf-8","utf-8");
             for (int i = 0; i < travelBillsBean.getData().getRoute_trip().size(); i++) {
-            tripList.add(travelBillsBean.getData().getRoute_trip().get(i).getContent());
-             }
+                tripList.add(travelBillsBean.getData().getRoute_trip().get(i).getContent());
+            }
+
             mLineTripWebView.loadData(getHtmlDataList(tripList),"text/html;charset=utf-8","utf-8");
             if(travelBillsBean.getData().getRoute_info().getCost_includes()==""){
                 ToastUtils.show(TravelBIllsActivity.this,"没有Characteristic");
             }
+     
+            mDataRelativeLayout.setVisibility(View.VISIBLE);
+            mLoadingRelativeLayout.setVisibility(View.INVISIBLE);
+        }else {
+            mNetworkText.setText("检查网络异常");
+            mTravelNetworkButton.setVisibility(View.VISIBLE);
+        }
+
 }
     String getHtmlData(String bodyHTML){
         String head = "<head>" +
