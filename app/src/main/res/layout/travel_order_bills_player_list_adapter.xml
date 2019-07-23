@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#696767"
+        android:textSize="14sp"
+        android:id="@+id/Travel_Order_Bills_List_name"
+        android:text="姓名 ：万镇源"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#696767"
+        android:textSize="14sp"
+        android:id="@+id/Travel_Order_Bills_List_tell"
+        android:layout_below="@id/Travel_Order_Bills_List_name"
+        android:text="姓名 ：万镇源"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#696767"
+        android:textSize="14sp"
+        android:id="@+id/Travel_Order_Bills_List_ID"
+        android:layout_below="@id/Travel_Order_Bills_List_tell"
+        android:text="姓名 ：万镇源"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="20dp"/>
+</RelativeLayout>

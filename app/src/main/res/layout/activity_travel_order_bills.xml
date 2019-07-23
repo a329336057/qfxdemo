@@ -18,9 +18,11 @@
                 app:title="订单详情"
                 android:id="@+id/Travel_Order_Bills_bar"
                 app:leftTitle=""/>
+            <!--订单状态栏-->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:id="@+id/Travel_Order_Bills_TypeRelativeLayout"
                 android:layout_below="@id/Travel_Order_Bills_bar"
                 android:background="#FFFFDC2B">
                 <!--未支付待确认状态-->
@@ -194,12 +196,407 @@
                 </RelativeLayout>
 
             </RelativeLayout>
+            <!--订单属性-->
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/Travel_Order_Bills_TypeRelativeLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="40dp"
                 android:id="@+id/Travel_Order_Bills_Docment">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="11dp"
+                    android:background="#F3F3F3"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:lines="2"
+                    android:textColor="#1F1E1E"
+                    android:textSize="15sp"
+                    android:id="@+id/Travel_Order_Bills_Docment_Title"
+                    android:text="爱上贝加尔湖，冯科草原的邂逅，天香山的雄伟，走在路上。向着心里，重庆出发"/>
+                <!--应付款-->
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:id="@+id/Travel_Order_Bills_Docment_PayTab"
+                    android:layout_below="@id/Travel_Order_Bills_Docment_Title"
+                    android:layout_marginTop="24dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/Travel_Order_Bills_Docment_Pay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="应  付  款 :"
+                        android:textColor="#696767"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_toRightOf="@id/Travel_Order_Bills_Docment_Pay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FF4A26"
+                        android:text="￥ 1700"
+                        android:id="@+id/Travel_Order_Bills_Docment_moeny"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_toRightOf="@id/Travel_Order_Bills_Docment_moeny"
+                        android:layout_marginTop="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#696767"
+                        android:textSize="12sp"
+                        android:text="（已抵扣 300）"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dip"
+                        android:background="#EAEAEA"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@id/Travel_Order_Bills_Docment_Pay"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="明细"
+                        android:layout_alignParentRight="true"
+                        android:textColor="#FF4A26"
+                        />
+                </RelativeLayout>
+                <!--订单编号-->
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:id="@+id/Travel_Order_Bills_Docment_OrderNumberTavb"
+                    android:layout_below="@id/Travel_Order_Bills_Docment_PayTab"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/Travel_Order_Bills_Docment_OrderNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="订单编号： "
+                        android:textColor="#696767"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_toRightOf="@id/Travel_Order_Bills_Docment_OrderNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#696767"
+                        android:text="15787800"
+                        android:id="@+id/Travel_Order_Bills_Docment_OrderNumber_Text"
+                        android:textSize="16sp"/>
+                    <Button
+                        android:background="@drawable/presentation"
+                        android:layout_toRightOf="@id/Travel_Order_Bills_Docment_OrderNumber_Text"
+                        android:id="@+id/Travel_Order_Bills_Docment_OrderNumber_Button"
+                        android:layout_marginTop="3dp"
+                        android:layout_width="35dp"
+                        android:layout_height="16dp"
+                        android:layout_marginLeft="12dp"
+                        android:textColor="#1F1E1E"
+                        android:textSize="11sp"
+                        android:text="复制"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dip"
+                        android:background="#EAEAEA"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@id/Travel_Order_Bills_Docment_OrderNumber"/>
+
+                </RelativeLayout>
+                <!--下单时间-->
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:id="@+id/Travel_Order_Bills_Docment_OrderTimeTab"
+                    android:layout_below="@id/Travel_Order_Bills_Docment_OrderNumberTavb"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/Travel_Order_Bills_Docment_OrderTimeTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="订单编号： "
+                        android:textColor="#696767"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_toRightOf="@id/Travel_Order_Bills_Docment_OrderTimeTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#696767"
+                        android:text="2019-5-20 09:56:13"
+                        android:id="@+id/Travel_Order_Bills_Docment_OrderTime_Text"
+                        android:textSize="16sp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dip"
+                        android:background="#EAEAEA"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@id/Travel_Order_Bills_Docment_OrderTimeTitle"/>
+
+                </RelativeLayout>
+                <!--支付时间-->
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:id="@+id/Travel_Order_Bills_Docment_PayTimeTab"
+                    android:layout_below="@id/Travel_Order_Bills_Docment_OrderTimeTab"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/Travel_Order_Bills_Docment_PayTimeTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="支付时间： "
+                        android:textColor="#696767"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_toRightOf="@id/Travel_Order_Bills_Docment_PayTimeTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#696767"
+                        android:text="2019-5-20 09:56:13"
+                        android:id="@+id/Travel_Order_Bills_Docment_PayTime_Text"
+                        android:textSize="16sp"/>
+
+
+                </RelativeLayout>
 
             </RelativeLayout>
+            <View
+                android:layout_marginTop="19dp"
+                android:layout_width="wrap_content"
+                android:layout_height="11dip"
+                android:background="#F3F3F3"
+                android:id="@+id/Travel_order_bills_Views1"
+                android:layout_below="@id/Travel_Order_Bills_Docment" />
+            <!--退款订单-->
+            <RelativeLayout
+                android:id="@+id/Travel_Order_Bills_Refund_Layout"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="40dp"
+                android:layout_below="@id/Travel_order_bills_Views1"
+                android:layout_height="wrap_content">
+                <!--退款金额-->
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:id="@+id/Travel_Order_Bills_RefundNumberTab"
+
+                    android:layout_marginTop="24dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/Travel_Order_Bills_Refund_Ttile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="退款金额： "
+                        android:textColor="#696767"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_toRightOf="@id/Travel_Order_Bills_Refund_Ttile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FF4A26"
+                        android:text="￥ 1700"
+                        android:id="@+id/Travel_Order_Bills_Refund_text"
+                        android:textSize="16sp"/>
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FF4A26"
+                        android:layout_alignParentRight="true"
+
+                        android:text="明细"
+                        android:id="@+id/Travel_Order_Bills_Refund_Bills"
+                        android:textSize="16sp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dip"
+                        android:background="#EAEAEA"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@id/Travel_Order_Bills_Refund_text"/>
+
+                </RelativeLayout>
+                <!--申请时间-->
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:id="@+id/Travel_Order_Bills_Docment_RefundAllpyTime"
+                    android:layout_below="@id/Travel_Order_Bills_RefundNumberTab"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/Travel_Order_Bills_Refund_ApplyTtile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="申请时间： "
+                        android:textColor="#696767"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_toRightOf="@id/Travel_Order_Bills_Refund_ApplyTtile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#696767"
+                        android:text="15787800"
+                        android:id="@+id/Travel_Order_Bills_Refund_ApplyText"
+                        android:textSize="16sp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dip"
+                        android:background="#EAEAEA"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@id/Travel_Order_Bills_Refund_ApplyTtile"/>
+
+                </RelativeLayout>
+                <!--退款到账-->
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:id="@+id/Travel_Order_Bills_RefundType"
+                    android:layout_below="@id/Travel_Order_Bills_Docment_RefundAllpyTime"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/Travel_Order_Bills_Refund_RefundTypeTtile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="申请时间： "
+                        android:textColor="#696767"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_toRightOf="@id/Travel_Order_Bills_Refund_RefundTypeTtile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#696767"
+                        android:text="15787800"
+                        android:id="@+id/Travel_Order_Bills_Refund_RefundTypeText"
+                        android:textSize="16sp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dip"
+                        android:background="#EAEAEA"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@id/Travel_Order_Bills_Refund_RefundTypeText"/>
+
+                </RelativeLayout>
+                <!--退款订单号-->
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:id="@+id/Travel_Order_Bills_RefundNumbers"
+                    android:layout_below="@id/Travel_Order_Bills_RefundType"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/Travel_Order_Bills_RefundNumbersTtile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="申请时间： "
+                        android:textColor="#696767"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_toRightOf="@id/Travel_Order_Bills_RefundNumbersTtile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#696767"
+                        android:text="15787800"
+                        android:id="@+id/Travel_Order_Bills_RefundNumbersText"
+                        android:textSize="16sp"/>
+
+                    <Button
+                        android:layout_width="35dp"
+                        android:layout_height="16dp"
+                        android:text="复制"
+                        android:textSize="11sp"
+                        android:textColor="#1F1E1E"
+                        android:layout_toRightOf="@+id/Travel_Order_Bills_RefundNumbersText"
+                        android:background="@drawable/presentation"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginLeft="5dp"
+                        />
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_marginTop="10dp"
+                android:id="@+id/Travel_order_bills_Views2"
+                android:layout_below="@id/Travel_Order_Bills_Refund_Layout"
+                android:layout_width="match_parent"
+                android:layout_height="11dip"
+                android:background="#F3F3F3">
+            </View>
+
+            <!--联系人信息-->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:id="@+id/Travel_Order_Bills_TellTab"
+                android:layout_below="@id/Travel_order_bills_Views2"
+                >
+                <TextView
+                    android:layout_marginTop="23dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="#1F1E1E"
+                    android:text="紧急人信息"
+                    />
+                <TextView
+                    android:text="姓         名"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="58dp"
+                    android:id="@+id/Travel_Order_Bills_Tell_Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#696767"
+                    android:text="手机号码"
+                    android:textSize="14sp"
+                    android:layout_toRightOf="@id/Travel_Order_Bills_Tell_Name"
+                    android:id="@+id/Travel_Order_Bills_Tell_Name_text"
+                    android:layout_marginTop="58dp"
+                    android:layout_marginLeft="30dp"/>
+                <TextView
+                    android:text="手机号码"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="90dp"
+                    android:id="@+id/Travel_Order_Bills_Tell_Phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#696767"
+                    android:text="手机号码"
+                    android:textSize="14sp"
+                    android:layout_toRightOf="@id/Travel_Order_Bills_Tell_Phone"
+                    android:id="@+id/Travel_Order_Bills_Tell_Phone_text"
+                    android:layout_marginTop="90dp"
+                    android:layout_marginLeft="30dp"/>
+            </RelativeLayout>
+            <View
+                android:id="@+id/Travel_order_bills_Views3"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/Travel_Order_Bills_TellTab"
+                android:layout_width="match_parent"
+                android:layout_height="11dip"
+                android:background="#F3F3F3"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/Travel_Order_Bills_List_TELLNAME"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Travel_order_bills_Views3"
+                android:text="紧急联系人"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="20dp"/>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/Travel_Order_Bills_List"
+                android:layout_below="@id/Travel_Order_Bills_List_TELLNAME"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 </RelativeLayout>
