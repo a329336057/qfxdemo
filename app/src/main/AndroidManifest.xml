@@ -39,7 +39,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
-        <activity android:name=".Activitiy.TsetAndroidActivity"></activity>
+        <activity android:name=".Activitiy.TravelOrderBillsActivity"></activity>
+        <activity android:name=".Activitiy.TsetAndroidActivity" />
         <activity android:name=".Activitiy.TravelBIllsActivity" />
         <activity android:name=".Activitiy.PresentationActivity" />
         <activity android:name=".Activitiy.SelectCityActivity" />
@@ -134,13 +135,18 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="eric.com"
-                    android:scheme="schemedemo"
                     android:pathPrefix="/openwith"
-                    />
+                    android:scheme="schemedemo" />
             </intent-filter>
-
         </activity>
     </application>
 

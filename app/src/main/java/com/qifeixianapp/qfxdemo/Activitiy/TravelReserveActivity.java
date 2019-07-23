@@ -15,6 +15,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
+import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
+import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
+import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.hjq.bar.OnTitleBarListener;
 import com.hjq.bar.TitleBar;
 import com.qifeixianapp.qfxdemo.Adapter.Bean.TraveReserveDateBean;
@@ -33,9 +36,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class TravelReserveActivity extends AppCompatActivity implements OnTitleBarListener {
+public class TravelReserveActivity extends AppCompatActivity implements OnTitleBarListener ,View.OnClickListener {
 
-    public static RelativeLayout mTravelBillsRelativeLayout;
+    public static RelativeLayout mTravelBillsRelativeLayout,mTravelReserveSelectRelativeLayout;
     public static TextView mTravelDateSelect;
     public static TextView SelectDay; //选择的日子
     TabLayout mTableLayout;
@@ -127,11 +130,7 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
         traveReserveDateBean9.setMoeny("2333");
         traveReserveDateBeans.add(traveReserveDateBean9);
 
-        TraveReserveDateBean traveReserveDateBean10=new TraveReserveDateBean();
-        traveReserveDateBean10.setTravelDate("2020-3-22 09:34:18");
-        traveReserveDateBean10.setAward("1314");
-        traveReserveDateBean10.setMoeny("2333");
-        traveReserveDateBeans.add(traveReserveDateBean10);
+
 }
 
     private void operation() {
@@ -176,6 +175,7 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
     }
 
     private void find()  {
+        mTravelReserveSelectRelativeLayout=findViewById(R.id.Travel_Bills_Reserve_Select_RelativeLayout);
 
         mTravelBillsRelativeLayout=findViewById(R.id.Travel_Reserve_Bills_RelativeLayout);
         mTravelDateSelect=findViewById(R.id.Travel_Reserve_DateSelect);
@@ -214,8 +214,8 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
                         jcalendar_Date.setTime(jdate);
                         int jweekMonth = jcalendar_Date.get(android.icu.util.Calendar.MONTH)+1;
                         if(mo!=jweekMonth){
-                            int year=jcalendar_Date.get(Calendar.YEAR);
-                            int moth=jcalendar_Date.get(Calendar.MONTH);
+                            int year=calendar_Date.get(Calendar.YEAR);
+                            int moth=MonthList.get(j);
                             int mothday= MonthOfDayUnit.getMonthOfDays(year,moth);
                             mFragmentList.add(new ResversDateFragment(DayToWeekTimeList.get(j),list,MonthList.get(j),mothday,year));
                             j++;
@@ -224,9 +224,8 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
                            }
                     }else {
                         int g=i-j;
-                        int year=jcalendar_Date.get(Calendar.YEAR);
-                        int moth=jcalendar_Date.get(Calendar.MONTH);
-                        int mothday= MonthOfDayUnit.getMonthOfDays(year,moth);
+                        int year=calendar_Date.get(Calendar.YEAR);
+                        int mothday= MonthOfDayUnit.getMonthOfDays(year,mo);
                         mFragmentList.add(new ResversDateFragment(DayToWeekTimeList.get(i-g),list,MonthList.get(j),mothday,year));
                         list=new ArrayList<>();
 
@@ -260,5 +259,25 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
     @Override
     public void onRightClick(View v) {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.Travel_Reserve_Bills_RelativeLayout:
+//条件选择器
+                OptionsPickerView pvOptions = new OptionsPickerBuilder(TravelReserveActivity.this, new OnOptionsSelectListener() {
+
+                    @Override
+                    public void onOptionsSelect(int options1, int option2, int options3 ,View v) {
+
+
+                    }
+                }).build();
+                pvOptions.setPicker(new ArrayList());
+                pvOptions.setSelectOptions(20);
+                pvOptions.show();
+                break;
+        }
     }
 }
