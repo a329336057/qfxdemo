@@ -21,6 +21,7 @@ public class TsetAndroidActivity extends AppCompatActivity implements OnTitleBar
         titleBar=findViewById(R.id.Testjsanzroid);
         webView=findViewById(R.id.testjsandroidwebview);
         setweb();
+        
     }
 
     private void setweb() {

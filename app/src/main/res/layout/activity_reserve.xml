@@ -193,7 +193,7 @@
         android:layout_width="wrap_content"
         android:layout_below="@id/Reserve_viewpager"
         android:id="@+id/Travel_Reserve_Bills_RelativeLayout"
-        android:visibility="gone"
+
         android:layout_height="wrap_content">
         <View
             android:layout_width="match_parent"
@@ -231,6 +231,7 @@
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:src="@drawable/travel_jian"
+                android:id="@+id/Travel_Reserve_Adult_reduce_EdteText"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="102dp"
                 />
@@ -240,12 +241,14 @@
                 android:text="0"
                 android:layout_marginLeft="159dp"
                 android:layout_centerVertical="true"/>
+
             <ImageView
+                android:id="@+id/Travel_Reserve_Adult_add_EdteText"
                 android:layout_width="17dp"
                 android:layout_height="17dp"
-                android:src="@drawable/travel_add"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="205dp"
+                android:src="@drawable/travel_add"
 
                 />
             <TextView
@@ -288,6 +291,7 @@
             <ImageView
                 android:layout_width="17dp"
                 android:layout_height="17dp"
+                android:id="@+id/Travel_Reserve_Rhildren_reduce_EdteText"
                 android:src="@drawable/travel_jian"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="102dp"
@@ -301,6 +305,7 @@
             <ImageView
                 android:layout_width="17dp"
                 android:layout_height="17dp"
+                android:id="@+id/Travel_Reserve_Rhildren_add_EdteText"
                 android:src="@drawable/travel_add"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="205dp"

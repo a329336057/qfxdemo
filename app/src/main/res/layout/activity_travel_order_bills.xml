@@ -593,6 +593,8 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginLeft="20dp"/>
             <android.support.v7.widget.RecyclerView
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="40dp"
                 android:layout_width="match_parent"
                 android:id="@+id/Travel_Order_Bills_List"
                 android:layout_below="@id/Travel_Order_Bills_List_TELLNAME"

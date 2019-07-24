@@ -1,12 +1,14 @@
 package com.qifeixianapp.qfxdemo.Activitiy;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 
 import android.support.design.widget.TabLayout;
@@ -39,8 +41,9 @@ import java.util.List;
 public class TravelReserveActivity extends AppCompatActivity implements OnTitleBarListener ,View.OnClickListener {
 
     public static RelativeLayout mTravelBillsRelativeLayout,mTravelReserveSelectRelativeLayout;
-    public static TextView mTravelDateSelect;
+    public static TextView mTravelDateSelect,SelectAdult,SelectChildren;
     public static TextView SelectDay; //选择的日子
+    ImageView mSelectAdultadd,mSelectAdultreduce,mSelectChildrenadd,mSelectChildrenreduce; //选择项 成人和儿童
     TabLayout mTableLayout;
     TitleBar mTitleBar;
     public  static ImageView LASTITEM; //上一次选择的背景
@@ -176,7 +179,10 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
 
     private void find()  {
         mTravelReserveSelectRelativeLayout=findViewById(R.id.Travel_Bills_Reserve_Select_RelativeLayout);
-
+        mSelectAdultadd=findViewById(R.id.Travel_Reserve_Adult_add_EdteText);
+        mSelectAdultreduce=findViewById(R.id.Travel_Reserve_Adult_reduce_EdteText);
+        mSelectChildrenadd=findViewById(R.id.Travel_Reserve_Rhildren_add_EdteText);
+        mSelectChildrenreduce=findViewById(R.id.Travel_Reserve_Rhildren_reduce_EdteText);
         mTravelBillsRelativeLayout=findViewById(R.id.Travel_Reserve_Bills_RelativeLayout);
         mTravelDateSelect=findViewById(R.id.Travel_Reserve_DateSelect);
         SelectDay=findViewById(R.id.Reserve_SelectDay);
