@@ -28,6 +28,7 @@ import com.qifeixianapp.qfxdemo.R;
 import com.qifeixianapp.qfxdemo.fragment.ResversDateFragment;
 import com.qifeixianapp.qfxdemo.tool.GetTImeDay;
 import com.qifeixianapp.qfxdemo.tool.MonthOfDayUnit;
+import com.qifeixianapp.qfxdemo.tool.ToastUtils;
 
 import org.w3c.dom.Text;
 
@@ -41,17 +42,20 @@ import java.util.List;
 public class TravelReserveActivity extends AppCompatActivity implements OnTitleBarListener ,View.OnClickListener {
 
     public static RelativeLayout mTravelBillsRelativeLayout,mTravelReserveSelectRelativeLayout;
-    public static TextView mTravelDateSelect,SelectAdult,SelectChildren;
+    public static TextView mTravelDateSelect,SelectAdult,SelectChildren,Selectfangchatext;
     public static TextView SelectDay; //选择的日子
-    ImageView mSelectAdultadd,mSelectAdultreduce,mSelectChildrenadd,mSelectChildrenreduce; //选择项 成人和儿童
+    ImageView mSelectAdultadd,mSelectAdultreduce,mSelectChildrenadd,mSelectChildrenreduce,mSelectfangchaadd,mSelectfangchareduce; //选择项 房差 成人和儿童
     TabLayout mTableLayout;
     TitleBar mTitleBar;
+    TextView mMoeny,mFB,mManMoney,mChaildMoney;
     public  static ImageView LASTITEM; //上一次选择的背景
     public static Integer SelectMoth;  //当前月份
     List<String> mTitleTable;
     List<TraveReserveDateBean> traveReserveDateBeans;
     List<Fragment> mFragmentList;
     ViewPager mViewPager;
+    Integer YingfuMoney=0;
+    Integer FBnumber=0;
     List<String> ListWeekTime;//获取月份得出周几数组  1日周几
     List<String> WeekList;//返回周几集合 该出发日期的周几
     List<Integer> MonthList;//月份集合
@@ -180,12 +184,30 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
     private void find()  {
         mTravelReserveSelectRelativeLayout=findViewById(R.id.Travel_Bills_Reserve_Select_RelativeLayout);
         mSelectAdultadd=findViewById(R.id.Travel_Reserve_Adult_add_EdteText);
+        SelectAdult=findViewById(R.id.Travel_Reserve_man_textnumber);
+        SelectChildren=findViewById(R.id.Travel_Reserve_chlid_textnumber);
         mSelectAdultreduce=findViewById(R.id.Travel_Reserve_Adult_reduce_EdteText);
         mSelectChildrenadd=findViewById(R.id.Travel_Reserve_Rhildren_add_EdteText);
+        mManMoney=findViewById(R.id.Travel_Reserve_Adult_Money);
+        mChaildMoney=findViewById(R.id.Travel_Reserve_Childe_Money);
+
+        mSelectfangchaadd=findViewById(R.id.Travel_Reserve_add_fangcha_iamge);
+        mSelectfangchareduce=findViewById(R.id.Travel_Reserve_reduce_fangcha_iamge);
+        Selectfangchatext=findViewById(R.id.Travel_Reserve_fangcha_text);
         mSelectChildrenreduce=findViewById(R.id.Travel_Reserve_Rhildren_reduce_EdteText);
         mTravelBillsRelativeLayout=findViewById(R.id.Travel_Reserve_Bills_RelativeLayout);
+        mMoeny=findViewById(R.id.Travel_Reserve_Bills_Money);
+        mFB=findViewById(R.id.Travel_Reserve_Bills_FB);
         mTravelDateSelect=findViewById(R.id.Travel_Reserve_DateSelect);
         SelectDay=findViewById(R.id.Reserve_SelectDay);
+        mMoeny.setText("应付+"+YingfuMoney);
+        mFB.setText("+"+FBnumber);
+        mSelectfangchareduce.setOnClickListener(this);
+        mSelectfangchaadd.setOnClickListener(this);
+        mSelectAdultreduce.setOnClickListener(this);
+        mSelectAdultadd.setOnClickListener(this);
+        mSelectChildrenadd.setOnClickListener(this);
+        mSelectChildrenreduce.setOnClickListener(this);
         for (int i = 0; i <MonthList.size() ; i++) {
             String title=String.valueOf(MonthList.get(i));
             mTitleTable.add(title+"月");
@@ -225,7 +247,6 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
                             int mothday= MonthOfDayUnit.getMonthOfDays(year,moth);
                             mFragmentList.add(new ResversDateFragment(DayToWeekTimeList.get(j),list,MonthList.get(j),mothday,year));
                             j++;
-
                             list=new ArrayList<>();
                            }
                     }else {
@@ -277,13 +298,74 @@ public class TravelReserveActivity extends AppCompatActivity implements OnTitleB
                     @Override
                     public void onOptionsSelect(int options1, int option2, int options3 ,View v) {
 
-
                     }
                 }).build();
                 pvOptions.setPicker(new ArrayList());
                 pvOptions.setSelectOptions(20);
                 pvOptions.show();
                 break;
+            case R.id.Travel_Reserve_Adult_add_EdteText:
+                Integer add_number=Integer.parseInt(SelectAdult.getText().toString());
+                if(add_number>=20){
+                    SelectAdult.setText(String.valueOf(add_number));
+                    ToastUtils.show(TravelReserveActivity.this,"不能超过20人");
+                    mMoeny.setText("应付+"+String.valueOf(mManMoney));
+                }else {
+                    SelectAdult.setText(String.valueOf(add_number+1));
+                }
+                break;
+            case R.id.Travel_Reserve_Adult_reduce_EdteText:
+                Integer reduce_number=Integer.parseInt(SelectAdult.getText().toString());
+                if(reduce_number==0){
+                    SelectAdult.setText(String.valueOf(reduce_number));
+
+                }else {
+                    SelectAdult.setText(String.valueOf(reduce_number-1));
+                }
+                break;
+            case R.id.Travel_Reserve_Rhildren_add_EdteText:
+                Integer chand_addnumber=Integer.parseInt(SelectChildren.getText().toString());
+                if(chand_addnumber>=20){
+                    SelectChildren.setText(String.valueOf(chand_addnumber));
+                    ToastUtils.show(TravelReserveActivity.this,"不能超过20人");
+                }else {
+                    SelectChildren.setText(String.valueOf(chand_addnumber+1));
+                }
+                break;
+            case R.id.Travel_Reserve_Rhildren_reduce_EdteText:
+                Integer chaild_addnumber=Integer.parseInt(SelectChildren.getText().toString());
+                if(chaild_addnumber==0){
+                    SelectChildren.setText(String.valueOf(chaild_addnumber));
+                }else {
+                    SelectChildren.setText(String.valueOf(chaild_addnumber-1));
+                }
+                break;
+
+            case R.id.Travel_Reserve_reduce_fangcha_iamge:
+                Integer fangcha_add=Integer.parseInt(Selectfangchatext.getText().toString());
+                if(fangcha_add>=20){
+                    Selectfangchatext.setText(String.valueOf(fangcha_add));
+                    ToastUtils.show(TravelReserveActivity.this,"不能超过20人");
+                }else {
+                    Selectfangchatext.setText(String.valueOf(fangcha_add+1));
+                }
+
+                break;
+            case R.id.Travel_Reserve_add_fangcha_iamge:
+
+                Integer fangcha_reducenumber=Integer.parseInt(Selectfangchatext.getText().toString());
+                if(fangcha_reducenumber==0){
+                    Selectfangchatext.setText(String.valueOf(fangcha_reducenumber));
+
+                }else {
+                    Selectfangchatext.setText(String.valueOf(fangcha_reducenumber-1));
+                }
+                break;
         }
+
+
+
+
+
     }
 }

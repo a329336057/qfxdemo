@@ -227,25 +227,28 @@
                 android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true"
                 />
+
             <ImageView
-                android:layout_width="17dp"
-                android:layout_height="17dp"
-                android:src="@drawable/travel_jian"
                 android:id="@+id/Travel_Reserve_Adult_reduce_EdteText"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:padding="10dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="102dp"
-                />
+                android:src="@drawable/travel_jian" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:layout_marginLeft="159dp"
+                android:id="@+id/Travel_Reserve_man_textnumber"
+                android:layout_marginLeft="175dp"
                 android:layout_centerVertical="true"/>
 
             <ImageView
                 android:id="@+id/Travel_Reserve_Adult_add_EdteText"
-                android:layout_width="17dp"
-                android:layout_height="17dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:padding="10dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="205dp"
                 android:src="@drawable/travel_add"
@@ -256,6 +259,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#FFFF4A26"
                 android:text="￥1250"
+                android:id="@+id/Travel_Reserve_Adult_Money"
                 android:layout_marginRight="5dp"
                 android:layout_toLeftOf="@id/Travel_Reserve_man_text"
                 android:layout_centerVertical="true"
@@ -289,8 +293,9 @@
                 android:layout_centerVertical="true"
                 />
             <ImageView
-                android:layout_width="17dp"
-                android:layout_height="17dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:padding="10dp"
                 android:id="@+id/Travel_Reserve_Rhildren_reduce_EdteText"
                 android:src="@drawable/travel_jian"
                 android:layout_centerVertical="true"
@@ -300,11 +305,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:layout_marginLeft="159dp"
+                android:layout_marginLeft="175dp"
+                android:id="@+id/Travel_Reserve_chlid_textnumber"
                 android:layout_centerVertical="true"/>
             <ImageView
-                android:layout_width="17dp"
-                android:layout_height="17dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:padding="10dp"
                 android:id="@+id/Travel_Reserve_Rhildren_add_EdteText"
                 android:src="@drawable/travel_add"
                 android:layout_centerVertical="true"
@@ -317,6 +324,7 @@
                 android:textColor="#FFFF4A26"
                 android:text="￥1250"
                 android:layout_marginRight="5dp"
+                android:id="@+id/Travel_Reserve_Childe_Money"
                 android:layout_toLeftOf="@id/Travel_Reserve_chlid_text"
                 android:layout_centerVertical="true"
                 />
@@ -362,19 +370,22 @@
                 android:id="@+id/Travel_Reserve_fangcha_moeny"
                 android:text="￥150 /份"/>
             <ImageView
-                android:layout_width="17dp"
-                android:layout_height="17dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:padding="18dp"
                 android:src="@drawable/travel_jian"
-
+                android:id="@+id/Travel_Reserve_add_fangcha_iamge"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="124dp"
-                android:layout_marginTop="19dp"
+                android:layout_marginRight="120dp"
+                android:layout_marginTop="5dp"
                 />
             <ImageView
-                android:layout_width="17dp"
-                android:layout_height="17dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:padding="18dp"
                 android:src="@drawable/travel_add"
-                android:layout_marginTop="19dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/Travel_Reserve_reduce_fangcha_iamge"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="21dp" />
             <TextView
@@ -382,9 +393,10 @@
                 android:layout_height="wrap_content"
                 android:textColor="#FF696767"
                 android:textSize="13sp"
-                android:layout_marginTop="19dp"
+                android:layout_marginTop="23dp"
+                android:id="@+id/Travel_Reserve_fangcha_text"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="78dp"
+                android:layout_marginRight="90dp"
                 android:text="0"/>
             <View
                 android:layout_marginTop="19dp"
