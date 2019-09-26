@@ -21,16 +21,8 @@
             android:id="@+id/merchant_datalis_exit"
             android:layout_marginLeft="20dp"
             android:layout_centerVertical="true"/>
-        <ImageView
-            android:layout_width="23dp"
-            android:layout_height="22dp"
-            android:src="@drawable/collection"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="217dp"
-            android:layout_toLeftOf="@id/merchant_datalis_shareicon"
-            android:layout_marginRight="18dp"
-            android:id="@+id/merchant_datalis_collection"
-            />
+
+
 
         <ImageView
             android:id="@+id/merchant_datalis_shareicon"
@@ -38,19 +30,10 @@
             android:layout_height="15dp"
             android:layout_centerVertical="true"
 
-            android:layout_marginRight="19dp"
-            android:layout_toLeftOf="@id/merchant_datalis_moreiocn"
-            android:src="@drawable/shareicon" />
-        <ImageView
+            android:layout_marginRight="20dp"
             android:layout_alignParentRight="true"
-            android:layout_width="18dp"
-            android:layout_height="4dp"
-            android:src="@drawable/moreicon"
-            android:layout_centerVertical="true"
-            android:id="@+id/merchant_datalis_moreiocn"
+            android:src="@drawable/shareicon" />
 
-            android:layout_marginRight="27dp"
-            />
     </RelativeLayout>
     <TextView
         android:layout_width="wrap_content"
@@ -221,7 +204,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="买单"
+            android:text="生成海报"
             android:textSize="17sp"
             android:layout_marginLeft="13dp"
             android:textColor="#222222"
@@ -252,7 +235,6 @@
         android:id="@+id/merchant_datalis_views2"
         android:layout_below="@id/merchant_datalis_sj"
         android:layout_centerHorizontal="true"
-
         android:background="#fff3f3f3"/>
 
 </RelativeLayout>
