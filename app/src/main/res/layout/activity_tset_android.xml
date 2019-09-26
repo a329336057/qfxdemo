@@ -12,10 +12,10 @@
     app:title="测试安卓js交互"
     android:layout_height="wrap_content"
     tools:ignore="MissingConstraints" />
-    <WebView
-        android:layout_below="@id/Testjsanzroid"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/testjsandroidwebview"
-        ></WebView>
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart_linechart"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"/>
+
 </RelativeLayout>
